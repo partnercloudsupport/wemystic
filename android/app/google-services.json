@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "87809860655",
+    "firebase_url": "https://we-mystic.firebaseio.com",
+    "project_id": "we-mystic",
+    "storage_bucket": "we-mystic.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:87809860655:android:6f97382698051ca2",
+        "android_client_info": {
+          "package_name": "com.example.wemystic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "87809860655-l5tprjao6d34qeg6a6t97r3ae8sgol5t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.wemystic",
+            "certificate_hash": "16646f0e72fabc3dcaf3b08b3dcf41d758634972"
+          }
+        },
+        {
+          "client_id": "87809860655-d926ds1j81a30kdnc98s0fpvqn8crm6l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAY-UyxGg4y5M7vAFFrXwy35S5_oNd7jVg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "87809860655-d926ds1j81a30kdnc98s0fpvqn8crm6l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
