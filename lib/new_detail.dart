@@ -14,7 +14,7 @@ class NewDetail extends StatefulWidget {
   @override
   _NewDetailState createState() => _NewDetailState();
 }
-//teste git hub
+
 
 class _NewDetailState extends State<NewDetail> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
