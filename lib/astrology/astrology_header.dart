@@ -4,7 +4,6 @@ import 'package:wemystic/astrology/astrology_chinese_horoscope.dart';
 import 'package:wemystic/astrology/astrology_horoscope.dart';
 import 'package:wemystic/astrology/astrology_moon.dart';
 
-
 class AstrologyTabs extends StatefulWidget {
   @override
   _AstrologyTabsState createState() => _AstrologyTabsState();
@@ -32,7 +31,6 @@ class _AstrologyTabsState extends State<AstrologyTabs>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: NestedScrollView(
         controller: _scrollViewController,
         headerSliverBuilder: (BuildContext context, bool boxIsScrolled) {
@@ -66,11 +64,10 @@ class _AstrologyTabsState extends State<AstrologyTabs>
         },
         body: TabBarView(
           children: <Widget>[
-              AstrologyHoroscope(),
-              AstrologyChineseHoroscope(),
-              AstrologyBirthChart(),
-              AstrologyMoon(),
-
+            AstrologyHoroscope(),
+            AstrologyChineseHoroscope(),
+            AstrologyBirthChart(),
+            AstrologyMoon(),
           ],
           controller: _tabController,
         ),
@@ -78,5 +75,3 @@ class _AstrologyTabsState extends State<AstrologyTabs>
     );
   }
 }
-
-

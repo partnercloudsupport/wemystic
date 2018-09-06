@@ -32,12 +32,10 @@ packages:
   cached_network_image:
     dependency: transitive
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "0356381c677df04055caeaf15b70efd3b67a7df1"
-      url: "https://github.com/jogboms/flutter_cached_network_image.git"
-    source: git
-    version: "0.4.1+1"
+      name: cached_network_image
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.2"
   charcode:
     dependency: transitive
     description:
@@ -95,12 +93,10 @@ packages:
   flutter_cache_manager:
     dependency: transitive
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: be0b184d89b7e0c934cf8e584c0f20d3578c2575
-      url: "git://github.com/jogboms/flutter_cache_manager"
-    source: git
-    version: "0.1.1"
+      name: flutter_cache_manager
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.2"
   flutter_custom_tabs:
     dependency: transitive
     description:
@@ -121,7 +117,7 @@ packages:
       name: flutter_html_view
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.7"
+    version: "0.5.8"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -260,6 +256,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.5"
+  package_info:
+    dependency: "direct main"
+    description:
+      name: package_info
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.2"
   package_resolver:
     dependency: transitive
     description:
@@ -434,7 +437,7 @@ packages:
     source: hosted
     version: "0.9.0+5"
   uuid:
-    dependency: "direct overridden"
+    dependency: "direct dev"
     description:
       name: uuid
       url: "https://pub.dartlang.org"

@@ -15,12 +15,12 @@ dependencies:
   flutter_secure_storage: any
   flutter_facebook_login: any
   package_info: any
+  cloud_firestore: any
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-dependency_overrides:
   uuid: ^1.0.3
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec

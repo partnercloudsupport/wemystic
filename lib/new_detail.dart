@@ -8,7 +8,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 class NewDetail extends StatefulWidget {
   final String value;
   final String thumbnail;
-
+//git test
   NewDetail({Key key, this.value, this.thumbnail}) : super (key: key);
 
   @override

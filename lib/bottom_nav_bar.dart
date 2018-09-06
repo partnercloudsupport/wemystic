@@ -45,19 +45,18 @@ class _HomePageState extends State<HomePage> {
               setState(() {
                 currentTab = index;
                 currentPage = pages[index];
+
               });
             },
             items: <BottomNavigationBarItem>[
               new BottomNavigationBarItem(
-                icon: const Icon(
-                  Icons.home,
-                ),
+                icon: const Icon(Icons.home,),
                 title: new Text('Home'),
               ),
 
               new BottomNavigationBarItem(
                 icon: const Icon(Icons.home),
-                title: new Text("${widget.user.uid}"),
+                title: new Text('Astrology'),
               ),
             ]));
   }

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:wemystic/bottom_nav_bar.dart';
 
@@ -13,7 +14,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage>{
-
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = new GoogleSignIn();
 
@@ -73,6 +73,7 @@ class _LoginPageState extends State<LoginPage>{
         .then((_) => signInWithGoogle());
   }
 
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -91,6 +92,5 @@ class _LoginPageState extends State<LoginPage>{
       ),
     );
   }
-
 
 }
