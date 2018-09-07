@@ -6,32 +6,26 @@ import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:wemystic/bottom_nav_bar.dart';
 
-
-
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage>{
+class _LoginPageState extends State<LoginPage> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = new GoogleSignIn();
-
+  final FacebookLogin _facebookLogin = new FacebookLogin();
 
   Future<FirebaseUser> signInWithGoogle() async {
     // Attempt to get the currently authenticated user
+    FacebookLoginStatus currentFbUser = FacebookLoginStatus.loggedIn;
     GoogleSignInAccount currentUser = _googleSignIn.currentUser;
-    if (currentUser == null) {
+    if (currentUser == null || currentFbUser == null) {
       // Attempt to sign in without user interaction
       currentUser = await _googleSignIn.signInSilently();
     }
-    if (currentUser == null) {
-      // Force the user to interactively sign in
-      currentUser = await _googleSignIn.signIn();
-    }
 
     final GoogleSignInAuthentication auth = await currentUser.authentication;
-
     // Authenticate with firebase
     final FirebaseUser user = await _auth.signInWithGoogle(
       idToken: auth.idToken,
@@ -44,28 +38,17 @@ class _LoginPageState extends State<LoginPage>{
     return user;
   }
 
-  Future<Null> signOutWithGoogle() async {
-    // Sign out with firebase
-    await _auth.signOut();
-    // Sign out with google
-    await _googleSignIn.signOut();
-  }
-
   @override
   void initState() {
     super.initState();
 
     // Listen for our auth event (on reload or start)
     // Go to our /todos page once logged in
-    _auth.onAuthStateChanged
-        .firstWhere((user) => user != null)
-        .then((user) {
-      Navigator
-          .of(context)
-          .push(MaterialPageRoute(
+    _auth.onAuthStateChanged.firstWhere((user) => user != null).then((user) {
+      Navigator.of(context).push(MaterialPageRoute(
           builder: (BuildContext context) => HomePage(
-            user: user,
-          )));
+                user: user,
+              )));
     });
 
     // Give the navigation animations, etc, some time to finish
@@ -73,24 +56,38 @@ class _LoginPageState extends State<LoginPage>{
         .then((_) => signInWithGoogle());
   }
 
-
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          new Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              new CircularProgressIndicator(),
-              new SizedBox(width: 20.0),
-              new Text("Please wait..."),
-            ],
-          ),
-        ],
-      ),
-    );
+    return new Container(
+        child: Center(
+            child: Column(children: <Widget>[
+      RaisedButton(
+          child: Text('LoginFacebook'),
+          onPressed: () {
+            _facebookLogin.logInWithReadPermissions(
+                ['email', 'public_profile']).then((result) {
+              switch (result.status) {
+                case FacebookLoginStatus.loggedIn:
+                  FirebaseAuth.instance
+                      .signInWithFacebook(accessToken: result.accessToken.token)
+                      .then((user) {
+                    print('Signed in as ${user.displayName}');
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => HomePage(
+                              user: user,
+                            )));
+                  }).catchError((e) {
+                    print(e);
+                  });
+              }
+            }).catchError((e) {
+              print(e);
+            });
+          }),
+      RaisedButton(
+        child: Text('LoginGoogle'),
+        onPressed: () => _googleSignIn.signIn(),
+      )
+    ])));
   }
-
 }

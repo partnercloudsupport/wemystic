@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html_view/flutter_html_view.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:wemystic/login_page.dart';
 
 class NewDetail extends StatefulWidget {
   final String value;
@@ -37,7 +38,12 @@ class _NewDetailState extends State<NewDetail> {
             child: new Column(
                 children: <Widget>[
             new RaisedButton(
-            onPressed: () => signOutWithGoogle(),
+            onPressed: () {
+              signOutWithGoogle();
+              var route = new MaterialPageRoute(
+                builder: (BuildContext context) =>
+                new LoginPage());
+            },
         child: new Text("Sign out"),
         color: Colors.red,),
         new Image.network("${widget.thumbnail}"),
