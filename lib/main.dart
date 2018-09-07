@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wemystic/app_info.dart';
 import 'package:wemystic/bottom_nav_bar.dart';
 import 'package:wemystic/login_page.dart';
 import 'package:wemystic/we_mystic_news.dart';

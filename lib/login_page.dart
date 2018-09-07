@@ -85,9 +85,51 @@ class _LoginPageState extends State<LoginPage> {
             });
           }),
       RaisedButton(
-        child: Text('LoginGoogle'),
-        onPressed: () => _googleSignIn.signIn(),
-      )
+          child: Text('LoginGoogle'),
+          onPressed: () async {
+            Future<FirebaseUser> signInWithGoogle() async {
+              // Attempt to get the currently authenticated user
+              FacebookLoginStatus currentFbUser = FacebookLoginStatus.loggedIn;
+              GoogleSignInAccount currentUser = _googleSignIn.currentUser;
+              if (currentUser == null || currentFbUser == null) {
+                // Attempt to sign in without user interaction
+                currentUser = await _googleSignIn.signInSilently();
+              }
+
+              final GoogleSignInAuthentication auth =
+                  await currentUser.authentication;
+              // Authenticate with firebase
+              final FirebaseUser user = await _auth.signInWithGoogle(
+                idToken: auth.idToken,
+                accessToken: auth.accessToken,
+              );
+
+              assert(user != null);
+              assert(!user.isAnonymous);
+
+              return user;
+            }
+
+            @override
+            void initState() {
+              super.initState();
+
+              // Listen for our auth event (on reload or start)
+              // Go to our /todos page once logged in
+              _auth.onAuthStateChanged
+                  .firstWhere((user) => user != null)
+                  .then((user) {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => HomePage(
+                          user: user,
+                        )));
+              });
+
+              // Give the navigation animations, etc, some time to finish
+              new Future.delayed(new Duration(seconds: 1))
+                  .then((_) => signInWithGoogle());
+            }
+          })
     ])));
   }
 }
