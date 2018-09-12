@@ -11,8 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c6f42b71-5d3c-4784-b524-74ac0d6ca6be" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/lib/astrology/astrology_birth_chart.dart" afterPath="$PROJECT_DIR$/lib/astrology/astrology_birth_chart.dart" />
-      <change beforePath="$PROJECT_DIR$/lib/astrology/astrology_moon.dart" afterPath="$PROJECT_DIR$/lib/astrology/astrology_moon.dart" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -431,7 +429,14 @@
       <option name="project" value="LOCAL" />
       <updated>1536746917900</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Login Working">
+      <created>1536748317433</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1536748317433</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
