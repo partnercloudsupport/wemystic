@@ -3,6 +3,8 @@ import 'package:wemystic/astrology/astrology_birth_chart.dart';
 import 'package:wemystic/astrology/astrology_chinese_horoscope.dart';
 import 'package:wemystic/astrology/astrology_horoscope.dart';
 import 'package:wemystic/astrology/astrology_moon.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 
 class AstrologyTabs extends StatefulWidget {
   @override

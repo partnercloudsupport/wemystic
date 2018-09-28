@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:wemystic/bottom_nav_bar.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -46,7 +48,8 @@ class _LoginPageState extends State<LoginPage> {
     // Go to our /todos page once logged in
     _auth.onAuthStateChanged.firstWhere((user) => user != null).then((user) {
       Navigator.of(context).push(MaterialPageRoute(
-          builder: (BuildContext context) => HomePage(
+          builder: (BuildContext context) =>
+              HomePage(
                 user: user,
               )));
     });
@@ -61,52 +64,47 @@ class _LoginPageState extends State<LoginPage> {
     return new Container(
         child: Center(
             child: Column(children: <Widget>[
-      RaisedButton(
-          child: Text('LoginFacebook'),
-          onPressed: () {
-            _facebookLogin.logInWithReadPermissions(
-                ['email', 'public_profile']).then((result) {
-              switch (result.status) {
-                case FacebookLoginStatus.loggedIn:
-                  FirebaseAuth.instance
-                      .signInWithFacebook(accessToken: result.accessToken.token)
-                      .then((user) {
-                    print('Signed in as ${user.displayName}');
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => HomePage(
-                              user: user,
-                            )));
-                  }).catchError((e) {
-                    print(e);
-                  });
-              }
-            }).catchError((e) {
-              print(e);
-            });
-          }),
-      RaisedButton(
-          child: Text('LoginGoogle'),
-          onPressed: () async {
-            _googleSignIn.signIn().then((account) {
-              Future<FirebaseUser> signInWithGoogle() async {
-                GoogleSignInAccount currentUser = _googleSignIn.currentUser;
-                final GoogleSignInAuthentication auth =
-                    await currentUser.authentication;
-                // Authenticate with firebase
-                final FirebaseUser user = await _auth.signInWithGoogle(
-                  idToken: auth.idToken,
-                  accessToken: auth.accessToken,
-                );
-                assert(user != null);
-                assert(!user.isAnonymous);
-
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => HomePage(
-                          user: user,
-                        )));
-              }
-            });
-          })
-    ])));
+              RaisedButton(
+                  child: Text('LoginFacebook'),
+                  onPressed: () {
+                    _facebookLogin.logInWithReadPermissions(
+                        ['email', 'public_profile']).then((result) {
+                      switch (result.status) {
+                        case FacebookLoginStatus.loggedIn:
+                          FirebaseAuth.instance
+                              .signInWithFacebook(
+                              accessToken: result.accessToken.token)
+                              .then((user) {
+                            print('Signed in as ${user.displayName}');
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    HomePage(
+                                      user: user,
+                                    )));
+                          }).catchError((e) {
+                            print(e);
+                          });
+                      }
+                    }).catchError((e) {
+                      print(e);
+                    });
+                  }),
+              RaisedButton(
+                  child: Text('LoginGoogle'),
+                  onPressed: () {
+                    _googleSignIn.signIn();
+                    signInWithGoogle().then((user) {
+                      print('Signed in as ${user.displayName}');
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              HomePage(
+                                user: user,
+                              )));
+                    });
+                  })
+            ]
+            )
+        )
+    );
   }
 }

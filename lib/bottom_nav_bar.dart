@@ -3,11 +3,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wemystic/astrology/astrology_header.dart';
 import 'package:wemystic/we_mystic_news.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 
 class HomePage extends StatefulWidget {
   static final String route = "home-page";
   final FirebaseUser user;
-  HomePage({this.user});
+  final FirebaseAnalytics analytics;
+  final FirebaseAnalyticsObserver observer;
+
+
+  HomePage({this.user, this.analytics, this.observer});
 
   @override
   _HomePageState createState() => _HomePageState();

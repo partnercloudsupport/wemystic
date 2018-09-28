@@ -16,6 +16,8 @@ dependencies:
   flutter_facebook_login: any
   package_info: any
   cloud_firestore: any
+  firebase_analytics:
+  flutter_date_picker:
 
 dev_dependencies:
   flutter_test:
