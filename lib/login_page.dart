@@ -95,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
             signInWithGoogle().then((user) {
               print('Signed in as ${user.displayName}');
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => HomePage(
+                  builder: (BuildContext context) => BornDate(
                         user: user,
                       )));
             });

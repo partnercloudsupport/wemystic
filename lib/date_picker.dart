@@ -4,6 +4,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wemystic/bottom_nav_bar.dart';
+import 'package:intl/intl.dart';
+
+main() {
+  var now = new DateTime.now();
+  var formatter = new DateFormat('yyyy-MM-dd');
+  String formatted = formatter.format(now);
+  print(formatted); // something like 2013-04-20
+}
 
 class BornDate extends StatefulWidget {
   final FirebaseUser user;
@@ -16,15 +24,22 @@ class BornDate extends StatefulWidget {
 }
 
 class _BornDateState extends State<BornDate> {
+  FirebaseUser user;
 
-  static FirebaseUser get currentUser => currentUser;
-
-
-  final DocumentReference docRef = Firestore.instance.collection("profile").document("${currentUser.uid.toString()}");
-
-  DateTime _date = new DateTime.now();
+  DateTime _date = new DateTime.now().;
 
 
+
+  _fireStoreAdd() async{
+    FirebaseUser user =  await FirebaseAuth.instance.currentUser();
+    final DocumentReference docRef = Firestore.instance.collection("profile").document("${user.uid.toString()}");
+    Map<String, DateTime> data = <String, DateTime>{
+      "birth_date" : _date,
+    };
+    docRef.setData(data).whenComplete(() {
+      print("Document added");
+    }).catchError((e) => print (e));
+  }
 
   Future<Null> _selectDate(BuildContext context) async{
     final DateTime picked = await showDatePicker(
@@ -39,14 +54,7 @@ class _BornDateState extends State<BornDate> {
     });
   }
 
-  void _add() {
-  Map<String, String> data = <String, String>{
-    "birth_date" : _date.toString(),
-  };
-  docRef.setData(data).whenComplete(() {
-    print("Document added");
-  }).catchError((e) => print (e));
-}
+
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +78,7 @@ class _BornDateState extends State<BornDate> {
           Row(
             children: <Widget>[
               RaisedButton(onPressed: () {
-                _add();
+                _fireStoreAdd();
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) => HomePage(
                       user: user,

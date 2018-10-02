@@ -10,7 +10,6 @@ dependencies:
   cupertino_icons: ^0.1.2
   firebase_auth: any
   google_sign_in: any
-  flutter_html_view: any
   shared_preferences: any
   flutter_secure_storage: any
   flutter_facebook_login: any
