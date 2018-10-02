@@ -17,7 +17,7 @@ dependencies:
   package_info: any
   cloud_firestore: any
   firebase_analytics:
-  flutter_date_picker:
+  flutter_date_picker: "^0.1.2"
 
 dev_dependencies:
   flutter_test:
