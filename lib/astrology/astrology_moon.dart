@@ -14,7 +14,7 @@ class AstrologyMoon extends StatefulWidget {
 
 class _AstrologyMoonState extends State<AstrologyMoon> {
   final String url =
-      "https://api.rss2json.com/v1/api.json?rss_url=https://www.wemystic.com/moon/feed";
+      "https://api.rss2json.com/v1/api.json?rss_url=https://www.wemystic.com/astrology/moon/feed";
   List data;
 
   Future<String> getAMNews() async {

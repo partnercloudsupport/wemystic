@@ -17,6 +17,8 @@ dependencies:
   cloud_firestore: any
   firebase_analytics:
   flutter_date_picker: "^0.1.2"
+  flutter_html_view: any
+  intl: any
 
 dev_dependencies:
   flutter_test:

@@ -6,12 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:wemystic/bottom_nav_bar.dart';
 import 'package:intl/intl.dart';
 
-main() {
-  var now = new DateTime.now();
-  var formatter = new DateFormat('yyyy-MM-dd');
-  String formatted = formatter.format(now);
-  print(formatted); // something like 2013-04-20
-}
 
 class BornDate extends StatefulWidget {
   final FirebaseUser user;
@@ -25,21 +19,28 @@ class BornDate extends StatefulWidget {
 
 class _BornDateState extends State<BornDate> {
   FirebaseUser user;
+  _fireStoreAdd() async {
 
-  DateTime _date = new DateTime.now().;
-
-
-
-  _fireStoreAdd() async{
-    FirebaseUser user =  await FirebaseAuth.instance.currentUser();
-    final DocumentReference docRef = Firestore.instance.collection("profile").document("${user.uid.toString()}");
-    Map<String, DateTime> data = <String, DateTime>{
-      "birth_date" : _date,
-    };
-    docRef.setData(data).whenComplete(() {
-      print("Document added");
-    }).catchError((e) => print (e));
+    var _date = new DateTime.now();
+    var formatter = new DateFormat('yyyy-MM-dd');
+    String formatted = formatter.format(_date);
+      FirebaseUser user =  await FirebaseAuth.instance.currentUser();
+      final DocumentReference docRef = Firestore.instance.collection("profile").document("${user.uid.toString()}");
+      Map<String, DateTime> data = <String, DateTime>{
+        "birth_date" : _date,
+      };
+      docRef.setData(data).whenComplete(() {
+        print("Document added");
+      }).catchError((e) => print (e));
+     // something like 2013-04-20
   }
+
+
+  DateTime _date = new DateTime.now();
+
+
+
+
 
   Future<Null> _selectDate(BuildContext context) async{
     final DateTime picked = await showDatePicker(
@@ -63,7 +64,9 @@ class _BornDateState extends State<BornDate> {
         children: <Widget>[
           Row(
             children: <Widget>[
-              Text('Date Selected: ${_date.toString()}'),
+              Text('Date Selected: ${_date.toString()}',
+              ),
+
             ],
           ),
           Row(

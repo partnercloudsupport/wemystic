@@ -1,12 +1,9 @@
 import 'dart:async';
-
+import 'package:flutter_html_view/flutter_html_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_html_view/flutter_html_view.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:wemystic/login_page.dart';
-import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:firebase_analytics/observer.dart';
 
 class NewDetail extends StatefulWidget {
   final String value;
