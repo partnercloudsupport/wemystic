@@ -46,8 +46,8 @@ class _NewDetailState extends State<NewDetail> {
         child: new Text("Sign out"),
         color: Colors.red,),
         new Image.network("${widget.thumbnail}"),
-        new HtmlView(data: "${widget.value}"),
-
+        new HtmlView(data: "${widget.value}",
+        ),
         ],
       ),
 

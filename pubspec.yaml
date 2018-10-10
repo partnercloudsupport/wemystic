@@ -19,6 +19,7 @@ dependencies:
   flutter_date_picker: "^0.1.2"
   flutter_html_view: any
   intl: any
+  flutter_webview_plugin: any
 
 dev_dependencies:
   flutter_test:

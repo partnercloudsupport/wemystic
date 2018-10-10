@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
 
-      home: new HomePage(),
+      home: new LoginPage(),
     );
   }
 }
