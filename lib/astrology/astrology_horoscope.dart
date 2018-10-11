@@ -4,8 +4,8 @@ import 'package:http/http.dart' as http;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:wemystic/astrology/horoscope/header_horoscope.dart';
 import 'package:wemystic/astrology/horoscope/today_horoscope.dart';
-
 
 class AstrologyHoroscope extends StatefulWidget {
   @override
@@ -14,24 +14,6 @@ class AstrologyHoroscope extends StatefulWidget {
 
 class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
   String myText;
-  var list;
-  var random;
-
-  final String url =
-      "https://api.rss2json.com/v1/api.json?rss_url=https://www.wemystic.com/feed";
-  List data;
-
-  Future<String> getTodayHoroscope() async {
-    var res = await http
-        .get(Uri.encodeFull(url), headers: {"Accept": "application/json"});
-
-    setState(() {
-      var resBody = json.decode(res.body);
-      data = resBody["items"];
-    });
-
-    return "Success!";
-  }
 
   _fireStoreFetch() async {
     FirebaseUser user = await FirebaseAuth.instance.currentUser();
@@ -47,28 +29,24 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Center(
-            child: Column(children: <Widget>[
-            RaisedButton(onPressed: _fireStoreFetch,
-            child: Text('Fetch'),
-
-            ),
-            myText == null
-                ? Container()
-                : Text(myText),
-              TodayHoroscope(),
-
-
-
-    ])));
+    return Scaffold(
+      body: Container(
+          child: Column(
+            children: <Widget>[
+              Text(myText),
+              Expanded(child: TodayHoroscope(value: myText)),
+            ],
+          ),
+        ),
+      );
   }
+
   @override
   void initState() {
     super.initState();
-    this.getTodayHoroscope();
+
+    this._fireStoreFetch();
   }
 }

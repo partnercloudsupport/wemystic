@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 class WeekHoroscope extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text("Week"),
-      ),
+    return new Container(
+
+
+      child: Text("Year"),
     );
   }
 }

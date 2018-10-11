@@ -16,13 +16,12 @@ class AstrologyChineseHoroscope extends StatefulWidget{
 class _AstrologyChineseHoroscopeState extends State<AstrologyChineseHoroscope>{
   String myText;
   Widget chineseSign;
-  StreamSubscription<DocumentSnapshot> subscription;
-  static FirebaseUser user = FirebaseAuth.instance.currentUser() as FirebaseUser;
-  final DocumentReference docRef = Firestore.instance
-      .collection("profile")
-      .document("${user.uid.toString()}");
 
-  _fireStoreFetch() {
+  _fireStoreFetch() async {
+    FirebaseUser user = await FirebaseAuth.instance.currentUser();
+    final DocumentReference docRef = Firestore.instance
+        .collection("profile")
+        .document("${user.uid.toString()}");
     docRef.get().then((dataSnapshot) {
       if (dataSnapshot.exists) {
         setState(() {
@@ -36,7 +35,7 @@ class _AstrologyChineseHoroscopeState extends State<AstrologyChineseHoroscope>{
   void initState() {
     // TODO: implement initState
     super.initState();
-;
+    this._fireStoreFetch();
   }
 
   @override
@@ -44,11 +43,6 @@ class _AstrologyChineseHoroscopeState extends State<AstrologyChineseHoroscope>{
     return Container(
         child: Center(
           child: Column(children: <Widget>[
-            RaisedButton(
-              onPressed: _fireStoreFetch,
-              child: Text('Fetch'),
-              color: Colors.lime,
-            ),
               myText == null
             ?Container()
                   : chineseSign
