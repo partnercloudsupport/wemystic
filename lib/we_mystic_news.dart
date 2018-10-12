@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:wemystic/new_detail.dart';
-import 'package:flutter_date_picker/flutter_date_picker.dart';
+
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
 
 
@@ -17,11 +17,15 @@ class WeMysticNewsData extends StatefulWidget {
 
 
 class WeMysticNewsState extends State<WeMysticNewsData> {
+
+
+
   var list;
   var random;
 
   final String url =
       "https://api.rss2json.com/v1/api.json?rss_url=https://www.wemystic.com/feed";
+  final webView = FlutterWebviewPlugin();
   List data;
 
   Future<String> getWMNews() async {
@@ -98,11 +102,7 @@ class WeMysticNewsState extends State<WeMysticNewsData> {
                                       onPressed: () {
                                         var route = new MaterialPageRoute(
                                           builder: (BuildContext context) =>
-                                          new NewDetail(
-                                              value: data[index]["content"]
-                                                  .toString(),
-                                              thumbnail: data[index]["thumbnail"]
-                                                  .toString()),
+                                          new WebviewScaffold(url: data[index]["url"])
                                         );
                                         Navigator.of(context).push(route);
                                       },
