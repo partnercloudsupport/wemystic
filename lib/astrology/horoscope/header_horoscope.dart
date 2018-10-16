@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wemystic/astrology/horoscope/characteristics_horoscope.dart';
-import 'package:wemystic/astrology/horoscope/detail_horoscope.dart';
-import 'package:wemystic/astrology/horoscope/month_horoscope.dart';
-import 'package:wemystic/astrology/horoscope/today_horoscope.dart';
-import 'package:wemystic/astrology/horoscope/week_horoscope.dart';
-import 'package:wemystic/astrology/horoscope/year_horoscope.dart';
+import 'package:flutter/cupertino.dart';
 
 
 class HoroscopeTabs extends StatefulWidget {

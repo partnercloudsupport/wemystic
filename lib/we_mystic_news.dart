@@ -25,7 +25,17 @@ class WeMysticNewsState extends State<WeMysticNewsData> {
 
   final String url =
       "https://api.rss2json.com/v1/api.json?rss_url=https://www.wemystic.com/feed";
-  final webView = FlutterWebviewPlugin();
+
+  // Instance of WebView plugin
+  final flutterWebviewPlugin = new FlutterWebviewPlugin();
+
+  // On destroy stream
+  StreamSubscription _onDestroy;
+
+
+
+
+
   List data;
 
   Future<String> getWMNews() async {
@@ -38,6 +48,15 @@ class WeMysticNewsState extends State<WeMysticNewsData> {
     });
 
     return "Success!";
+  }
+
+  @override
+  void dispose() {
+    // Every listener should be canceled, the same should be done with this stream.
+    _onDestroy.cancel();
+    flutterWebviewPlugin.dispose();
+
+    super.dispose();
   }
 
   @override
@@ -100,11 +119,15 @@ class WeMysticNewsState extends State<WeMysticNewsData> {
                                       child: const Text('EXPLORE'),
                                       textColor: Colors.amber.shade500,
                                       onPressed: () {
-                                        var route = new MaterialPageRoute(
-                                          builder: (BuildContext context) =>
-                                          new WebviewScaffold(url: data[index]["url"])
-                                        );
-                                        Navigator.of(context).push(route);
+                                        Navigator.of(context).push(MaterialPageRoute(
+                                            builder: (BuildContext context) => WebviewScaffold(
+                                              url: data[index]["link"],
+                                              appBar: new AppBar(
+                                                title: const Text('Widget webview'),
+                                              ),
+                                              withZoom: true,
+                                              withLocalStorage: true,
+                                            )));
                                       },
                                     ),
                                   ],
@@ -128,6 +151,7 @@ class WeMysticNewsState extends State<WeMysticNewsData> {
   @override
   void initState() {
     super.initState();
+    flutterWebviewPlugin.close();
     this.getWMNews();
   }
 }

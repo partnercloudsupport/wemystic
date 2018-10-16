@@ -1,10 +1,6 @@
-import 'dart:async';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:wemystic/astrology/horoscope/header_horoscope.dart';
 import 'package:wemystic/astrology/horoscope/today_horoscope.dart';
 
 class AstrologyHoroscope extends StatefulWidget {
@@ -14,6 +10,7 @@ class AstrologyHoroscope extends StatefulWidget {
 
 class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
   String myText;
+
 
   _fireStoreFetch() async {
     FirebaseUser user = await FirebaseAuth.instance.currentUser();
@@ -29,18 +26,25 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
     });
   }
 
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
+    if (myText == null) {
+      return new Container();
+    } else {
+      return Scaffold(
+        body: Container(
           child: Column(
             children: <Widget>[
               Text(myText),
-              Expanded(child: TodayHoroscope(value: myText)),
+              Expanded(
+                  child: TodayHoroscope(value: myText)),
             ],
           ),
         ),
       );
+    }
+
   }
 
   @override

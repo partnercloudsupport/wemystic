@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wemystic/bottom_nav_bar.dart';
-import 'package:intl/intl.dart';
+
 
 
 class BornDate extends StatefulWidget {
@@ -23,6 +23,7 @@ class _BornDateState extends State<BornDate> {
   String zodiacSign;
   String chineseSign;
   String chineseSignElement;
+  String country;
 
 
   Future<Null> _selectDate(BuildContext context) async{
@@ -222,6 +223,10 @@ class _BornDateState extends State<BornDate> {
     });
   }
 
+  Future<Null> _favourites(BuildContext context) async{
+
+  }
+
 
   _fireStoreAdd() async {
       FirebaseUser user =  await FirebaseAuth.instance.currentUser();
@@ -230,11 +235,24 @@ class _BornDateState extends State<BornDate> {
         "birth_date" : _date.toString(),
         "zodiac_sign" : zodiacSign,
         "chinese_sign" : '$chineseSign $chineseSignElement',
+        "pisces" : 'false',
+        "aquarius" : 'false',
+        "capricorn" : 'false',
+        "sagittarius" : 'false',
+        "scorpio" : 'false',
+        "libra" : 'false',
+        "virgo" : 'false',
+        "leo" : 'false',
+        "cancer" : 'false',
+        "gemini" : 'false',
+        "taurus" : 'false',
+        "aries" : 'false',
+
+
       };
       docRef.setData(data).whenComplete(() {
         print("Document added");
       }).catchError((e) => print (e));
-     // something like 2013-04-20
   }
 
 

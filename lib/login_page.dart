@@ -1,13 +1,8 @@
 import 'dart:async';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_date_picker/flutter_date_picker.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:wemystic/bottom_nav_bar.dart';
-import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:firebase_analytics/observer.dart';
 import 'package:wemystic/date_picker.dart';
 
 class LoginPage extends StatefulWidget {
@@ -70,6 +65,7 @@ class _LoginPageState extends State<LoginPage> {
           onPressed: () {
             _facebookLogin.logInWithReadPermissions(
                 ['email', 'public_profile']).then((result) {
+              // ignore: missing_enum_constant_in_switch
               switch (result.status) {
                 case FacebookLoginStatus.loggedIn:
                   FirebaseAuth.instance
