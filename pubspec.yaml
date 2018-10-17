@@ -49,6 +49,21 @@ flutter:
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 
+  assets:
+    - assets/zodiac/aquario.png
+    - assets/zodiac/aries.png
+    - assets/zodiac/capricornio.png
+    - assets/zodiac/caranguejo.png
+    - assets/zodiac/escorpiao.png
+    - assets/zodiac/gemeos.png
+    - assets/zodiac/leao.png
+    - assets/zodiac/libra.png
+    - assets/zodiac/peixes.png
+    - assets/zodiac/sagitario.png
+    - assets/zodiac/touro.png
+    - assets/zodiac/virgem.png
+
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
 

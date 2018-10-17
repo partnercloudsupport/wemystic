@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:wemystic/astrology/horoscope/pick_horoscope.dart';
 import 'package:wemystic/login_page.dart';
 
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new LoginPage(),
+      home: new GridPhotoViewer(),
     );
   }
 }
