@@ -185,8 +185,6 @@ class _BornDateState extends State<BornDate> {
     });
   }
 
-  Future<Null> _favourites(BuildContext context) async {}
-
   _fireStoreAdd() async {
     FirebaseUser user = await FirebaseAuth.instance.currentUser();
     final DocumentReference docRef = Firestore.instance

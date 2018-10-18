@@ -16,14 +16,14 @@ class TodayHoroscope extends StatefulWidget {
 class _TodayHoroscopeState extends State<TodayHoroscope> {
   var list;
   var random;
-  bool _progressBarActive = true;
+
 
   final String url =
       "https://feed2json.org/convert?url=https://www.wemystic.com/feed-horoscope-daily";
   List data;
   int selectedHoroscope;
   Widget horoscope;
-  Rect _rect;
+
 
   Future<String> getTodayHoroscope() async {
     var res = await http

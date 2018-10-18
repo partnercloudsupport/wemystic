@@ -1,16 +1,14 @@
+// Copyright 2016 The Chromium Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 import 'package:flutter/material.dart';
 
-
-enum GridDemoTileStyle {
-  imageOnly,
-  oneLine,
-  twoLine
-}
 
 typedef BannerTapCallback = void Function(Photo photo);
 
 const double _kMinFlingVelocity = 800.0;
-
+const String _kGalleryAssetsPackage = 'images';
 
 class Photo {
   Photo({
@@ -149,15 +147,12 @@ class GridDemoPhotoItem extends StatelessWidget {
   GridDemoPhotoItem({
     Key key,
     @required this.photo,
-    @required this.tileStyle,
     @required this.onBannerTap
   }) : assert(photo != null && photo.isValid),
-        assert(tileStyle != null),
         assert(onBannerTap != null),
         super(key: key);
 
   final Photo photo;
-  final GridDemoTileStyle tileStyle;
   final BannerTapCallback onBannerTap; // User taps on the photo's header or footer.
 
   void showPhoto(BuildContext context) {
@@ -194,48 +189,24 @@ class GridDemoPhotoItem extends StatelessWidget {
     );
 
     final IconData icon = photo.isFavorite ? Icons.star : Icons.star_border;
-
-    switch (tileStyle) {
-      case GridDemoTileStyle.imageOnly:
-        return image;
-
-      case GridDemoTileStyle.oneLine:
-        return GridTile(
-          header: GestureDetector(
-            onTap: () { onBannerTap(photo); },
-            child: GridTileBar(
-              title: _GridTitleText(photo.title),
-              backgroundColor: Colors.black45,
-              leading: Icon(
-                icon,
-                color: Colors.white,
-              ),
-            ),
+    return GridTile(
+      header: GestureDetector(
+        onTap: () { onBannerTap(photo); },
+        child: GridTileBar(
+          title: _GridTitleText(photo.title),
+          backgroundColor: Colors.black45,
+          leading: Icon(
+            icon,
+            color: Colors.white,
           ),
-          child: image,
-        );
+        ),
+      ),
+      child: image,
+    );
 
-      case GridDemoTileStyle.twoLine:
-        return GridTile(
-          footer: GestureDetector(
-            onTap: () { onBannerTap(photo); },
-            child: GridTileBar(
-              backgroundColor: Colors.black45,
-              title: _GridTitleText(photo.title),
-              subtitle: _GridTitleText(photo.caption),
-              trailing: Icon(
-                icon,
-                color: Colors.white,
-              ),
-            ),
-          ),
-          child: image,
-        );
-    }
-    assert(tileStyle != null);
-    return null;
   }
 }
+
 
 class GridListDemo extends StatefulWidget {
   const GridListDemo({ Key key }) : super(key: key);
@@ -247,22 +218,83 @@ class GridListDemo extends StatefulWidget {
 }
 
 class GridListDemoState extends State<GridListDemo> {
-  GridDemoTileStyle _tileStyle = GridDemoTileStyle.twoLine;
 
   List<Photo> photos = <Photo>[
     Photo(
-      assetName:'assets/zodiac/aquario.png',
+      assetName: 'zodiac/aquario.png',
+      assetPackage: _kGalleryAssetsPackage,
       title: 'Chennai',
       caption: 'Flower Market',
     ),
-
+    Photo(
+      assetName: 'zodiac/aries.png',
+      assetPackage: _kGalleryAssetsPackage,
+      title: 'Tanjore',
+      caption: 'Bronze Works',
+    ),
+    Photo(
+      assetName: 'zodiac/capricornio.png',
+      assetPackage: _kGalleryAssetsPackage,
+      title: 'Tanjore',
+      caption: 'Market',
+    ),
+    Photo(
+      assetName: 'zodiac/caranguejo.png',
+      assetPackage: _kGalleryAssetsPackage,
+      title: 'Tanjore',
+      caption: 'Thanjavur Temple',
+    ),
+    Photo(
+      assetName: 'zodiac/escorpiao.png',
+      assetPackage: _kGalleryAssetsPackage,
+      title: 'Tanjore',
+      caption: 'Thanjavur Temple',
+    ),
+    Photo(
+      assetName: 'zodiac/gemeos.png',
+      assetPackage: _kGalleryAssetsPackage,
+      title: 'Pondicherry',
+      caption: 'Salt Farm',
+    ),
+    Photo(
+      assetName: 'zodiac/leao.png',
+      assetPackage: _kGalleryAssetsPackage,
+      title: 'Chennai',
+      caption: 'Scooters',
+    ),
+    Photo(
+      assetName: 'zodiac/libra.png',
+      assetPackage: _kGalleryAssetsPackage,
+      title: 'Chettinad',
+      caption: 'Silk Maker',
+    ),
+    Photo(
+      assetName: 'zodiac/peixes.png',
+      assetPackage: _kGalleryAssetsPackage,
+      title: 'Chettinad',
+      caption: 'Lunch Prep',
+    ),
+    Photo(
+      assetName: 'zodiac/sagitario.png',
+      assetPackage: _kGalleryAssetsPackage,
+      title: 'Tanjore',
+      caption: 'Market',
+    ),
+    Photo(
+      assetName: 'zodiac/touro.png',
+      assetPackage: _kGalleryAssetsPackage,
+      title: 'Pondicherry',
+      caption: 'Beach',
+    ),
+    Photo(
+      assetName: 'zodiac/virgem.png',
+      assetPackage: _kGalleryAssetsPackage,
+      title: 'Pondicherry',
+      caption: 'Fisherman',
+    ),
   ];
 
-  void changeTileStyle(GridDemoTileStyle value) {
-    setState(() {
-      _tileStyle = value;
-    });
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -270,26 +302,6 @@ class GridListDemoState extends State<GridListDemo> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Grid list'),
-        actions: <Widget>[
-
-          PopupMenuButton<GridDemoTileStyle>(
-            onSelected: changeTileStyle,
-            itemBuilder: (BuildContext context) => <PopupMenuItem<GridDemoTileStyle>>[
-              const PopupMenuItem<GridDemoTileStyle>(
-                value: GridDemoTileStyle.imageOnly,
-                child: Text('Image only'),
-              ),
-              const PopupMenuItem<GridDemoTileStyle>(
-                value: GridDemoTileStyle.oneLine,
-                child: Text('One line'),
-              ),
-              const PopupMenuItem<GridDemoTileStyle>(
-                value: GridDemoTileStyle.twoLine,
-                child: Text('Two line'),
-              ),
-            ],
-          ),
-        ],
       ),
       body: Column(
         children: <Widget>[
@@ -306,7 +318,6 @@ class GridListDemoState extends State<GridListDemo> {
                 children: photos.map<Widget>((Photo photo) {
                   return GridDemoPhotoItem(
                       photo: photo,
-                      tileStyle: _tileStyle,
                       onBannerTap: (Photo photo) {
                         setState(() {
                           photo.isFavorite = !photo.isFavorite;
@@ -322,4 +333,5 @@ class GridListDemoState extends State<GridListDemo> {
     );
   }
 }
+
 
