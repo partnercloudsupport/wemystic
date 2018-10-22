@@ -21,9 +21,8 @@ dependencies:
   flutter_webview_plugin: any
   flutter_html_view: any
   flutter_cupertino_date_picker: ^0.0.6
-
-dependency_overrides:
   cached_network_image: ^0.4.0
+dependency_overrides:
   http: any
   flutter_cache_manager: ^0.1.1
 
@@ -38,19 +37,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-  assets:
-    - images/zodiac/aquario.png
-    - images/zodiac/aries.png
-    - images/zodiac/capricornio.png
-    - images/zodiac/caranguejo.png
-    - images/zodiac/escorpiao.png
-    - images/zodiac/gemeos.png
-    - images/zodiac/leao.png
-    - images/zodiac/libra.png
-    - images/zodiac/peixes.png
-    - images/zodiac/sagitario.png
-    - images/zodiac/touro.png
-    - images/zodiac/virgem.png
   uses-material-design: true
 
   # An image asset can refer to one or more resolution-specific "variants", see

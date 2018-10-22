@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:wemystic/astrology/horoscope/pick_horoscope.dart';
 import 'package:wemystic/bottom_nav_bar.dart';
 
 class BornDate extends StatefulWidget {
@@ -21,6 +22,36 @@ class _BornDateState extends State<BornDate> {
   String chineseSign;
   String chineseSignElement;
   String country;
+
+  String myText;
+
+  _fireStoreFetch() async {
+    FirebaseUser user = await FirebaseAuth.instance.currentUser();
+    final DocumentReference docRef = Firestore.instance
+        .collection("profile")
+        .document("${user.uid.toString()}");
+    docRef.get().then((dataSnapshot) {
+      if (dataSnapshot.exists) {
+        setState(() {
+          myText = dataSnapshot.data['birth_date'];
+          if (myText != null ){
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (BuildContext context) => GridListDemo(
+                  user: user,
+                )));
+          }
+
+        });
+      }
+    });
+  }
+
+
+  @override
+  void initState() {
+    super.initState();
+    this._fireStoreFetch();
+  }
 
   Future<Null> _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(

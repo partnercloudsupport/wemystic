@@ -31,7 +31,6 @@ class _AstrologyChineseHoroscopeState extends State<AstrologyChineseHoroscope>{
   }
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     this._fireStoreFetch();
   }
