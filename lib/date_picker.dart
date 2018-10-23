@@ -225,18 +225,6 @@ class _BornDateState extends State<BornDate> {
       "birth_date": _date.toString(),
       "zodiac_sign": zodiacSign,
       "chinese_sign": '$chineseSign $chineseSignElement',
-      "pisces": 'false',
-      "aquarius": 'false',
-      "capricorn": 'false',
-      "sagittarius": 'false',
-      "scorpio": 'false',
-      "libra": 'false',
-      "virgo": 'false',
-      "leo": 'false',
-      "cancer": 'false',
-      "gemini": 'false',
-      "taurus": 'false',
-      "aries": 'false',
     };
     docRef.setData(data).whenComplete(() {
       print("Document added");
