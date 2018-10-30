@@ -17,13 +17,11 @@ class _TodayHoroscopeState extends State<TodayHoroscope> {
   var list;
   var random;
 
-
   final String url =
       "https://api.rss2json.com/v1/api.json?rss_url=https://www.wemystic.com/feed-horoscope-daily&api_key=e31qew7ogvak9hrtfybkk9kcelycciijergbhffj&count=12";
   List data;
   int selectedHoroscope;
   Widget horoscope;
-
 
   Future<String> getTodayHoroscope() async {
     var res = await http

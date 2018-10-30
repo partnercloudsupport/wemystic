@@ -8,8 +8,6 @@ import 'package:wemystic/bottom_nav_bar.dart';
 typedef BannerTapCallback = void Function(Photo photo);
 
 class Photo {
-
-
   Photo({
     this.assetUrl,
     this.title,
@@ -24,8 +22,6 @@ class Photo {
   String get tag => assetUrl; // Assuming that all asset names are unique.
 
   bool get isValid => assetUrl != null && title != null;
-
-
 }
 
 class _GridTitleText extends StatelessWidget {
@@ -127,7 +123,7 @@ class GridListDemoState extends State<GridListDemo> {
     return "Success!";
   }
 
- static bool isFavorite;
+  bool isFavorite;
 
   _fireStoreFetch() async {
     FirebaseUser user = await FirebaseAuth.instance.currentUser();
@@ -135,15 +131,22 @@ class GridListDemoState extends State<GridListDemo> {
         .collection("profile")
         .document("${user.uid.toString()}");
     docRef.get().then((dataSnapshot) {
-      isFavorite = dataSnapshot.data["Pisces"];
+      isFavorite = dataSnapshot.data["pisces"];
+      if (dataSnapshot.data["aries"] != null) {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (BuildContext context) => HomePage(
+                  user: user,
+                )));
+      }
     });
   }
+
   List<Photo> photos = <Photo>[
     Photo(
       assetUrl:
           'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-peixes.png',
       title: 'Pisces',
-      isFavorite: isFavorite,
+      isFavorite: false,
     ),
     Photo(
       assetUrl:
@@ -255,18 +258,18 @@ class GridListDemoState extends State<GridListDemo> {
                   .document("${user.uid.toString()}");
 
               Map<String, bool> data = <String, bool>{
-                "Pisces": photos[0].isFavorite,
-                "Aquarius": photos[1].isFavorite,
-                "Capricorn": photos[2].isFavorite,
-                "Sagittarius": photos[3].isFavorite,
-                "Scorpio": photos[4].isFavorite,
-                "Libra": photos[5].isFavorite,
-                "Virgo": photos[6].isFavorite,
-                "Leo": photos[7].isFavorite,
-                "Cancer": photos[8].isFavorite,
-                "Gemini": photos[9].isFavorite,
-                "Taurus": photos[10].isFavorite,
-                "Aries": photos[11].isFavorite,
+                "pisces": photos[0].isFavorite,
+                "aquarius": photos[1].isFavorite,
+                "capricorn": photos[2].isFavorite,
+                "sagittarius": photos[3].isFavorite,
+                "scorpio": photos[4].isFavorite,
+                "libra": photos[5].isFavorite,
+                "virgo": photos[6].isFavorite,
+                "leo": photos[7].isFavorite,
+                "cancer": photos[8].isFavorite,
+                "gemini": photos[9].isFavorite,
+                "taurus": photos[10].isFavorite,
+                "aries": photos[11].isFavorite,
               };
               docRef.setData(data, merge: true).whenComplete(() {
                 print("Document added");
