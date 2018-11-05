@@ -10,48 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2bcb403-5a2e-4e5a-ae50-1656e56dcfb5" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/astrology/favorite_signs.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/astrology/horoscope/aquarius_horoscope/week_horoscope.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/astrology/horoscope/aries_horoscope/today_horoscope.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/astrology/horoscope/aries_horoscope/week_horoscope.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/astrology/horoscope/cancer_horoscope/today_horoscope.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/astrology/horoscope/cancer_horoscope/week_horoscope.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/astrology/horoscope/capricorn_horoscope/today_horoscope.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/astrology/horoscope/capricorn_horoscope/week_horoscope.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/astrology/horoscope/gemini_horoscope/today_horoscope.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/astrology/horoscope/gemini_horoscope/week_horoscope.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/astrology/horoscope/leo_horoscope/today_horoscope.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/astrology/horoscope/leo_horoscope/week_horoscope.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/astrology/horoscope/libra_horoscope/today_horoscope.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/astrology/horoscope/libra_horoscope/week_horoscope.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/astrology/horoscope/pisces_horoscope/today_horoscope.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/astrology/horoscope/pisces_horoscope/week_horoscope.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/astrology/horoscope/sagittarius_horoscope/today_horoscope.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/astrology/horoscope/sagittarius_horoscope/week_horoscope.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/astrology/horoscope/scorpio_horoscope/today_horoscope.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/astrology/horoscope/scorpio_horoscope/week_horoscope.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/astrology/horoscope/taurus_horoscope/today_horoscope.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/astrology/horoscope/taurus_horoscope/week_horoscope.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/astrology/horoscope/virgo_horoscope/today_horoscope.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/astrology/horoscope/virgo_horoscope/week_horoscope.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Podfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/astrology/astrology_horoscope.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/astrology/astrology_horoscope.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/astrology/astrology_moon.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/astrology/astrology_moon.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/astrology/horoscope/astrology_daily_horoscope.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/astrology/horoscope/aquarius_horoscope/today_horoscope.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/astrology/horoscope/characteristics_horoscope.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/astrology/horoscope/detail_horoscope.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/astrology/horoscope/month_horoscope.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/astrology/horoscope/pick_horoscope.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/astrology/horoscope/pick_horoscope.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/astrology/horoscope/today_horoscope.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/astrology/horoscope/today_horoscope.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/astrology/horoscope/week_horoscope.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/astrology/horoscope/week_horoscope.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/astrology/horoscope/year_horoscope.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wemystic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/wemystic.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/astrology/favorite_signs.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/astrology/favorite_signs.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,10 +27,22 @@
       <file leaf-file-name="favorite_signs.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/astrology/favorite_signs.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="95" column="37" lean-forward="true" selection-start-line="95" selection-start-column="37" selection-end-line="95" selection-end-column="37" />
+            <state relative-caret-position="-422">
+              <caret line="105" column="21" selection-start-line="105" selection-start-column="21" selection-end-line="105" selection-end-column="21" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="we_mystic_news.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/we_mystic_news.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="599">
+              <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -116,13 +89,13 @@
         <option value="$PROJECT_DIR$/lib/date_picker.dart" />
         <option value="$PROJECT_DIR$/lib/astrology/horoscope/today_horoscope.dart" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
-        <option value="$PROJECT_DIR$/lib/astrology/astrology_horoscope.dart" />
         <option value="$PROJECT_DIR$/lib/astrology/horoscope/week_horoscope.dart" />
         <option value="$PROJECT_DIR$/lib/astrology/astrology_moon.dart" />
         <option value="$USER_HOME$/Desktop/Development/flutter/packages/flutter/lib/src/painting/decoration_image.dart" />
         <option value="$PROJECT_DIR$/lib/astrology/image_carousel.dart" />
         <option value="$PROJECT_DIR$/lib/astrology/horoscope/aquarius_horoscope/today_aquarius.dart" />
         <option value="$PROJECT_DIR$/lib/astrology/horoscope/aquarius_horoscope/week_aquarius.dart" />
+        <option value="$PROJECT_DIR$/lib/astrology/astrology_horoscope.dart" />
         <option value="$PROJECT_DIR$/lib/astrology/favorite_signs.dart" />
       </list>
     </option>
@@ -149,8 +122,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -180,6 +151,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -360,7 +333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1540289869401</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="novo servidor de feed2json today horoscope;&#10;adicionar os signos faboritos na db">
+      <created>1540920867617</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1540920867617</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView">
@@ -387,7 +367,7 @@
       <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.46751863" visible="true" weight="0.3318182" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4978701" weight="0.3284091" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49540636" weight="0.3284091" />
-      <window_info anchor="right" id="Flutter Outline" order="3" weight="0.23162939" />
+      <window_info anchor="right" id="Flutter Outline" order="3" weight="0.2310954" />
       <window_info anchor="bottom" id="Logcat" order="7" weight="0.32954547" />
       <window_info id="Captures" order="2" weight="0.24973376" />
       <window_info id="Capture Tool" order="2" />
@@ -398,7 +378,7 @@
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4968198" weight="0.5" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="right" id="Flutter Inspector" order="3" weight="0.3290735" />
+      <window_info anchor="right" id="Flutter Inspector" order="3" visible="true" weight="0.3279152" />
       <window_info anchor="right" id="Assistant" order="4" weight="0.32960597" />
       <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.48935038" weight="0.3284091" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -476,7 +456,7 @@
         <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/lib/astrology/favorite_signs.dart</url>
           <line>45</line>
-          <option name="timeStamp" value="69" />
+          <option name="timeStamp" value="73" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -484,29 +464,10 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="71" />
+      <option name="time" value="77" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/images/zodiac/touro.png" />
-    <entry file="file://$PROJECT_DIR$/images/zodiac/virgem.png" />
-    <entry file="file://$USER_HOME$/.pub-cache/hosted/pub.dartlang.org/http-0.12.0/lib/http.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="44" column="47" selection-start-line="44" selection-start-column="47" selection-end-line="44" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/new_detail.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/bottom_nav_bar.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -628,25 +589,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/astrology/horoscope/week_horoscope.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="13" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/astrology/astrology_header.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/Development/flutter/packages/flutter/lib/src/painting/image_provider.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6510">
@@ -658,13 +600,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="930">
           <caret line="67" column="6" selection-start-line="67" selection-start-column="6" selection-end-line="67" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/astrology/astrology_moon.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -716,34 +651,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/Development/flutter/packages/flutter/lib/src/widgets/framework.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="1659" column="102" selection-start-line="1659" selection-start-column="65" selection-end-line="1659" selection-end-column="110" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/astrology/horoscope/astrology_daily_horoscope.dart" />
-    <entry file="file://$PROJECT_DIR$/lib/astrology/horoscope/today_horoscope.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1425">
-          <caret line="95" column="38" selection-start-line="95" selection-start-column="38" selection-end-line="95" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/astrology/astrology_horoscope.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="794">
-          <caret line="83" column="14" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/astrology/horoscope/aquarius_horoscope/today_horoscope.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state />
@@ -809,10 +717,33 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/we_mystic_news.dart">
+    <entry file="file://$PROJECT_DIR$/lib/astrology/astrology_moon.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
+        <state relative-caret-position="105">
+          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/astrology/astrology_header.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Development/flutter/packages/flutter/lib/src/widgets/framework.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="1138" column="5" selection-start-line="1138" selection-start-column="5" selection-end-line="1138" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/astrology/horoscope/today_horoscope.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="95" column="38" selection-start-line="95" selection-start-column="38" selection-end-line="95" selection-end-column="38" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
@@ -821,15 +752,75 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/astrology/horoscope/pick_horoscope.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2205">
-          <caret line="152" column="11" selection-start-line="152" selection-start-column="11" selection-end-line="152" selection-end-column="89" />
+        <state relative-caret-position="-859">
+          <caret line="141" column="3" selection-start-line="141" selection-start-column="3" selection-end-line="141" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/astrology/horoscope/header_horoscope.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/astrology/horoscope/week_horoscope.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="13" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Development/flutter/packages/flutter/lib/src/rendering/box.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="1481" column="11" selection-start-line="1481" selection-start-column="11" selection-end-line="1481" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/astrology/astrology_horoscope.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="679">
+          <caret line="83" column="42" selection-start-line="83" selection-start-column="42" selection-end-line="83" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Development/flutter/packages/flutter/lib/src/rendering/object.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Development/flutter/packages/flutter/lib/src/rendering/proxy_box.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="2463" selection-start-line="2463" selection-end-line="2463" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/we_mystic_news.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/astrology/favorite_signs.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="95" column="37" lean-forward="true" selection-start-line="95" selection-start-column="37" selection-end-line="95" selection-end-column="37" />
+        <state relative-caret-position="-422">
+          <caret line="105" column="21" selection-start-line="105" selection-start-column="21" selection-end-line="105" selection-end-column="21" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
           </folding>
