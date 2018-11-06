@@ -21,7 +21,8 @@ class _ImageCarouselState extends State<ImageCarousel> {
   bool taurus;
   bool virgo;
   bool sagittarius;
-  List favorites = new List();
+  List<String> favorites = new List();
+  String selectedIcon;
 
   _fireStoreFetch() async {
     FirebaseUser user = await FirebaseAuth.instance.currentUser();
@@ -103,83 +104,35 @@ class _ImageCarouselState extends State<ImageCarousel> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              0 < favorites.length
-                  ? IconButton(
-                      icon: Image.network(favorites[0]),
-                      onPressed: null,
-                    )
-                  : Container(),
-              1 < favorites.length
-                  ? IconButton(
-                      icon: Image.network(favorites[1]),
-                      onPressed: null,
-                    )
-                  : Container(),
-              2 < favorites.length
-                  ? IconButton(
-                      icon: Image.network(favorites[2]),
-                      onPressed: null,
-                    )
-                  : Container(),
-              3 < favorites.length
-                  ? IconButton(
-                      icon: Image.network(favorites[3]),
-                      onPressed: null,
-                    )
-                  : Container(),
-              4 < favorites.length
-                  ? IconButton(
-                      icon: Image.network(favorites[4]),
-                      onPressed: null,
-                    )
-                  : Container(),
-              5 < favorites.length
-                  ? IconButton(
-                      icon: Image.network(favorites[5]),
-                      onPressed: null,
-                    )
-                  : Container(),
-              6 < favorites.length
-                  ? IconButton(
-                      icon: Image.network(favorites[6]),
-                      onPressed: null,
-                    )
-                  : Container(),
-              7 < favorites.length
-                  ? IconButton(
-                      icon: Image.network(favorites[7]),
-                      onPressed: null,
-                    )
-                  : Container(),
-              8 < favorites.length
-                  ? IconButton(
-                      icon: Image.network(favorites[8]),
-                      onPressed: null,
-                    )
-                  : Container(),
-              9 < favorites.length
-                  ? IconButton(
-                      icon: Image.network(favorites[9]),
-                      onPressed: null,
-                    )
-                  : Container(),
-              10 < favorites.length
-                  ? IconButton(
-                      icon: Image.network(favorites[10]),
-                      onPressed: null,
-                    )
-                  : Container(),
-              11 < favorites.length
-                  ? IconButton(
-                      icon: Image.network(favorites[11]),
-                      onPressed: null,
-                    )
-                  : Container(),
-            ]));
+    if (selectedIcon == null){
+      return Column(
+          children: <Widget>[
+      Row(children: favorites.map((String src) => IconButton(
+        icon: Image.network(src),
+        onPressed: (){
+          setState(() {
+            selectedIcon = src;
+          });
+        },
+      )).toList(),)
+    ]);
+    }else{
+      return Column(
+        children: <Widget>[
+          Row(children: favorites.map((String src) => IconButton(
+            icon: Image.network(src),
+            onPressed: (){
+              setState(() {
+                selectedIcon = src;
+              });
+            },
+          )).toList(),),
+          Container(
+            child: Image.network(selectedIcon),
+          )
+        ],
+      );
+    }
+
   }
 }
