@@ -3,12 +3,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class ImageCarousel extends StatefulWidget {
+class FavoritesSigns extends StatefulWidget {
   @override
-  _ImageCarouselState createState() => new _ImageCarouselState();
+  _FavoriteSignsState createState() => new _FavoriteSignsState();
 }
 
-class _ImageCarouselState extends State<ImageCarousel> {
+class _FavoriteSignsState extends State<FavoritesSigns> {
+
+
   bool aquarius;
   bool aries;
   bool cancer;
@@ -23,6 +25,8 @@ class _ImageCarouselState extends State<ImageCarousel> {
   bool sagittarius;
   List<String> favorites = new List();
   String selectedIcon;
+
+
 
   _fireStoreFetch() async {
     FirebaseUser user = await FirebaseAuth.instance.currentUser();
@@ -111,7 +115,7 @@ class _ImageCarouselState extends State<ImageCarousel> {
         icon: Image.network(src),
         onPressed: (){
           setState(() {
-            selectedIcon = src;
+            return selectedIcon = src;
           });
         },
       )).toList(),)

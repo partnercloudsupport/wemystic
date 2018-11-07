@@ -53,7 +53,6 @@ class WeMysticNewsState extends State<WeMysticNewsData> {
 
   @override
   void dispose() {
-    // Every listener should be canceled, the same should be done with this stream.
     _onDestroy.cancel();
     flutterWebviewPlugin.dispose();
 
@@ -120,15 +119,7 @@ class WeMysticNewsState extends State<WeMysticNewsData> {
                                       child: const Text('EXPLORE'),
                                       textColor: Colors.amber.shade500,
                                       onPressed: () {
-                                        Navigator.of(context).push(MaterialPageRoute(
-                                            builder: (BuildContext context) => WebviewScaffold(
-                                              url: data[index]["link"],
-                                              appBar: new AppBar(
-                                                title: const Text('Widget webview'),
-                                              ),
-                                              withZoom: true,
-                                              withLocalStorage: true,
-                                            )));
+                                        data[index]["link"];
                                       },
                                     ),
                                   ],

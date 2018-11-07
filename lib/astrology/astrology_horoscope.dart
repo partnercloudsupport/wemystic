@@ -32,12 +32,12 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
   _horoscope(){
     if (_activity == 'Today') {
       horoscope = TodayHoroscope(value: myText);
-    } else if (_activity == 'Week') {
-      horoscope = WeekHoroscope();
-    } else {
-      horoscope = Container(
-          child: Text("lalalalalal")
-      );
+    }
+    if (_activity == 'Week') {
+      return WeekHoroscope();
+    }
+    if (_activity == null) {
+      return TodayHoroscope(value: myText);
     }
   }
 
@@ -55,7 +55,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
         body: Container(
           child: Column(
             children: <Widget>[
-              ImageCarousel(),
+              FavoritesSigns(),
               InputDecorator(
                 decoration: const InputDecoration(
                   labelText: 'Activity',
@@ -68,7 +68,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                   onChanged: (String newValue) {
                     setState(() {
                       _activity = newValue;
-                      _horoscope();
+
 
                     });
                   },
@@ -81,8 +81,8 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                   }).toList(),
                 ),
               ),
-              Container(child: Text("today"),
-              ),
+              _activity == 'Today' ? TodayHoroscope(value: myText,) :
+                  WeekHoroscope(),
             ],
           ),
         ),

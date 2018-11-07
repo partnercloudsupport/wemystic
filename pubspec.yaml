@@ -18,19 +18,17 @@ dependencies:
   firebase_analytics:
   flutter_date_picker: "^0.1.2"
   intl: any
-  flutter_webview_plugin: any
+  flutter_webview_plugin:
   flutter_html_view: any
   flutter_cupertino_date_picker: ^0.0.6
   cached_network_image: ^0.4.0
   carousel_pro: ^0.0.1
+  firebase_messaging:
+  url_launcher: ^4.0.1
 dependency_overrides:
   http: any
   flutter_cache_manager: ^0.1.1
-  flutter_picker:
-    git: git://github.com/yangyxd/flutter_picker.git
-  image_carousel:  ^0.4.1
-  carousel: ^0.0.1
-  zoomable_image: ^1.0.1
+
 
 dev_dependencies:
   flutter_test:
