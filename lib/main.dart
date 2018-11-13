@@ -12,41 +12,6 @@ class MyApp extends StatefulWidget{
 
 class _MyAppState extends State<MyApp> {
 
-  FirebaseMessaging firebaseMessaging = new FirebaseMessaging();
-
-  @override
-  void initState() {
-    super.initState();
-    firebaseMessaging.configure(
-      onLaunch: (Map<String, dynamic> msg) {
-        print("called");
-    },
-      onResume: (Map<String, dynamic> msg) {
-        print("called");
-      },
-      onMessage: (Map<String, dynamic> msg) {
-        print("called");
-      },
-    );
-    firebaseMessaging.requestNotificationPermissions(
-      const IosNotificationSettings(
-        sound:true,
-        alert:true,
-        badge:true,
-      )
-    );
-    firebaseMessaging.onIosSettingsRegistered.listen((IosNotificationSettings settings){
-      print('Ios Setting Registed');
-    });
-    firebaseMessaging.getToken().then((token){
-      update(token);
-    });
-  }
-
-  update(String token){
-    print(token);
-  }
-
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(

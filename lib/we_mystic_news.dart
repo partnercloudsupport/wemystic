@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-
+import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
 
@@ -17,8 +17,6 @@ class WeMysticNewsData extends StatefulWidget {
 
 
 class WeMysticNewsState extends State<WeMysticNewsData> {
-
-
 
   var list;
   var random;
@@ -119,7 +117,7 @@ class WeMysticNewsState extends State<WeMysticNewsData> {
                                       child: const Text('EXPLORE'),
                                       textColor: Colors.amber.shade500,
                                       onPressed: () {
-                                        data[index]["link"];
+                                        launch(data[index]["link"], forceWebView: false);
                                       },
                                     ),
                                   ],

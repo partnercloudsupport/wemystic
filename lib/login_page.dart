@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:wemystic/date_picker.dart';
@@ -11,6 +12,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  bool _loadingInProgress;
+
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = new GoogleSignIn();
   final FacebookLogin _facebookLogin = new FacebookLogin();
@@ -51,51 +54,102 @@ class _LoginPageState extends State<LoginPage> {
     });
 
     // Give the navigation animations, etc, some time to finish
-    new Future.delayed(new Duration(seconds: 1))
+    new Future.delayed(new Duration(seconds: 80))
         .then((_) => signInWithGoogle());
+    _loadingInProgress = true;
+    _loadData();
+  }
+
+  Future _loadData() async {
+    await new Future.delayed(new Duration(seconds: 5));
+    _dataLoaded();
+  }
+
+  void _dataLoaded() {
+    setState(() {
+      _loadingInProgress = false;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return new Container(
-        child: Center(
-            child: Column(children: <Widget>[
-      RaisedButton(
-          child: Text('LoginFacebook'),
-          onPressed: () {
-            _facebookLogin.logInWithReadPermissions(
-                ['email', 'public_profile']).then((result) {
-              // ignore: missing_enum_constant_in_switch
-              switch (result.status) {
-                case FacebookLoginStatus.loggedIn:
-                  FirebaseAuth.instance
-                      .signInWithFacebook(accessToken: result.accessToken.token)
-                      .then((user) {
-                    print('Signed in as ${user.displayName}');
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => BornDate(
-                              user: user,
-                            )));
-                  }).catchError((e) {
-                    print(e);
-                  });
-              }
-            }).catchError((e) {
-              print(e);
-            });
-          }),
-      RaisedButton(
-          child: Text('LoginGoogle'),
-          onPressed: () {
-            _googleSignIn.signIn();
-            signInWithGoogle().then((user) {
-              print('Signed in as ${user.displayName}');
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => BornDate(
-                        user: user,
-                      )));
-            });
-          })
-    ])));
+    if (_loadingInProgress) {
+      return new Center(
+        child: new Image.network(
+            'https://assets.wemystic.com/wmcom/2018/04/header-logo-white-png.png'),
+      );
+    } else {
+      return new Center(
+          child: Container(
+        color: Color.fromRGBO(72, 67, 103, 1.0),
+        child: Column(
+          children: <Widget>[
+            Padding(padding: EdgeInsets.only(top: 40.0)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Padding(padding: EdgeInsets.only(top: 40.0)),
+                Container(
+                    child: new Image.network(
+                        'https://assets.wemystic.com/wmcom/2018/04/header-logo-white-png.png')),
+              ],
+            ),
+            Padding(padding: EdgeInsets.only( top: 120.0),),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Center(
+                      child: RaisedButton(
+                          child: Text('Login with Facebook'),
+                          onPressed: () {
+                            _facebookLogin.logInWithReadPermissions(
+                                ['email', 'public_profile']).then((result) {
+                              // ignore: missing_enum_constant_in_switch
+                              switch (result.status) {
+                                case FacebookLoginStatus.loggedIn:
+                                  FirebaseAuth.instance
+                                      .signInWithFacebook(
+                                      accessToken: result.accessToken.token)
+                                      .then((user) {
+                                    print('Signed in as ${user.displayName}');
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (BuildContext context) =>
+                                                BornDate(
+                                                  user: user,
+                                                )));
+                                  }).catchError((e) {
+                                    print(e);
+                                  });
+                              }
+                            }).catchError((e) {
+                              print(e);
+                            });
+                          }),
+                    ),
+                    Center(
+                        child: RaisedButton(
+                            child: Text('LoginGoogle'),
+                            onPressed: () {
+                              _googleSignIn.signIn();
+                              signInWithGoogle().then((user) {
+                                print('Signed in as ${user.displayName}');
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (BuildContext context) => BornDate(
+                                      user: user,
+                                    )));
+                              });
+                            }))
+                  ],
+                ),
+                  ],
+                )
+              ],
+            ),
+        ),
+      );
+    }
   }
 }

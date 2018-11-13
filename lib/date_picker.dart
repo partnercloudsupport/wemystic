@@ -3,7 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:wemystic/astrology/horoscope/pick_horoscope.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:wemystic/pick_horoscope.dart';
 import 'package:wemystic/bottom_nav_bar.dart';
 
 class BornDate extends StatefulWidget {
@@ -16,6 +17,9 @@ class BornDate extends StatefulWidget {
 }
 
 class _BornDateState extends State<BornDate> {
+
+  bool _loadingInProgress;
+
   FirebaseUser user;
   DateTime _date = new DateTime.now();
   String zodiacSign;
@@ -26,24 +30,24 @@ class _BornDateState extends State<BornDate> {
   String myText;
 
   _fireStoreFetch() async {
-    FirebaseUser user = await FirebaseAuth.instance.currentUser();
-    final DocumentReference docRef = Firestore.instance
-        .collection("profile")
-        .document("${user.uid.toString()}");
-    docRef.get().then((dataSnapshot) {
-      if (dataSnapshot.exists) {
-        setState(() {
-          myText = dataSnapshot.data['birth_date'];
-          if (myText != null ){
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (BuildContext context) => GridListDemo(
-                  user: user,
-                )));
-          }
-
-        });
-      }
-    });
+      FirebaseUser user = await FirebaseAuth.instance.currentUser();
+      final DocumentReference docRef = Firestore.instance
+          .collection("profile")
+          .document("${user.uid.toString()}");
+      docRef.get().then((dataSnapshot) {
+        if (dataSnapshot.exists) {
+          setState(() {
+            myText = dataSnapshot.data['birth_date'];
+            if (myText != null) {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) =>
+                      GridListDemo(
+                        user: user,
+                      )));
+            }
+          });
+        }
+      });
   }
 
 
@@ -51,9 +55,23 @@ class _BornDateState extends State<BornDate> {
   void initState() {
     super.initState();
     this._fireStoreFetch();
+    _loadingInProgress = true;
+    _loadData();
+  }
+
+  Future _loadData() async {
+    await new Future.delayed(new Duration(seconds: 5));
+    _dataLoaded();
+  }
+
+  void _dataLoaded() {
+    setState(() {
+      _loadingInProgress = false;
+    });
   }
 
   Future<Null> _selectDate(BuildContext context) async {
+
     final DateTime picked = await showDatePicker(
         context: context,
         initialDate: _date,
@@ -231,18 +249,25 @@ class _BornDateState extends State<BornDate> {
     }).catchError((e) => print(e));
   }
 
+
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Container(
+    if (_loadingInProgress){
+      return new Center(
+        child: new Image.network('https://assets.wemystic.com/wmcom/2018/04/header-logo-white-png.png'),
+      );
+    }else{
+      return Scaffold(
+          body: Container(
             padding: EdgeInsets.fromLTRB(10.0, 40.0, 10.0, 0.0),
             child: Column(children: <Widget>[
               Container(
-                  margin: const EdgeInsets.only(
-                      left: 24.0,
-                      right: 24.0,
-                      bottom: 24.0
-                  ),
+                margin: const EdgeInsets.only(
+                    left: 24.0,
+                    right: 24.0,
+                    bottom: 24.0
+                ),
               ),
               const Divider(height: 1.0),
               Container(
@@ -272,41 +297,45 @@ class _BornDateState extends State<BornDate> {
                       ]
                   )
               ),
-                        Text(
-                          'Date Selected: ${_date.toString()}',
-                          style: TextStyle(
-                            fontSize: 15.0,
-                          ),
-                        ),
-                        Row(
-                          children: <Widget>[
-                            RaisedButton(
-                              onPressed: () {
-                                _selectDate(context);
-                              },
-                              child: Text('Add Born Date'),
-                              color: Colors.red,
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: <Widget>[
-                            RaisedButton(
-                              onPressed: () {
-                                _fireStoreAdd();
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (BuildContext context) => HomePage(
-                                          user: user,
-                                        )));
-                              },
-                              child: Text('Submit'),
-                              color: Colors.green,
-                            ),
-                          ],
-                        )
-                      ],
-                 ),
-                  )
-    );
+              Text(
+                'Date Selected: ${_date.toString()}',
+                style: TextStyle(
+                  fontSize: 15.0,
+                ),
+              ),
+              Row(
+                children: <Widget>[
+                  RaisedButton(
+                    onPressed: () {
+                      _selectDate(context);
+                    },
+                    child: Text('Add Born Date'),
+                    color: Colors.red,
+                  ),
+                ],
+              ),
+              Row(
+                children: <Widget>[
+                  RaisedButton(
+                    onPressed: () {
+                      _fireStoreAdd();
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              HomePage(
+                                user: user,
+                              )));
+                    },
+                    child: Text('Submit'),
+                    color: Colors.green,
+                  ),
+                ],
+              )
+            ],
+            ),
+          )
+      );
+    }
+
   }
+
 }

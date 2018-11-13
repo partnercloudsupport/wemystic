@@ -96,12 +96,8 @@ PODS:
     - GoogleUtilities/Reachability (~> 5.2)
     - Protobuf (~> 3.1)
   - Flutter (1.0.0)
-  - flutter_custom_tabs (0.0.1):
-    - Flutter
   - flutter_facebook_login (0.0.1):
     - FBSDKLoginKit (~> 4.29)
-    - Flutter
-  - flutter_picker (0.0.1):
     - Flutter
   - flutter_secure_storage (3.1.1):
     - Flutter
@@ -188,8 +184,6 @@ PODS:
     - Flutter
   - url_launcher (0.0.1):
     - Flutter
-  - video_player (0.0.1):
-    - Flutter
 
 DEPENDENCIES:
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
@@ -198,9 +192,7 @@ DEPENDENCIES:
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_messaging (from `.symlinks/plugins/firebase_messaging/ios`)
   - Flutter (from `.symlinks/flutter/ios`)
-  - flutter_custom_tabs (from `.symlinks/plugins/flutter_custom_tabs/ios`)
   - flutter_facebook_login (from `.symlinks/plugins/flutter_facebook_login/ios`)
-  - flutter_picker (from `.symlinks/plugins/flutter_picker/ios`)
   - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
   - flutter_webview_plugin (from `.symlinks/plugins/flutter_webview_plugin/ios`)
   - google_sign_in (from `.symlinks/plugins/google_sign_in/ios`)
@@ -208,7 +200,6 @@ DEPENDENCIES:
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
   - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
-  - video_player (from `.symlinks/plugins/video_player/ios`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -252,12 +243,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_messaging/ios"
   Flutter:
     :path: ".symlinks/flutter/ios"
-  flutter_custom_tabs:
-    :path: ".symlinks/plugins/flutter_custom_tabs/ios"
   flutter_facebook_login:
     :path: ".symlinks/plugins/flutter_facebook_login/ios"
-  flutter_picker:
-    :path: ".symlinks/plugins/flutter_picker/ios"
   flutter_secure_storage:
     :path: ".symlinks/plugins/flutter_secure_storage/ios"
   flutter_webview_plugin:
@@ -272,8 +259,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/shared_preferences/ios"
   url_launcher:
     :path: ".symlinks/plugins/url_launcher/ios"
-  video_player:
-    :path: ".symlinks/plugins/video_player/ios"
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
@@ -295,9 +280,7 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 8cd2c6cfe7b9ab65ce7e248f6da7f26f6775b9be
   FirebaseMessaging: f67b3719f520ee200da0e20ce577fe2bce0c01d0
   Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
-  flutter_custom_tabs: 8dcb85ffe874ee8fd8139bb3960743efeaf521ee
   flutter_facebook_login: e3d2f0a348889fe0f49c302bc044b8cc66c691be
-  flutter_picker: 3bc9b718472157e3f208d60d773c210a9075e192
   flutter_secure_storage: cbb73e37aa0c66689fe63799a9619ac66849b8fa
   flutter_webview_plugin: 116575b48572029304775b768e9f15ebfc316274
   google_sign_in: cbeb57b96679823d14df6b2240b629b983a42d79
@@ -318,7 +301,6 @@ SPEC CHECKSUMS:
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   shared_preferences: 5a1d487c427ee18fcd3ea1f2a131569481834b53
   url_launcher: 92b89c1029a0373879933c21642958c874539095
-  video_player: 906796a841943c8d370ac7c13b18039aa9b56498
 
 PODFILE CHECKSUM: 7765ea4305eaab0b3dfd384c7de11902aa3195fd
 

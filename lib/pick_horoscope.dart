@@ -218,78 +218,98 @@ class GridListDemoState extends State<GridListDemo> {
 
   @override
   Widget build(BuildContext context) {
-    final Orientation orientation = MediaQuery.of(context).orientation;
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Grid list'),
-      ),
-      body: Column(
-        children: <Widget>[
-          Expanded(
-            child: SafeArea(
-              top: false,
-              bottom: false,
-              child: GridView.count(
-                crossAxisCount: (orientation == Orientation.portrait) ? 3 : 4,
-                mainAxisSpacing: 4.0,
-                crossAxisSpacing: 4.0,
-                padding: const EdgeInsets.all(4.0),
-                childAspectRatio:
-                    (orientation == Orientation.portrait) ? 1.0 : 1.3,
-                children: photos.map<Widget>((Photo photo) {
-                  return Container(
-                      color: Color.fromRGBO(128, 112, 157, 1),
-                      child: GridDemoPhotoItem(
-                          photo: photo,
-                          onBannerTap: (Photo photo) {
-                            setState(() {
-                              photo.isFavorite = !photo.isFavorite;
-                            });
-                          }));
-                }).toList(),
+    if(_loadingInProgress){
+      return new Center(
+        child: new Image.network('https://assets.wemystic.com/wmcom/2018/04/header-logo-white-png.png'),
+      );
+    }else{
+      final Orientation orientation = MediaQuery.of(context).orientation;
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('Grid list'),
+        ),
+        body: Column(
+          children: <Widget>[
+            Expanded(
+              child: SafeArea(
+                top: false,
+                bottom: false,
+                child: GridView.count(
+                  crossAxisCount: (orientation == Orientation.portrait) ? 3 : 4,
+                  mainAxisSpacing: 4.0,
+                  crossAxisSpacing: 4.0,
+                  padding: const EdgeInsets.all(4.0),
+                  childAspectRatio:
+                  (orientation == Orientation.portrait) ? 1.0 : 1.3,
+                  children: photos.map<Widget>((Photo photo) {
+                    return Container(
+                        color: Color.fromRGBO(128, 112, 157, 1),
+                        child: GridDemoPhotoItem(
+                            photo: photo,
+                            onBannerTap: (Photo photo) {
+                              setState(() {
+                                photo.isFavorite = !photo.isFavorite;
+                              });
+                            }));
+                  }).toList(),
+                ),
               ),
             ),
-          ),
-          RaisedButton(
-            onPressed: () async {
-              FirebaseUser user = await FirebaseAuth.instance.currentUser();
-              final DocumentReference docRef = Firestore.instance
-                  .collection("profile")
-                  .document("${user.uid.toString()}");
+            RaisedButton(
+              onPressed: () async {
+                FirebaseUser user = await FirebaseAuth.instance.currentUser();
+                final DocumentReference docRef = Firestore.instance
+                    .collection("profile")
+                    .document("${user.uid.toString()}");
 
-              Map<String, bool> data = <String, bool>{
-                "pisces": photos[0].isFavorite,
-                "aquarius": photos[1].isFavorite,
-                "capricorn": photos[2].isFavorite,
-                "sagittarius": photos[3].isFavorite,
-                "scorpio": photos[4].isFavorite,
-                "libra": photos[5].isFavorite,
-                "virgo": photos[6].isFavorite,
-                "leo": photos[7].isFavorite,
-                "cancer": photos[8].isFavorite,
-                "gemini": photos[9].isFavorite,
-                "taurus": photos[10].isFavorite,
-                "aries": photos[11].isFavorite,
-              };
-              docRef.setData(data, merge: true).whenComplete(() {
-                print("Document added");
-              }).catchError((e) => print(e));
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => HomePage(
-                        user: user,
-                      )));
-            },
-            child: Text('Submit'),
-          )
-        ],
-      ),
-    );
+                Map<String, bool> data = <String, bool>{
+                  "pisces": photos[0].isFavorite,
+                  "aquarius": photos[1].isFavorite,
+                  "capricorn": photos[2].isFavorite,
+                  "sagittarius": photos[3].isFavorite,
+                  "scorpio": photos[4].isFavorite,
+                  "libra": photos[5].isFavorite,
+                  "virgo": photos[6].isFavorite,
+                  "leo": photos[7].isFavorite,
+                  "cancer": photos[8].isFavorite,
+                  "gemini": photos[9].isFavorite,
+                  "taurus": photos[10].isFavorite,
+                  "aries": photos[11].isFavorite,
+                };
+                docRef.setData(data, merge: true).whenComplete(() {
+                  print("Document added");
+                }).catchError((e) => print(e));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => HomePage(
+                      user: user,
+                    )));
+              },
+              child: Text('Submit'),
+            )
+          ],
+        ),
+      );
+    }
+
   }
-
+bool _loadingInProgress;
   @override
   void initState() {
     super.initState();
-    this.getWMNews();
     this._fireStoreFetch();
+    _loadingInProgress = true;
+    _loadData();
   }
+
+  Future _loadData() async {
+    await new Future.delayed(new Duration(seconds: 5));
+    _dataLoaded();
+  }
+
+  void _dataLoaded() {
+    setState(() {
+      _loadingInProgress = false;
+    });
+  }
+
 }

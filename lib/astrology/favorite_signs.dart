@@ -9,24 +9,21 @@ class FavoritesSigns extends StatefulWidget {
 }
 
 class _FavoriteSignsState extends State<FavoritesSigns> {
-
-
-  bool aquarius;
-  bool aries;
-  bool cancer;
-  bool capricorn;
-  bool gemini;
-  bool leo;
-  bool libra;
-  bool pisces;
-  bool scorpio;
-  bool taurus;
-  bool virgo;
-  bool sagittarius;
+  bool aquariusIsFav;
+  bool ariesIsFav;
+  bool cancerIsFav;
+  bool capricornIsFav;
+  bool geminiIsFav;
+  bool leoIsFav;
+  bool libraIsFav;
+  bool piscesIsFav;
+  bool scorpioIsFav;
+  bool taurusIsFav;
+  bool virgoIsFav;
+  bool sagittariusIsFav;
   List<String> favorites = new List();
   String selectedIcon;
-
-
+  String selectedIconName;
 
   _fireStoreFetch() async {
     FirebaseUser user = await FirebaseAuth.instance.currentUser();
@@ -36,63 +33,63 @@ class _FavoriteSignsState extends State<FavoritesSigns> {
     docRef.get().then((dataSnapshot) {
       if (dataSnapshot.exists) {
         setState(() {
-          aquarius = dataSnapshot.data['aquarius'];
-          aries = dataSnapshot.data['aries'];
-          cancer = dataSnapshot.data['cancer'];
-          capricorn = dataSnapshot.data['capricorn'];
-          gemini = dataSnapshot.data['gemini'];
-          leo = dataSnapshot.data['leo'];
-          libra = dataSnapshot.data['libra'];
-          pisces = dataSnapshot.data['pisces'];
-          sagittarius = dataSnapshot.data['sagittarius'];
-          scorpio = dataSnapshot.data['scorpio'];
-          taurus = dataSnapshot.data['taurus'];
-          virgo = dataSnapshot.data['virgo'];
-          if (aquarius == true) {
+          aquariusIsFav = dataSnapshot.data['aquarius'];
+          ariesIsFav = dataSnapshot.data['aries'];
+          cancerIsFav = dataSnapshot.data['cancer'];
+          capricornIsFav = dataSnapshot.data['capricorn'];
+          geminiIsFav = dataSnapshot.data['gemini'];
+          leoIsFav = dataSnapshot.data['leo'];
+          libraIsFav = dataSnapshot.data['libra'];
+          piscesIsFav = dataSnapshot.data['pisces'];
+          sagittariusIsFav = dataSnapshot.data['sagittarius'];
+          scorpioIsFav = dataSnapshot.data['scorpio'];
+          taurusIsFav = dataSnapshot.data['taurus'];
+          virgoIsFav = dataSnapshot.data['virgo'];
+          if (aquariusIsFav == true) {
             favorites.add(
                 'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-aquario.png');
           }
-          if (aries == true) {
+          if (ariesIsFav == true) {
             favorites.add(
                 'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-aries.png');
           }
-          if (cancer == true) {
+          if (cancerIsFav == true) {
             favorites.add(
                 'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-caranguejo.png');
           }
-          if (capricorn == true) {
+          if (capricornIsFav == true) {
             favorites.add(
                 'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-capricornio.png');
           }
-          if (gemini == true) {
+          if (geminiIsFav == true) {
             favorites.add(
                 'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-gemeos.png');
           }
-          if (leo == true) {
+          if (leoIsFav == true) {
             favorites.add(
                 'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-leao.png');
           }
-          if (libra == true) {
+          if (libraIsFav == true) {
             favorites.add(
                 'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-libra.png');
           }
-          if (pisces == true) {
+          if (piscesIsFav == true) {
             favorites.add(
                 'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-peixes.png');
           }
-          if (sagittarius == true) {
+          if (sagittariusIsFav == true) {
             favorites.add(
                 'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-sagitario.png');
           }
-          if (scorpio == true) {
+          if (scorpioIsFav == true) {
             favorites.add(
                 'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-escorpiao.png');
           }
-          if (taurus == true) {
+          if (taurusIsFav == true) {
             favorites.add(
                 'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-touro.png');
           }
-          if (virgo == true) {
+          if (virgoIsFav == true) {
             favorites.add(
                 'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-virgem.png');
           }
@@ -108,35 +105,102 @@ class _FavoriteSignsState extends State<FavoritesSigns> {
 
   @override
   Widget build(BuildContext context) {
-    if (selectedIcon == null){
-      return Column(
-          children: <Widget>[
-      Row(children: favorites.map((String src) => IconButton(
-        icon: Image.network(src),
-        onPressed: (){
-          setState(() {
-            return selectedIcon = src;
-          });
-        },
-      )).toList(),)
-    ]);
-    }else{
+    if (selectedIcon == null) {
+      return Column(children: <Widget>[
+        Row(
+          children: favorites
+              .map((String src) => IconButton(
+                    icon: Image.network(
+                      src,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        return selectedIcon = src;
+                      });
+                    },
+                  ))
+              .toList(),
+        )
+      ]);
+    } else {
       return Column(
         children: <Widget>[
-          Row(children: favorites.map((String src) => IconButton(
-            icon: Image.network(src),
-            onPressed: (){
-              setState(() {
-                selectedIcon = src;
-              });
-            },
-          )).toList(),),
+          Row(
+            children: favorites
+                .map((String src) => IconButton(
+                      icon: Image.network(
+                        src,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          selectedIcon = src;
+                        });
+                      },
+                    ))
+                .toList(),
+          ),
           Container(
-            child: Image.network(selectedIcon),
-          )
+              child: Column(children: <Widget>[
+            Row(
+              children: <Widget>[
+                Image.network(selectedIcon),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                selectedIcon ==
+                        'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-aquario.png'
+                    ? Text(selectedIconName = "Aquarius")
+                    : Container(),
+                selectedIcon ==
+                        'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-aries.png'
+                    ? Text(selectedIconName = "Aries")
+                    : Container(),
+                selectedIcon ==
+                        'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-caranguejo.png'
+                    ? Text(selectedIconName = "Cancer")
+                    : Container(),
+                selectedIcon ==
+                        'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-capricornio.png'
+                    ? Text(selectedIconName = "Capricorn")
+                    : Container(),
+                selectedIcon ==
+                        'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-gemeos.png'
+                    ? Text(selectedIconName = "Gemini")
+                    : Container(),
+                selectedIcon ==
+                        'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-leao.png'
+                    ? Text(selectedIconName = "Leo")
+                    : Container(),
+                selectedIcon ==
+                        'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-libra.png'
+                    ? Text(selectedIconName = "Libra")
+                    : Container(),
+                selectedIcon ==
+                        'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-peixes.png'
+                    ? Text(selectedIconName = "Pisces")
+                    : Container(),
+                selectedIcon ==
+                        'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-sagitario.png'
+                    ? Text(selectedIconName = "Sagittarius")
+                    : Container(),
+                selectedIcon ==
+                        'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-escorpiao.png'
+                    ? Text(selectedIconName = "Scorpio")
+                    : Container(),
+                selectedIcon ==
+                        'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-touro.png'
+                    ? Text(selectedIconName = "Taurus")
+                    : Container(),
+                selectedIcon ==
+                        'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-aries.png'
+                    ? Text(selectedIconName = "Aries")
+                    : Container(),
+              ],
+            ),
+          ])),
         ],
       );
     }
-
   }
 }
