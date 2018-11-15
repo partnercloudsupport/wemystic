@@ -219,9 +219,11 @@ class GridListDemoState extends State<GridListDemo> {
   @override
   Widget build(BuildContext context) {
     if(_loadingInProgress){
-      return new Center(
+      return new Container(
+        color: Color.fromRGBO(72, 67, 103, 1.0),
+        child: Center(
         child: new Image.network('https://assets.wemystic.com/wmcom/2018/04/header-logo-white-png.png'),
-      );
+      ));
     }else{
       final Orientation orientation = MediaQuery.of(context).orientation;
       return Scaffold(

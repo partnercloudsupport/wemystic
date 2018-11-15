@@ -17,7 +17,6 @@ class BornDate extends StatefulWidget {
 }
 
 class _BornDateState extends State<BornDate> {
-
   bool _loadingInProgress;
 
   FirebaseUser user;
@@ -30,26 +29,24 @@ class _BornDateState extends State<BornDate> {
   String myText;
 
   _fireStoreFetch() async {
-      FirebaseUser user = await FirebaseAuth.instance.currentUser();
-      final DocumentReference docRef = Firestore.instance
-          .collection("profile")
-          .document("${user.uid.toString()}");
-      docRef.get().then((dataSnapshot) {
-        if (dataSnapshot.exists) {
-          setState(() {
-            myText = dataSnapshot.data['birth_date'];
-            if (myText != null) {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) =>
-                      GridListDemo(
-                        user: user,
-                      )));
-            }
-          });
-        }
-      });
+    FirebaseUser user = await FirebaseAuth.instance.currentUser();
+    final DocumentReference docRef = Firestore.instance
+        .collection("profile")
+        .document("${user.uid.toString()}");
+    docRef.get().then((dataSnapshot) {
+      if (dataSnapshot.exists) {
+        setState(() {
+          myText = dataSnapshot.data['birth_date'];
+          if (myText != null) {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (BuildContext context) => GridListDemo(
+                      user: user,
+                    )));
+          }
+        });
+      }
+    });
   }
-
 
   @override
   void initState() {
@@ -71,7 +68,6 @@ class _BornDateState extends State<BornDate> {
   }
 
   Future<Null> _selectDate(BuildContext context) async {
-
     final DateTime picked = await showDatePicker(
         context: context,
         initialDate: _date,
@@ -249,93 +245,56 @@ class _BornDateState extends State<BornDate> {
     }).catchError((e) => print(e));
   }
 
-
-
   @override
   Widget build(BuildContext context) {
-    if (_loadingInProgress){
-      return new Center(
-        child: new Image.network('https://assets.wemystic.com/wmcom/2018/04/header-logo-white-png.png'),
-      );
-    }else{
+    if (_loadingInProgress) {
+      return new Container(
+        color: Color.fromRGBO(72, 67, 103, 1.0),
+          child: Center(
+        child: new Image.network(
+            'https://assets.wemystic.com/wmcom/2018/04/header-logo-white-png.png'),
+      ));
+    } else {
       return Scaffold(
           body: Container(
-            padding: EdgeInsets.fromLTRB(10.0, 40.0, 10.0, 0.0),
-            child: Column(children: <Widget>[
-              Container(
-                margin: const EdgeInsets.only(
-                    left: 24.0,
-                    right: 24.0,
-                    bottom: 24.0
-                ),
+        padding: EdgeInsets.fromLTRB(10.0, 40.0, 10.0, 0.0),
+        child: Column(
+          children: <Widget>[
+            Text(
+              'Date Selected: ${_date.toString()}',
+              style: TextStyle(
+                fontSize: 15.0,
               ),
-              const Divider(height: 1.0),
-              Container(
-                  padding: const EdgeInsets.symmetric(vertical: 16.0),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        Container(
-                            margin: const EdgeInsets.only(right: 8.0),
-                            child: FlatButton(
-                                onPressed: () {},
-                                child: const Text('CANCEL', style: TextStyle(
-                                    color: Colors.black54,
-                                    fontSize: 15.0,
-                                    fontWeight: FontWeight.w500
-                                ))
-                            )
-                        ),
-                        Container(
-                            margin: const EdgeInsets.only(right: 8.0),
-                            child: FlatButton(
-                                onPressed: () {},
-                                textTheme: ButtonTextTheme.accent,
-                                child: const Text('SAVE')
-                            )
-                        )
-                      ]
-                  )
-              ),
-              Text(
-                'Date Selected: ${_date.toString()}',
-                style: TextStyle(
-                  fontSize: 15.0,
-                ),
-              ),
-              Row(
-                children: <Widget>[
-                  RaisedButton(
-                    onPressed: () {
-                      _selectDate(context);
-                    },
-                    child: Text('Add Born Date'),
-                    color: Colors.red,
-                  ),
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  RaisedButton(
-                    onPressed: () {
-                      _fireStoreAdd();
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (BuildContext context) =>
-                              HomePage(
-                                user: user,
-                              )));
-                    },
-                    child: Text('Submit'),
-                    color: Colors.green,
-                  ),
-                ],
-              )
-            ],
             ),
-          )
-      );
+            Row(
+              children: <Widget>[
+                RaisedButton(
+                  onPressed: () {
+                    _selectDate(context);
+                  },
+                  child: Text('Add Born Date'),
+                  color: Colors.red,
+                ),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                RaisedButton(
+                  onPressed: () {
+                    _fireStoreAdd();
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => HomePage(
+                              user: user,
+                            )));
+                  },
+                  child: Text('Submit'),
+                  color: Colors.green,
+                ),
+              ],
+            )
+          ],
+        ),
+      ));
     }
-
   }
-
 }

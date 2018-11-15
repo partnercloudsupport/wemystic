@@ -125,64 +125,66 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                               onPressed: () {
                                 setState(() {
                                   selectedIcon = src;
-                                  if (src ==
+                                  if (selectedIcon ==
                                       'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-aquario.png') {
                                     selectedIconName = "Aquarius";
                                   }
 
-                                  if (src ==
+                                  if (selectedIcon ==
                                       'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-aries.png') {
                                     selectedIconName = "Aries";
                                   }
 
-                                  if (src ==
+                                  if (selectedIcon ==
                                       'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-caranguejo.png') {
                                     selectedIconName = "Cancer";
                                   }
 
-                                  if (src ==
+                                  if (selectedIcon ==
                                       'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-capricornio.png') {
                                     selectedIconName = "Capricorn";
                                   }
 
-                                  if (src ==
+                                  if (selectedIcon ==
                                       'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-gemeos.png') {
                                     selectedIconName = "Gemini";
                                   }
 
-                                  if (src ==
+                                  if (selectedIcon ==
                                       'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-leao.png') {
                                     selectedIconName = "Leo";
                                   }
 
-                                  if (src ==
+                                  if (selectedIcon ==
                                       'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-libra.png') {
                                     selectedIconName = "Libra";
                                   }
 
-                                  if (src ==
+                                  if (selectedIcon ==
                                       'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-peixes.png') {
                                     selectedIconName = "Pisces";
                                   }
 
-                                  if (src ==
+                                  if (selectedIcon ==
                                       'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-sagitario.png') {
                                     selectedIconName = "Sagittarius";
                                   }
-                                  if (src ==
+                                  if (selectedIcon ==
                                       'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-escorpiao.png') {
                                     selectedIconName = "Scorpio";
                                   }
 
-                                  if (src ==
+                                  if (selectedIcon ==
                                       'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-touro.png') {
                                     selectedIconName = "Taurus";
                                   }
 
-                                  if (src ==
+                                  if (selectedIcon ==
                                       'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-aries.png') {
                                     selectedIconName = "Aries";
                                   }
+
+                                  _activity = 'Today';
                                 });
                               },
                             ))
@@ -191,6 +193,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                   Container(
                       child: Column(children: <Widget>[
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         myText == "Aquarius"
                             ? Image.network(
@@ -206,7 +209,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                             : Container(),
                         myText == "Capricorn"
                             ? Image.network(
-                                'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-capricornio.png')
+                                'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-capricornio.png', )
                             : Container(),
                         myText == "Gemini"
                             ? Image.network(
@@ -234,7 +237,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                             : Container(),
                         myText == "Taurus"
                             ? Image.network(
-                                'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-touro.png')
+                                'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-touro.png',)
                             : Container(),
                         myText == "Aries"
                             ? Image.network(
@@ -243,6 +246,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                       ],
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(myText),
                       ],
@@ -306,11 +310,13 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                   Container(
                       child: Column(children: <Widget>[
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Image.network(selectedIcon),
                       ],
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         selectedIcon ==
                                 'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-aquario.png'
@@ -391,8 +397,8 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
               ),
               _activity == 'Today'
                   ? TodayHoroscope(
-                      value: selectedIconName,
-                    )
+                value: selectedIconName,
+              )
                   : WeekHoroscope(),
             ],
           ),
