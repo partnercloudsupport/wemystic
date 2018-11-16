@@ -10,15 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2bcb403-5a2e-4e5a-ae50-1656e56dcfb5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Podfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/astrology/astrology_horoscope.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/astrology/astrology_horoscope.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/we_mystic_news.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/we_mystic_news.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,8 +42,8 @@
       <file leaf-file-name="we_mystic_news.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/we_mystic_news.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="114" column="32" selection-start-line="114" selection-start-column="32" selection-end-line="114" selection-end-column="32" />
+            <state relative-caret-position="390">
+              <caret line="121" column="9" selection-start-line="121" selection-start-column="9" selection-end-line="121" selection-end-column="9" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -436,7 +433,14 @@
       <option name="project" value="LOCAL" />
       <updated>1542282065671</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="novo servidor de feed2json today horoscope;&#10;adicionar os signos faboritos na db">
+      <created>1542364979684</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1542364979684</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView">
@@ -450,7 +454,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1463" height="977" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49893504" weight="0.32935324" />
@@ -459,11 +462,11 @@
       <window_info id="Image Layers" order="2" />
       <window_info id="Build Variants" order="2" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.51864886" side_tool="true" weight="0.3318182" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.51442647" side_tool="true" visible="true" weight="0.3272727" />
       <window_info anchor="bottom" id="Dart Analysis" order="7" sideWeight="0.48136315" weight="0.3272727" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48101267" visible="true" weight="0.3318182" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48064744" weight="0.3318182" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49733758" weight="0.3283582" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49216712" weight="0.3272727" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.48557353" visible="true" weight="0.3272727" />
       <window_info anchor="right" id="Flutter Outline" order="3" weight="0.23056443" />
       <window_info anchor="bottom" id="Logcat" order="7" weight="0.32935324" />
       <window_info id="Captures" order="2" weight="0.24973376" />
@@ -910,8 +913,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/we_mystic_news.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="114" column="32" selection-start-line="114" selection-start-column="32" selection-end-line="114" selection-end-column="32" />
+        <state relative-caret-position="390">
+          <caret line="121" column="9" selection-start-line="121" selection-start-column="9" selection-end-line="121" selection-end-column="9" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
