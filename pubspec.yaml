@@ -25,6 +25,7 @@ dependencies:
   carousel_pro: ^0.0.1
   firebase_messaging:
   url_launcher: ^4.0.1
+  share: ^0.5.3
 dependency_overrides:
   http: any
   flutter_cache_manager: ^0.1.1

@@ -128,58 +128,37 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                                   if (selectedIcon ==
                                       'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-aquario.png') {
                                     selectedIconName = "Aquarius";
-                                  }
-
-                                  if (selectedIcon ==
+                                  }else if (selectedIcon ==
                                       'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-aries.png') {
                                     selectedIconName = "Aries";
-                                  }
-
-                                  if (selectedIcon ==
+                                  } else if (selectedIcon ==
                                       'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-caranguejo.png') {
                                     selectedIconName = "Cancer";
-                                  }
-
-                                  if (selectedIcon ==
+                                  }else if (selectedIcon ==
                                       'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-capricornio.png') {
                                     selectedIconName = "Capricorn";
-                                  }
-
-                                  if (selectedIcon ==
+                                  }else if (selectedIcon ==
                                       'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-gemeos.png') {
                                     selectedIconName = "Gemini";
-                                  }
-
-                                  if (selectedIcon ==
+                                  }else if (selectedIcon ==
                                       'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-leao.png') {
                                     selectedIconName = "Leo";
-                                  }
-
-                                  if (selectedIcon ==
+                                  }else if (selectedIcon ==
                                       'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-libra.png') {
                                     selectedIconName = "Libra";
-                                  }
-
-                                  if (selectedIcon ==
+                                  }else if (selectedIcon ==
                                       'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-peixes.png') {
                                     selectedIconName = "Pisces";
-                                  }
-
-                                  if (selectedIcon ==
+                                  }else if (selectedIcon ==
                                       'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-sagitario.png') {
                                     selectedIconName = "Sagittarius";
-                                  }
-                                  if (selectedIcon ==
+                                  }else if (selectedIcon ==
                                       'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-escorpiao.png') {
                                     selectedIconName = "Scorpio";
-                                  }
-
-                                  if (selectedIcon ==
+                                  }else if (selectedIcon ==
                                       'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-touro.png') {
                                     selectedIconName = "Taurus";
-                                  }
-
-                                  if (selectedIcon ==
+                                  }else if (selectedIcon ==
                                       'https://mkt.wemystic.com/design/icons/zodiac/circle/wm-icon-zodiac-aries.png') {
                                     selectedIconName = "Aries";
                                   }

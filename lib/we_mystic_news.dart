@@ -5,10 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-
-
-
-
+import 'package:share/share.dart';
 
 class WeMysticNewsData extends StatefulWidget {
   @override
@@ -111,7 +108,9 @@ class WeMysticNewsState extends State<WeMysticNewsData> {
                                     new FlatButton(
                                       child: const Text('SHARE'),
                                       textColor: Colors.amber.shade500,
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Share.share(data[index]["link"],);
+                                      },
                                     ),
                                     new FlatButton(
                                       child: const Text('EXPLORE'),
