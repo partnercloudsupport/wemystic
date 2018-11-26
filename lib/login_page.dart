@@ -154,8 +154,12 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
-                    FlatButton(
+                    Padding(
+                      padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                    child: FlatButton(
                         color: Color.fromRGBO(44, 80, 149, 1.0),
+                        child: Padding(
+                          padding: EdgeInsets.only(top:10.0, bottom:10.0),
                         child: Row(
                           children: <Widget>[
                             Padding(
@@ -165,7 +169,7 @@ class _LoginPageState extends State<LoginPage> {
                                 )),
                             Text('LOGIN WITH FACEBOOK'),
                           ],
-                        ),
+                        )),
                         shape: new RoundedRectangleBorder(
                             borderRadius:
                             new BorderRadius.circular(30.0)),
@@ -192,10 +196,12 @@ class _LoginPageState extends State<LoginPage> {
                           }).catchError((e) {
                             print(e);
                           });
-                        }),
+                        })),
 
                     FlatButton(
                         color: Color.fromRGBO(209, 54, 44, 1.0),
+                        child: Padding(
+                          padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
                         child: Row(
                           children: <Widget>[
                             Padding(
@@ -205,7 +211,7 @@ class _LoginPageState extends State<LoginPage> {
                                 )),
                             Text('LOGIN WITH GOOGLE',),
                           ],
-                        ),
+                        )),
                         shape: new RoundedRectangleBorder(
                             borderRadius:
                             new BorderRadius.circular(30.0)),
