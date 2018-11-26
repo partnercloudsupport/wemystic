@@ -63,28 +63,28 @@ class _HomePageState extends State<HomePage> {
             },
             items: <BottomNavigationBarItem>[
               new BottomNavigationBarItem(
-                icon: Image(image: AssetImage('images/i_home.png'), color: Colors.white,),
+                icon: Image(image: AssetImage('images/icon_nav_home.png'), color: Colors.white,),
                 title: new Text('Home'),
-                backgroundColor:  Color.fromRGBO(55, 51,	81, 1.0),
+                backgroundColor:  Color.fromRGBO(36,	153,	220, 1.0),
               ),
               new BottomNavigationBarItem(
-                icon: Image(image: AssetImage('images/i_perfil.png'),
+                icon: Image(image: AssetImage('images/icon_nav_account.png'),
                 color: Colors.white,),
                 title: new Text('Profile'),
-                backgroundColor:  Color.fromRGBO(55, 51,	81, 1.0),
+                backgroundColor:  Color.fromRGBO(36,	153,	220, 1.0),
               ),
               new BottomNavigationBarItem(
-                icon: Image(image: AssetImage('images/i_astrologia.png'), color: Colors.white,),
+                icon: Image(image: AssetImage('images/icon_nav_astrology.png'), color: Colors.white,),
                 title: new Text('Astrology'),
-                backgroundColor:  Color.fromRGBO(55, 51,	81, 1.0),
+                backgroundColor:  Color.fromRGBO(36,	153,	220, 1.0),
               ),
               new BottomNavigationBarItem(
-                icon: Image(image: AssetImage('images/i_mapa_astral.png'),
+                icon: Image(image: AssetImage('images/icon_nav_birthchart.png'),
                 color: Colors.white,),
                 title: new Text('Birth Chart', style: TextStyle(
                   color: Colors.white
                 ),),
-                backgroundColor:  Color.fromRGBO(55, 51,	81, 1.0)
+                backgroundColor:  Color.fromRGBO(36,	153,	220, 1.0)
               ),
             ]));
   }

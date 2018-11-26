@@ -45,14 +45,45 @@ flutter:
   uses-material-design: true
 
   assets:
-    - images/launch_page_logo.png
-    - images/launch_page_slogan.png
-    - images/loading_page_icon.png
-    - images/loading_page_icons.gif
-    - images/i_astrologia.png
-    - images/i_home.png
-    - images/i_mapa_astral.png
-    - images/i_perfil.png
+    - images/icon_check.png
+    - images/icon_facebook.png
+    - images/icon_googleplus.png
+    - images/icon_horoscope_health.png
+    - images/icon_horoscope_love.png
+    - images/icon_horoscope_money.png
+    - images/icon_nav_account.png
+    - images/icon_nav_astrology.png
+    - images/icon_nav_birthchart.png
+    - images/icon_nav_home.png
+    - images/loading_icon.png
+    - images/logo_color.png
+    - images/logo_white.png
+    - images/slogan_color.png
+    - images/slogan_white.png
+    - images/zodiac/icon_zodiac_color_aquarius.png
+    - images/zodiac/icon_zodiac_color_aries.png
+    - images/zodiac/icon_zodiac_color_cancer.png
+    - images/zodiac/icon_zodiac_color_capricorn.png
+    - images/zodiac/icon_zodiac_color_gemini.png
+    - images/zodiac/icon_zodiac_color_leo.png
+    - images/zodiac/icon_zodiac_color_libra.png
+    - images/zodiac/icon_zodiac_color_pisces.png
+    - images/zodiac/icon_zodiac_color_sagittarius.png
+    - images/zodiac/icon_zodiac_color_scorpio.png
+    - images/zodiac/icon_zodiac_color_taurus.png
+    - images/zodiac/icon_zodiac_color_virgo.png
+    - images/zodiac/icon_zodiac_white_aquarius.png
+    - images/zodiac/icon_zodiac_white_aries.png
+    - images/zodiac/icon_zodiac_white_cancer.png
+    - images/zodiac/icon_zodiac_white_capricorn.png
+    - images/zodiac/icon_zodiac_white_gemini.png
+    - images/zodiac/icon_zodiac_white_leo.png
+    - images/zodiac/icon_zodiac_white_libra.png
+    - images/zodiac/icon_zodiac_white_pisces.png
+    - images/zodiac/icon_zodiac_white_sagittarius.png
+    - images/zodiac/icon_zodiac_white_scorpio.png
+    - images/zodiac/icon_zodiac_white_taurus.png
+    - images/zodiac/icon_zodiac_white_virgo.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
 

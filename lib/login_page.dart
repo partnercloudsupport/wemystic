@@ -116,91 +116,122 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.fromLTRB(0.0, 300.0, 0.0, 0.0) ,
+                padding: EdgeInsets.fromLTRB(0.0, 200.0, 0.0, 0.0),
                 child: Image(
-              image: AssetImage('images/launch_page_logo.png'),
-            )),
-            Image(
-              image: AssetImage('images/launch_page_slogan.png'),
-            )
+                  image: AssetImage('images/logo_white.png'),
+                )),
+            Padding(
+                padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 10.0),
+                child: Image(
+                  image: AssetImage('images/slogan_white.png'),
+                ))
           ],
         ),
       );
     } else {
-      return new Center(
-        child: Container(
-          color: Color.fromRGBO(72, 67, 103, 1.0),
-          child: Column(
-            children: <Widget>[
-              Padding(padding: EdgeInsets.only(top: 40.0)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Padding(padding: EdgeInsets.only(top: 40.0)),
-                  Container(
-                      child: new Image.network(
-                          'https://assets.wemystic.com/wmcom/2018/04/header-logo-white-png.png')),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 120.0),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Column(
-                    children: <Widget>[
-                      Center(
-                        child: RaisedButton(
-                            child: Text('Login with Facebook'),
-                            onPressed: () {
-                              _facebookLogin.logInWithReadPermissions(
-                                  ['email', 'public_profile']).then((result) {
-                                // ignore: missing_enum_constant_in_switch
-                                switch (result.status) {
-                                  case FacebookLoginStatus.loggedIn:
-                                    FirebaseAuth.instance
-                                        .signInWithFacebook(
-                                            accessToken:
-                                                result.accessToken.token)
-                                        .then((user) {
-                                      print('Signed in as ${user.displayName}');
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (BuildContext context) =>
-                                                  BornDate(
-                                                    user: user,
-                                                  )));
-                                    }).catchError((e) {
-                                      print(e);
-                                    });
-                                }
-                              }).catchError((e) {
-                                print(e);
-                              });
-                            }),
+      return new Container(
+        color: Color.fromRGBO(237, 239, 240, 1.0),
+        child: Padding(
+          padding: EdgeInsets.only(left: 70.0, right: 70.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Padding(padding: EdgeInsets.only(top: 40.0)),
+                    Image(
+                      image: AssetImage('images/logo_color.png'),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(5.0),
+                      child: Text(
+                        'Sign in with one of your accounts.',
+                        style: TextStyle(
+                          color: Color.fromRGBO(102, 103, 104, 1.0),
+                          fontSize: 14.0,
+                        ),
                       ),
-                      Center(
-                          child: RaisedButton(
-                              child: Text('LoginGoogle'),
-                              onPressed: () {
-                                _googleSignIn.signIn();
-                                signInWithGoogle().then((user) {
+                    ),
+                    FlatButton(
+                        color: Color.fromRGBO(44, 80, 149, 1.0),
+                        child: Row(
+                          children: <Widget>[
+                            Padding(
+                                padding: EdgeInsets.only(left: 5.0, right: 10.0),
+                                child: Image(
+                                  image: AssetImage('images/icon_facebook.png'),
+                                )),
+                            Text('LOGIN WITH FACEBOOK'),
+                          ],
+                        ),
+                        shape: new RoundedRectangleBorder(
+                            borderRadius:
+                            new BorderRadius.circular(30.0)),
+                        textColor: Colors.white,
+                        onPressed: () {
+                          _facebookLogin.logInWithReadPermissions(
+                              ['email', 'public_profile']).then((result) {
+                            // ignore: missing_enum_constant_in_switch
+                            switch (result.status) {
+                              case FacebookLoginStatus.loggedIn:
+                                FirebaseAuth.instance
+                                    .signInWithFacebook(
+                                    accessToken: result.accessToken.token)
+                                    .then((user) {
                                   print('Signed in as ${user.displayName}');
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (BuildContext context) =>
-                                          BornDate(
-                                            user: user,
-                                          )));
+                                      builder: (BuildContext context) => BornDate(
+                                        user: user,
+                                      )));
+                                }).catchError((e) {
+                                  print(e);
                                 });
-                              }))
-                    ],
-                  ),
-                ],
-              )
-            ],
-          ),
-        ),
+                            }
+                          }).catchError((e) {
+                            print(e);
+                          });
+                        }),
+
+                    FlatButton(
+                        color: Color.fromRGBO(209, 54, 44, 1.0),
+                        child: Row(
+                          children: <Widget>[
+                            Padding(
+                                padding: EdgeInsets.only(left: 5.0, right: 10.0),
+                                child: Image(
+                                  image: AssetImage('images/icon_googleplus.png'),
+                                )),
+                            Text('LOGIN WITH GOOGLE',),
+                          ],
+                        ),
+                        shape: new RoundedRectangleBorder(
+                            borderRadius:
+                            new BorderRadius.circular(30.0)),
+                        textColor: Colors.white,
+                        onPressed: () {
+                          _googleSignIn.signIn();
+                          signInWithGoogle().then((user) {
+                            print('Signed in as ${user.displayName}');
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (BuildContext context) => BornDate(
+                                  user: user,
+                                )));
+                          });
+                        }),
+                  ],
+                )
+              ],
+            ),
+
+                Image(
+                  image: AssetImage('images/slogan_color.png'),
+                )
+            
+          ],
+        )
+      ),
       );
     }
   }
