@@ -224,7 +224,6 @@ class _LoginPageState extends State<LoginPage> {
                 )
               ],
             ),
-
                 Image(
                   image: AssetImage('images/slogan_color.png'),
                 )
