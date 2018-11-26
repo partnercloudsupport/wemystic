@@ -44,6 +44,15 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+  assets:
+    - images/launch_page_logo.png
+    - images/launch_page_slogan.png
+    - images/loading_page_icon.png
+    - images/loading_page_icons.gif
+    - images/i_astrologia.png
+    - images/i_home.png
+    - images/i_mapa_astral.png
+    - images/i_perfil.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
 

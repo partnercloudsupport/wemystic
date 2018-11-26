@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:wemystic/astrology/astrology_birth_chart.dart';
+import 'package:wemystic/astrology/astrology_chinese_horoscope.dart';
 import 'package:wemystic/astrology/astrology_header.dart';
 import 'package:wemystic/we_mystic_news.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -25,6 +27,8 @@ class _HomePageState extends State<HomePage> {
   int currentTab = 0;
   WeMysticNewsData home;
   AstrologyTabs astrology;
+  AstrologyChineseHoroscope chineseHoroscope;
+  AstrologyBirthChart birthChart;
   List<Widget> pages;
   Widget currentPage;
 
@@ -32,8 +36,10 @@ class _HomePageState extends State<HomePage> {
   void initState(){
     astrology = AstrologyTabs();
     home = WeMysticNewsData();
+    chineseHoroscope = AstrologyChineseHoroscope();
+    birthChart = AstrologyBirthChart();
 
-    pages = [home, astrology];
+    pages = [home, astrology, chineseHoroscope, birthChart];
 
     currentPage = home;
 
@@ -47,6 +53,7 @@ class _HomePageState extends State<HomePage> {
 
         bottomNavigationBar: new BottomNavigationBar(
             currentIndex: currentTab,
+            iconSize: 12.0,
             onTap: (int index){
               setState(() {
                 currentTab = index;
@@ -56,13 +63,28 @@ class _HomePageState extends State<HomePage> {
             },
             items: <BottomNavigationBarItem>[
               new BottomNavigationBarItem(
-                icon: const Icon(Icons.home,),
+                icon: Image(image: AssetImage('images/i_home.png'), color: Colors.white,),
                 title: new Text('Home'),
+                backgroundColor:  Color.fromRGBO(55, 51,	81, 1.0),
               ),
-
               new BottomNavigationBarItem(
-                icon: const Icon(Icons.home),
+                icon: Image(image: AssetImage('images/i_perfil.png'),
+                color: Colors.white,),
+                title: new Text('Profile'),
+                backgroundColor:  Color.fromRGBO(55, 51,	81, 1.0),
+              ),
+              new BottomNavigationBarItem(
+                icon: Image(image: AssetImage('images/i_astrologia.png'), color: Colors.white,),
                 title: new Text('Astrology'),
+                backgroundColor:  Color.fromRGBO(55, 51,	81, 1.0),
+              ),
+              new BottomNavigationBarItem(
+                icon: Image(image: AssetImage('images/i_mapa_astral.png'),
+                color: Colors.white,),
+                title: new Text('Birth Chart', style: TextStyle(
+                  color: Colors.white
+                ),),
+                backgroundColor:  Color.fromRGBO(55, 51,	81, 1.0)
               ),
             ]));
   }

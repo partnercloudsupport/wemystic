@@ -228,7 +228,9 @@ class GridListDemoState extends State<GridListDemo> {
       final Orientation orientation = MediaQuery.of(context).orientation;
       return Scaffold(
         appBar: AppBar(
+          backgroundColor: Color.fromRGBO(72, 67, 103, 1.0),
           title: const Text('Grid list'),
+          automaticallyImplyLeading: false,
         ),
         body: Column(
           children: <Widget>[
