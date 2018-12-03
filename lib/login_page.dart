@@ -2,13 +2,12 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:wemystic/bottom_nav_bar.dart';
 import 'package:wemystic/date_picker.dart';
 import 'package:wemystic/pick_horoscope.dart';
-import 'package:wemystic/we_mystic_news.dart';
+
 
 class LoginPage extends StatefulWidget {
   @override

@@ -16,16 +16,18 @@ dependencies:
   package_info: any
   cloud_firestore: any
   firebase_analytics:
-  flutter_date_picker: "^0.1.2"
   intl: any
   flutter_webview_plugin:
   flutter_html_view: any
-  flutter_cupertino_date_picker: ^0.0.6
   cached_network_image: ^0.4.0
   carousel_pro: ^0.0.1
   firebase_messaging:
   url_launcher: ^4.0.1
   share: ^0.5.3
+  flutter_date_picker: ^0.1.2
+  datetime_picker_formfield: ^0.1.7
+  flutter_cupertino_date_picker: ^0.2.0
+
 dependency_overrides:
   http: any
   flutter_cache_manager: ^0.1.1
@@ -84,6 +86,19 @@ flutter:
     - images/zodiac/icon_zodiac_white_scorpio.png
     - images/zodiac/icon_zodiac_white_taurus.png
     - images/zodiac/icon_zodiac_white_virgo.png
+    - images/i_zodiac/i_aquarius.png
+    - images/i_zodiac/i_aries.png
+    - images/i_zodiac/i_cancer.png
+    - images/i_zodiac/i_capricorn.png
+    - images/i_zodiac/i_gemini.png
+    - images/i_zodiac/i_leo.png
+    - images/i_zodiac/i_libra.png
+    - images/i_zodiac/i_pisces.png
+    - images/i_zodiac/i_sagittarius.png
+    - images/i_zodiac/i_scorpio.png
+    - images/i_zodiac/i_taurus.png
+    - images/i_zodiac/i_virgo.png
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
 

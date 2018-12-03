@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:wemystic/astrology/astrology_birth_chart.dart';
 import 'package:wemystic/astrology/astrology_chinese_horoscope.dart';
 import 'package:wemystic/astrology/astrology_header.dart';
+import 'package:wemystic/astrology/astrology_horoscope.dart';
 import 'package:wemystic/we_mystic_news.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
@@ -26,7 +27,7 @@ class _HomePageState extends State<HomePage> {
 
   int currentTab = 0;
   WeMysticNewsData home;
-  AstrologyTabs astrology;
+  AstrologyHoroscope astrology;
   AstrologyChineseHoroscope chineseHoroscope;
   AstrologyBirthChart birthChart;
   List<Widget> pages;
@@ -34,12 +35,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState(){
-    astrology = AstrologyTabs();
+    astrology = AstrologyHoroscope()  ;
     home = WeMysticNewsData();
     chineseHoroscope = AstrologyChineseHoroscope();
     birthChart = AstrologyBirthChart();
 
-    pages = [home, astrology, chineseHoroscope, birthChart];
+    pages = [home, chineseHoroscope, astrology, birthChart];
 
     currentPage = home;
 
