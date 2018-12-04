@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wemystic/date_picker.dart';
+import 'package:wemystic/login_page.dart';
 
 
 void main() => runApp(new MyApp());
@@ -17,7 +18,7 @@ class _MyAppState extends State<MyApp> {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new BornDate(),
+      home: new LoginPage(),
     );
   }
 }
