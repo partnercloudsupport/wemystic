@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:share/share.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:wemystic/new_detail.dart';
 
 
@@ -13,7 +15,7 @@ class AstrologyBirthChart extends StatefulWidget {
 
 class _AstrologyBirthChartState extends State<AstrologyBirthChart> {
   final String url =
-      "https://api.rss2json.com/v1/api.json?rss_url=https://www.wemystic.com/birth-chart/feed";
+      "https://api.rss2json.com/v1/api.json?rss_url=https://www.wemystic.com/feed-birth-chart";
   List data;
 
   Future<String> getBCNews() async {
@@ -31,78 +33,117 @@ class _AstrologyBirthChartState extends State<AstrologyBirthChart> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: RefreshIndicator(
-          child: ListView.builder(
-            itemCount: data == null ? 0 : data.length,
-            itemBuilder: (BuildContext context, int index) {
-              return new Container(
-                padding: EdgeInsets.fromLTRB(1.0, 1.0, 1.0, 15.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    new Card(
-                      child: new Column(children: <Widget>[
-                        new Image.network(
-                          data[index]["enclosure"]["link"],
-                        ),
-                        new Padding(
-                          padding: EdgeInsets.all(5.0),
-                          child: new Text(
-                            data[index]["title"],
-                            maxLines: 3,
-                            style: TextStyle(
-                              //fontFamily: 'Dosis-ExtraBold',
-                              fontSize: 18.0,
-                              color: Color.fromRGBO(127, 108, 157, 1.0),
-                            ),
-                          ),
-                        ),
-                        new Padding(
-                          padding: EdgeInsets.fromLTRB(5.0, 0.0, 5.0, 5.0),
-                          child: new Text(data[index]["description"],
-                              textAlign: TextAlign.justify,
-                              style: TextStyle(
-                                //  fontFamily: 'Roboto-Light',
-                                fontSize: 14.0,
-                                color: Colors.black,
-                              )),
-                        ),
-                        new ButtonTheme.bar(
-                          child: new ButtonBar(
-                            alignment: MainAxisAlignment.start,
-                            children: <Widget>[
-                              new FlatButton(
-                                child: const Text('SHARE'),
-                                textColor: Colors.amber.shade500,
-                                onPressed: () {},
-                              ),
-                              new FlatButton(
-                                child: const Text('EXPLORE'),
-                                textColor: Colors.amber.shade500,
-                                onPressed: () {
-                                  var route = new MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        new NewDetail(
-                                            value: data[index]["content"]
-                                                .toString(),
-                                            thumbnail: data[index]["thumbnail"]
-                                                .toString()),
-                                  );
-                                  Navigator.of(context).push(route);
-                                },
-                              ),
-                            ],
-                          ),
-                        ),
-                      ]),
-                    )
-                  ],
-                ),
-              );
-            },
+        appBar: AppBar(
+          title: Text("WeMystic News"),
+          backgroundColor: Color.fromRGBO(56, 107, 169, 1.0),
+          elevation: 0.0,
+          automaticallyImplyLeading: false,
+        ),
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              // 10% of the width, so there are ten blinds.
+              colors: [
+                const Color.fromRGBO(56, 107, 169, 1.0),
+                const Color.fromRGBO(111, 108, 160, 1.0)
+              ],
+              // whitish to gray
+              tileMode:
+              TileMode.repeated, // repeats the gradient over the canvas
+            ),
           ),
-          onRefresh: getBCNews),
-    );
+          child: RefreshIndicator(
+            child: ListView.builder(
+              itemCount: data == null ? 0 : data.length,
+              itemBuilder: (BuildContext context, int index) {
+                return new Container(
+                  padding: EdgeInsets.fromLTRB(15.0, 5.0, 15.0, 5.0),
+                  child: Column(
+                    children: <Widget>[
+                      Column(
+                        children: <Widget>[
+                          new Card(
+                            child: new Column(children: <Widget>[
+                              new Image.network(
+                                data[index]["enclosure"]["link"],
+                              ),
+                              new Padding(
+                                padding: EdgeInsets.all(15.0),
+                                child: new Text(
+                                  data[index]["title"],
+                                  maxLines: 3,
+                                  style: TextStyle(
+                                    //fontFamily: 'Dosis-ExtraBold',
+                                    fontSize: 18.0,
+                                    color: Color.fromRGBO(127, 108, 157, 1.0),
+                                  ),
+                                ),
+                              ),
+                              new Padding(
+                                padding:
+                                EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 15.0),
+                                child: new Text(data[index]["description"],
+                                    textAlign: TextAlign.justify,
+                                    style: TextStyle(
+                                      //  fontFamily: 'Roboto-Light',
+                                      fontSize: 14.0,
+                                      color: Colors.black,
+
+                                    ), maxLines: 3,),
+                              ),
+                              Padding(
+                                padding:
+                                EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 0.0),
+                                child: Divider(),
+                              ),
+                              new ButtonTheme.bar(
+                                child: new ButtonBar(
+                                  alignment: MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    new FlatButton(
+                                      child: Icon(
+                                        Icons.share,
+                                        color: Colors.white,
+                                      ),
+                                      color: Color.fromRGBO(68, 153, 213, 1.0),
+                                      shape: CircleBorder(),
+                                      onPressed: () {
+                                        Share.share(
+                                          data[index]["link"],
+                                        );
+                                      },
+                                    ),
+                                    FlatButton(
+                                      color: Color.fromRGBO(161, 108, 164, 1.0),
+                                      child: const Text('Read Article'),
+                                      shape: new RoundedRectangleBorder(
+                                          borderRadius:
+                                          new BorderRadius.circular(30.0)),
+                                      textColor: Colors.white,
+                                      onPressed: () {
+                                        launch(data[index]["link"],
+                                            forceWebView: false);
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ]),
+                            margin: const EdgeInsets.all(10.0),
+                          )
+                        ],
+                      )
+                    ],
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                  ),
+                );
+              },
+            ),
+            onRefresh: getBCNews,
+          ),
+        ));
   }
 
   @override

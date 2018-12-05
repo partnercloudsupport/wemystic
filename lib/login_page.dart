@@ -8,7 +8,6 @@ import 'package:wemystic/bottom_nav_bar.dart';
 import 'package:wemystic/date_picker.dart';
 import 'package:wemystic/pick_horoscope.dart';
 
-
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -77,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
     // Listen for our auth event (on reload or start)
     // Go to our /todos page once logged in
     // Give the navigation animations, etc, some time to finish
-    new Future.delayed(new Duration(seconds: 80))
+    new Future.delayed(new Duration(seconds: 2))
         .then((_) => signInWithGoogle());
     _loadingInProgress = true;
     _loadData();
@@ -115,12 +114,12 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Padding(
-                padding: EdgeInsets.fromLTRB(0.0, 200.0, 0.0, 0.0),
+                padding: EdgeInsets.fromLTRB(0.0, 250.0, 0.0, 0.0),
                 child: Image(
                   image: AssetImage('images/logo_white.png'),
                 )),
             Padding(
-                padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 10.0),
+                padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 40.0),
                 child: Image(
                   image: AssetImage('images/slogan_white.png'),
                 ))
@@ -129,113 +128,125 @@ class _LoginPageState extends State<LoginPage> {
       );
     } else {
       return new Container(
+
         color: Color.fromRGBO(237, 239, 240, 1.0),
         child: Padding(
-          padding: EdgeInsets.only(left: 70.0, right: 70.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Row(
+            padding: EdgeInsets.only(left: 70.0, right: 70.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Column(
+                Row(
                   children: <Widget>[
-                    Padding(padding: EdgeInsets.only(top: 40.0)),
-                    Image(
-                      image: AssetImage('images/logo_color.png'),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(5.0),
-                      child: Text(
-                        'Sign in with one of your accounts.',
-                        style: TextStyle(
-                          color: Color.fromRGBO(102, 103, 104, 1.0),
-                          fontSize: 14.0,
+                    Column(
+                      children: <Widget>[
+                        Padding(padding: EdgeInsets.only(top: 200.0)),
+                        Image(
+                          image: AssetImage('images/logo_color.png'),
                         ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
-                    child: FlatButton(
-                        color: Color.fromRGBO(44, 80, 149, 1.0),
-                        child: Padding(
-                          padding: EdgeInsets.only(top:10.0, bottom:10.0),
-                        child: Row(
-                          children: <Widget>[
-                            Padding(
-                                padding: EdgeInsets.only(left: 5.0, right: 10.0),
-                                child: Image(
-                                  image: AssetImage('images/icon_facebook.png'),
+                        Padding(
+                          padding: EdgeInsets.all(5.0),
+                          child: Text(
+                            'Sign in with one of your accounts.',
+                            style: TextStyle(
+                              color: Color.fromRGBO(102, 103, 104, 1.0),
+                              fontSize: 14.0,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                            padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                            child: FlatButton(
+                                color: Color.fromRGBO(44, 80, 149, 1.0),
+                                child: Padding(
+                                    padding: EdgeInsets.only(
+                                        top: 15.0, bottom: 15.0),
+                                    child: Row(
+                                      children: <Widget>[
+                                        Padding(
+                                            padding: EdgeInsets.only(
+                                                left: 5.0, right: 10.0),
+                                            child: Image(
+                                              image: AssetImage(
+                                                  'images/icon_facebook.png'),
+                                            )),
+                                        Text('LOGIN WITH FACEBOOK'),
+                                      ],
+                                    )),
+                                shape: new RoundedRectangleBorder(
+                                    borderRadius:
+                                        new BorderRadius.circular(30.0)),
+                                textColor: Colors.white,
+                                onPressed: () {
+                                  _facebookLogin.logInWithReadPermissions([
+                                    'email',
+                                    'public_profile'
+                                  ]).then((result) {
+                                    // ignore: missing_enum_constant_in_switch
+                                    switch (result.status) {
+                                      case FacebookLoginStatus.loggedIn:
+                                        FirebaseAuth.instance
+                                            .signInWithFacebook(
+                                                accessToken:
+                                                    result.accessToken.token)
+                                            .then((user) {
+                                          print(
+                                              'Signed in as ${user.displayName}');
+                                          Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                  builder:
+                                                      (BuildContext context) =>
+                                                          BornDate(
+                                                            user: user,
+                                                          )));
+                                        }).catchError((e) {
+                                          print(e);
+                                        });
+                                    }
+                                  }).catchError((e) {
+                                    print(e);
+                                  });
+                                })),
+                        FlatButton(
+                            color: Color.fromRGBO(209, 54, 44, 1.0),
+                            child: Padding(
+                                padding:
+                                    EdgeInsets.only(top: 15.0, bottom: 15.0),
+                                child: Row(
+                                  children: <Widget>[
+                                    Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 5.0, right: 10.0),
+                                        child: Image(
+                                          image: AssetImage(
+                                              'images/icon_googleplus.png'),
+                                        )),
+                                    Text(
+                                      'LOGIN WITH GOOGLE',
+                                    ),
+                                  ],
                                 )),
-                            Text('LOGIN WITH FACEBOOK'),
-                          ],
-                        )),
-                        shape: new RoundedRectangleBorder(
-                            borderRadius:
-                            new BorderRadius.circular(30.0)),
-                        textColor: Colors.white,
-                        onPressed: () {
-                          _facebookLogin.logInWithReadPermissions(
-                              ['email', 'public_profile']).then((result) {
-                            // ignore: missing_enum_constant_in_switch
-                            switch (result.status) {
-                              case FacebookLoginStatus.loggedIn:
-                                FirebaseAuth.instance
-                                    .signInWithFacebook(
-                                    accessToken: result.accessToken.token)
-                                    .then((user) {
-                                  print('Signed in as ${user.displayName}');
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (BuildContext context) => BornDate(
-                                        user: user,
-                                      )));
-                                }).catchError((e) {
-                                  print(e);
-                                });
-                            }
-                          }).catchError((e) {
-                            print(e);
-                          });
-                        })),
-
-                    FlatButton(
-                        color: Color.fromRGBO(209, 54, 44, 1.0),
-                        child: Padding(
-                          padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
-                        child: Row(
-                          children: <Widget>[
-                            Padding(
-                                padding: EdgeInsets.only(left: 5.0, right: 10.0),
-                                child: Image(
-                                  image: AssetImage('images/icon_googleplus.png'),
-                                )),
-                            Text('LOGIN WITH GOOGLE',),
-                          ],
-                        )),
-                        shape: new RoundedRectangleBorder(
-                            borderRadius:
-                            new BorderRadius.circular(30.0)),
-                        textColor: Colors.white,
-                        onPressed: () {
-                          _googleSignIn.signIn();
-                          signInWithGoogle().then((user) {
-                            print('Signed in as ${user.displayName}');
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (BuildContext context) => BornDate(
-                                  user: user,
-                                )));
-                          });
-                        }),
+                            shape: new RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(30.0)),
+                            textColor: Colors.white,
+                            onPressed: () {
+                              _googleSignIn.signIn();
+                              signInWithGoogle().then((user) {
+                                print('Signed in as ${user.displayName}');
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (BuildContext context) => BornDate(
+                                          user: user,
+                                        )));
+                              });
+                            }),
+                      ],
+                    )
                   ],
-                )
-              ],
-            ),
-                Image(
+                ),
+                Padding(padding: EdgeInsets.only(bottom: 30.0),child: Image(
                   image: AssetImage('images/slogan_color.png'),
-                )
-            
-          ],
-        )
-      ),
+                )),
+              ],
+            )),
       );
     }
   }

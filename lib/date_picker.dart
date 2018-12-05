@@ -71,8 +71,8 @@ class _BornDateState extends State<BornDate> {
           if (myText != null) {
             Navigator.of(context).push(MaterialPageRoute(
                 builder: (BuildContext context) => GridListDemo(
-                  user: user,
-                )));
+                      user: user,
+                    )));
           }
         });
       }
@@ -91,12 +91,8 @@ class _BornDateState extends State<BornDate> {
       initialMonth: _month,
       initialDate: _date,
       confirm: Text(
-        'custom ok',
+        'Confirm',
         style: TextStyle(color: Colors.red),
-      ),
-      cancel: Text(
-        'custom cancel',
-        style: TextStyle(color: Colors.cyan),
       ),
       locale: _lang,
       dateFormat: _format,
@@ -121,8 +117,8 @@ class _BornDateState extends State<BornDate> {
       _datetime = '$date-$month-$year';
     });
   }
-  _fireStoreAdd() async {
 
+  _fireStoreAdd() async {
     if (_month == 12) {
       if (_date < 22)
         zodiacSign = "Sagittarius";
@@ -287,73 +283,106 @@ class _BornDateState extends State<BornDate> {
     }).catchError((e) => print(e));
   }
 
-
   @override
   Widget build(BuildContext context) {
     if (_loadingInProgress) {
       return new Container(
-          color: Color.fromRGBO(72, 67, 103, 1.0),
-          child: Center(
-            child: new Image.network(
-                'https://assets.wemystic.com/wmcom/2018/04/header-logo-white-png.png'),
-          ));
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            // 10% of the width, so there are ten blinds.
+            colors: [
+              const Color.fromRGBO(56, 107, 169, 1.0),
+              const Color.fromRGBO(111, 108, 160, 1.0)
+            ],
+            // whitish to gray
+            tileMode: TileMode.repeated, // repeats the gradient over the canvas
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Padding(
+                padding: EdgeInsets.fromLTRB(0.0, 200.0, 0.0, 0.0),
+                child: Image(
+                  image: AssetImage('images/logo_white.png'),
+                )),
+            Padding(
+                padding: EdgeInsets.fromLTRB(0.0, 0.0, 30.0, 10.0),
+                child: Image(
+                  image: AssetImage('images/slogan_white.png'),
+                ))
+          ],
+        ),
+      );
     } else {
       return new Container(
         color: Color.fromRGBO(237, 239, 240, 1.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Padding(padding: EdgeInsets.only(top: 100.0)),
-            Image(
-              image: AssetImage('images/logo_color.png'),
-            ),
-            Padding(
-              padding: EdgeInsets.all(5.0),
-              child: Text(
-                'Pick your birth date',
-                style: TextStyle(
-                  color: Color.fromRGBO(102, 103, 104, 1.0),
-                  fontSize: 14.0,
+            Column(children: <Widget>[
+              Padding(padding: EdgeInsets.only(top: 200.0)),
+              Image(
+                image: AssetImage('images/logo_color.png'),
+              ),
+              Padding(
+                padding: EdgeInsets.all(5.0),
+                child: Text(
+                  'Pick your birth date',
+                  style: TextStyle(
+                    color: Color.fromRGBO(102, 103, 104, 1.0),
+                    fontSize: 14.0,
+                  ),
                 ),
               ),
-            ),
-            FlatButton(
-              padding: EdgeInsets.only(left: 12.0),
-              child: _datetime == ''
-                  ? Text('DD/MM/YYYY')
-                  : Text(
-                '$_datetime',
-                style: Theme
-                    .of(context)
-                    .textTheme
-                    .title,
-              ),
-              onPressed: () {
-                _showDatePicker();
-              },
-            ),
-            Padding(
-              child: FlatButton(
+              FlatButton(
+                padding: EdgeInsets.only(left: 12.0),
+                child: _datetime == ''
+                    ? Text('DD / MM / YYYY', style: TextStyle(
+                  fontSize: 20.0,
+                  color: Color.fromRGBO(159,	160,	162	, 1.0)
+                ),)
+                    : Text(
+                        '$_datetime',
+                        style: Theme.of(context).textTheme.title,
+                      ),
                 onPressed: () {
-                  _fireStoreAdd();
+                  _showDatePicker();
                 },
-                color: Color.fromRGBO(170, 103, 167, 1.0),
-                child: Padding(
-                    padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
-                    child: Padding(
-                      child: Text('SUBMIT', style:
-                      TextStyle(
-                          fontSize: 20.0
-                      ),),
-
-                      padding: EdgeInsets.only(left: 40.0, right: 40.0),)
+              ),
+              Padding(
+                child: FlatButton(
+                  onPressed: () {
+                    _fireStoreAdd();
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => GridListDemo(
+                              user: user,
+                            )));
+                  },
+                  color: Color.fromRGBO(170, 103, 167, 1.0),
+                  child: Padding(
+                      padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                      child: Padding(
+                        child: Text(
+                          'SUBMIT',
+                          style: TextStyle(fontSize: 20.0),
+                        ),
+                        padding: EdgeInsets.only(left: 40.0, right: 40.0),
+                      )),
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(30.0)),
+                  textColor: Colors.white,
                 ),
-                shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(30.0)),
-                textColor: Colors.white,
-              ), padding: EdgeInsets.only(bottom: 50.0),),
-            Padding(padding: EdgeInsets.only(bottom: 10.0),
-                child: Image(image: AssetImage('images/slogan_color.png'),))
-
+                padding: EdgeInsets.only(bottom: 50.0),
+              )
+            ]),
+            Padding(
+                padding: EdgeInsets.only(bottom: 30.0),
+                child: Image(
+                  image: AssetImage('images/slogan_color.png'),
+                ))
           ],
         ),
       );

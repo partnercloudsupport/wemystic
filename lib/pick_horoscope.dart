@@ -193,7 +193,7 @@ class GridListDemoState extends State<GridListDemo> {
                   image: AssetImage('images/logo_white.png'),
                 )),
             Padding(
-                padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 10.0),
+                padding: EdgeInsets.fromLTRB(0.0, 0.0, 30.0, 10.0),
                 child: Image(
                   image: AssetImage('images/slogan_white.png'),
                 ))

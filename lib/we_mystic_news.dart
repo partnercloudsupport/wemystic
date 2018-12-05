@@ -107,7 +107,7 @@ class WeMysticNewsState extends State<WeMysticNewsData> {
                                       //  fontFamily: 'Roboto-Light',
                                       fontSize: 14.0,
                                       color: Colors.black,
-                                    )),
+                                    ),maxLines: 3,),
                               ),
                               Padding(
                                 padding:

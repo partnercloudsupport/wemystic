@@ -60,6 +60,7 @@ flutter:
     - images/loading_icon.png
     - images/logo_color.png
     - images/logo_white.png
+    - images/logo_white_2x.png
     - images/slogan_color.png
     - images/slogan_white.png
     - images/loading_page_icons.gif

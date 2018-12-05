@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:wemystic/astrology/astrology_birth_chart.dart';
+import 'package:wemystic/bottom_nav_bar.dart';
 
 class AstrologyHoroscope extends StatefulWidget {
   @override
@@ -8,6 +10,10 @@ class AstrologyHoroscope extends StatefulWidget {
 }
 
 class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
+  Color notPressedButtonTextColor = Color.fromRGBO(187, 188, 189, 1.0);
+  Color notPressedButtonColor;
+  Color pressedButtonColor = Color.fromRGBO(170, 103, 167, 1.0);
+  Color pressedButtonTextColor = Colors.white;
   bool _loadingInProgress;
   bool aquariusIsFav;
   bool ariesIsFav;
@@ -108,29 +114,15 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
             tileMode: TileMode.repeated, // repeats the gradient over the canvas
           ),
         ),
-        child: Container(alignment: Alignment(0.0, 0.0),
-        child: Image(image: AssetImage('images/loading_page_icons.gif')),),
+        child: Container(
+          alignment: Alignment(0.0, 0.0),
+          child: Image(image: AssetImage('images/loading_page_icons.gif')),
+        ),
       );
     } else if (selectedIcon == null) {
       return Scaffold(
           appBar: AppBar(
-            actions: <Widget>[
-              FlatButton(
-                  onPressed: null,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: <Widget>[
-                      Text(
-                        'HOROSCOPE CHINO',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      Icon(
-                        Icons.chevron_right,
-                        color: Colors.white,
-                      )
-                    ],
-                  ))
-            ],
+            title: Text('Horoscope'),
             backgroundColor: Color.fromRGBO(56, 107, 169, 1.0),
             elevation: 0.0,
             automaticallyImplyLeading: false,
@@ -215,6 +207,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                         myText.toUpperCase(),
                         style: TextStyle(
                           color: Colors.white,
+                          fontSize: 15.0,
                         ),
                       ),
                       padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
@@ -223,7 +216,9 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: favorites
-                            .map((String src) => IconButton(
+                            .map((String src) => Container(
+                                    child: IconButton(
+                                  iconSize: 44.0,
                                   icon: Image(
                                       image: AssetImage(
                                     src,
@@ -255,7 +250,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                                           'images/zodiac/icon_zodiac_white_gemini.png') {
                                         selectedIconName = "Gemini";
                                         selectedIconImage =
-                                            'images/i_zodiac/i_geminis.png';
+                                            'images/i_zodiac/i_gemini.png';
                                       } else if (selectedIcon ==
                                           'images/zodiac/icon_zodiac_white_leo.png') {
                                         selectedIconName = "Leo";
@@ -294,34 +289,75 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                                       }
                                     });
                                   },
-                                ))
+                                )))
                             .toList(),
                       ),
                       padding: EdgeInsets.only(bottom: 10.0),
                     ),
                   ],
-                ))
+                )),
+            Padding(
+              padding: EdgeInsets.only(left: 30.0, right: 30.0),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    FlatButton(
+                      onPressed: () {
+                        setState(() {
+                          notPressedButtonTextColor =
+                              Color.fromRGBO(187, 188, 189, 1.0);
+                          notPressedButtonColor = null;
+                          pressedButtonColor =
+                              Color.fromRGBO(170, 103, 167, 1.0);
+                          pressedButtonTextColor = Colors.white;
+                        });
+                      },
+                      color: pressedButtonColor,
+                      child: Padding(
+                          padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                          child: Padding(
+                            child: Text(
+                              'TODAY',
+                              style: TextStyle(fontSize: 13.0),
+                            ),
+                            padding: EdgeInsets.only(left: 40.0, right: 40.0),
+                          )),
+                      shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0)),
+                      textColor: pressedButtonTextColor,
+                    ),
+                    FlatButton(
+                      onPressed: () {
+                        setState(() {
+                          pressedButtonColor = null;
+                          pressedButtonTextColor =
+                              Color.fromRGBO(187, 188, 189, 1.0);
+                          notPressedButtonTextColor = Colors.white;
+                          notPressedButtonColor =
+                              Color.fromRGBO(170, 103, 167, 1.0);
+                        });
+                      },
+                      color: notPressedButtonColor,
+                      child: Padding(
+                          padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                          child: Padding(
+                            child: Text(
+                              'WEEK',
+                              style: TextStyle(fontSize: 13.0),
+                            ),
+                            padding: EdgeInsets.only(left: 40.0, right: 40.0),
+                          )),
+                      shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0)),
+                      textColor: notPressedButtonTextColor,
+                    )
+                  ]),
+            )
           ]));
     } else {
       return Scaffold(
         appBar: AppBar(
-          actions: <Widget>[
-            FlatButton(
-                onPressed: null,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: <Widget>[
-                    Text(
-                      'HOROSCOPE CHINO',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    Icon(
-                      Icons.chevron_right,
-                      color: Colors.white,
-                    )
-                  ],
-                ))
-          ],
+          title: Text('Horoscope'),
           backgroundColor: Color.fromRGBO(56, 107, 169, 1.0),
           elevation: 0.0,
           automaticallyImplyLeading: false,
@@ -347,8 +383,18 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Image(image: AssetImage(selectedIconImage)),
-                  Text(selectedIconName),
+                  Padding(
+                    child: Text(
+                      selectedIconName.toUpperCase(),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15.0,
+                      ),
+                    ),
+                    padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                  ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: favorites
                         .map((String src) => IconButton(
                               icon: Image(
@@ -382,7 +428,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                                       'images/zodiac/icon_zodiac_white_gemini.png') {
                                     selectedIconName = "Gemini";
                                     selectedIconImage =
-                                        'images/i_zodiac/i_geminis.png';
+                                        'images/i_zodiac/i_gemini.png';
                                   } else if (selectedIcon ==
                                       'images/zodiac/icon_zodiac_white_leo.png') {
                                     selectedIconName = "Leo";
@@ -426,6 +472,63 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                   ),
                 ],
               ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 30.0, right: 30.0),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    FlatButton(
+                      onPressed: () {
+                        setState(() {
+                          notPressedButtonTextColor =
+                              Color.fromRGBO(187, 188, 189, 1.0);
+                          notPressedButtonColor = null;
+                          pressedButtonColor =
+                              Color.fromRGBO(170, 103, 167, 1.0);
+                          pressedButtonTextColor = Colors.white;
+                        });
+                      },
+                      color: pressedButtonColor,
+                      child: Padding(
+                          padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                          child: Padding(
+                            child: Text(
+                              'TODAY',
+                              style: TextStyle(fontSize: 13.0),
+                            ),
+                            padding: EdgeInsets.only(left: 40.0, right: 40.0),
+                          )),
+                      shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0)),
+                      textColor: pressedButtonTextColor,
+                    ),
+                    FlatButton(
+                      onPressed: () {
+                        setState(() {
+                          pressedButtonColor = null;
+                          pressedButtonTextColor =
+                              Color.fromRGBO(187, 188, 189, 1.0);
+                          notPressedButtonTextColor = Colors.white;
+                          notPressedButtonColor =
+                              Color.fromRGBO(170, 103, 167, 1.0);
+                        });
+                      },
+                      color: notPressedButtonColor,
+                      child: Padding(
+                          padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                          child: Padding(
+                            child: Text(
+                              'WEEK',
+                              style: TextStyle(fontSize: 13.0),
+                            ),
+                            padding: EdgeInsets.only(left: 40.0, right: 40.0),
+                          )),
+                      shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0)),
+                      textColor: notPressedButtonTextColor,
+                    )
+                  ]),
             )
           ],
         ),
