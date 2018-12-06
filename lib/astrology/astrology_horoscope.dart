@@ -1,8 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:wemystic/astrology/astrology_birth_chart.dart';
-import 'package:wemystic/bottom_nav_bar.dart';
+
 
 class AstrologyHoroscope extends StatefulWidget {
   @override
