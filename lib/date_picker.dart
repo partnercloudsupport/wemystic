@@ -334,6 +334,7 @@ class _BornDateState extends State<BornDate> {
                   style: TextStyle(
                     color: Color.fromRGBO(102, 103, 104, 1.0),
                     fontSize: 14.0,
+                    fontFamily: 'Roboto'
                   ),
                 ),
               ),
@@ -342,7 +343,8 @@ class _BornDateState extends State<BornDate> {
                 child: _datetime == ''
                     ? Text('DD / MM / YYYY', style: TextStyle(
                   fontSize: 20.0,
-                  color: Color.fromRGBO(159,	160,	162	, 1.0)
+                  color: Color.fromRGBO(159,	160,	162	, 1.0),
+                  fontFamily: 'Dosis'
                 ),)
                     : Text(
                         '$_datetime',
@@ -367,7 +369,7 @@ class _BornDateState extends State<BornDate> {
                       child: Padding(
                         child: Text(
                           'SUBMIT',
-                          style: TextStyle(fontSize: 20.0),
+                          style: TextStyle(fontSize: 20.0, fontFamily: 'Dosis'),
                         ),
                         padding: EdgeInsets.only(left: 40.0, right: 40.0),
                       )),

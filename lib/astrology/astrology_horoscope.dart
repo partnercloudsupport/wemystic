@@ -121,7 +121,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
     } else if (selectedIcon == null) {
       return Scaffold(
           appBar: AppBar(
-            title: Text('Horoscope'),
+            title: Text('Horoscope',style: TextStyle(fontFamily: 'Dosis', fontSize: 20.0),),
             backgroundColor: Color.fromRGBO(56, 107, 169, 1.0),
             elevation: 0.0,
             automaticallyImplyLeading: false,
@@ -205,8 +205,9 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                       child: Text(
                         myText.toUpperCase(),
                         style: TextStyle(
+                          fontFamily: 'Dosis',
                           color: Colors.white,
-                          fontSize: 15.0,
+                          fontSize: 20.0,
                         ),
                       ),
                       padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
@@ -317,7 +318,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                           child: Padding(
                             child: Text(
                               'TODAY',
-                              style: TextStyle(fontSize: 13.0),
+                              style: TextStyle(fontSize: 13.0, fontFamily: 'Dosis'),
                             ),
                             padding: EdgeInsets.only(left: 40.0, right: 40.0),
                           )),
@@ -342,7 +343,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                           child: Padding(
                             child: Text(
                               'WEEK',
-                              style: TextStyle(fontSize: 13.0),
+                              style: TextStyle(fontSize: 13.0, fontFamily: 'Dosis'),
                             ),
                             padding: EdgeInsets.only(left: 40.0, right: 40.0),
                           )),
@@ -356,7 +357,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
     } else {
       return Scaffold(
         appBar: AppBar(
-          title: Text('Horoscope'),
+          title: Text('HOROSCOPE', style: TextStyle(fontFamily: 'Dosis', fontSize: 20.0),),
           backgroundColor: Color.fromRGBO(56, 107, 169, 1.0),
           elevation: 0.0,
           automaticallyImplyLeading: false,
@@ -387,7 +388,8 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                       selectedIconName.toUpperCase(),
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 15.0,
+                        fontSize: 20.0,
+                        fontFamily: 'Dosis',
                       ),
                     ),
                     padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
@@ -399,7 +401,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                               icon: Image(
                                   image: AssetImage(
                                 src,
-                              )),
+                              )), iconSize: 44.0,
                               onPressed: () {
                                 setState(() {
                                   selectedIcon = src;
@@ -494,7 +496,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                           child: Padding(
                             child: Text(
                               'TODAY',
-                              style: TextStyle(fontSize: 13.0),
+                              style: TextStyle(fontSize: 13.0, fontFamily: 'Dosis',),
                             ),
                             padding: EdgeInsets.only(left: 40.0, right: 40.0),
                           )),
@@ -519,7 +521,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                           child: Padding(
                             child: Text(
                               'WEEK',
-                              style: TextStyle(fontSize: 13.0),
+                              style: TextStyle(fontSize: 13.0, fontFamily: 'Dosis',),
                             ),
                             padding: EdgeInsets.only(left: 40.0, right: 40.0),
                           )),

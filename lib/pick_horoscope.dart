@@ -206,7 +206,7 @@ class GridListDemoState extends State<GridListDemo> {
           color: Color.fromRGBO(237, 239, 240, 1.0),
           child: Column(
             children: <Widget>[
-              Padding(padding: EdgeInsets.only(top: 100.0)),
+              Padding(padding: EdgeInsets.only(top: 70.0)),
               Image(
                 image: AssetImage('images/logo_color.png'),
               ),
@@ -217,6 +217,7 @@ class GridListDemoState extends State<GridListDemo> {
                   style: TextStyle(
                     color: Color.fromRGBO(102, 103, 104, 1.0),
                     fontSize: 14.0,
+                    fontFamily: 'Roboto'
                   ),
                 ),
               ),
@@ -279,7 +280,8 @@ class GridListDemoState extends State<GridListDemo> {
                   child:Padding(
                     child: Text('SUBMIT', style:
                       TextStyle(
-                        fontSize: 20.0
+                        fontSize: 20.0,
+                        fontFamily: 'Dosis'
                       ),),
 
                     padding: EdgeInsets.only(left: 40.0, right: 40.0),)
@@ -288,7 +290,7 @@ class GridListDemoState extends State<GridListDemo> {
                     borderRadius: new BorderRadius.circular(30.0)),
                 textColor: Colors.white,
               ), padding: EdgeInsets.only(bottom: 50.0),),
-              Padding(padding: EdgeInsets.only(bottom: 10.0),
+              Padding(padding: EdgeInsets.only(bottom: 30.0),
               child: Image(image: AssetImage('images/slogan_color.png'),))
             ],
           ));

@@ -119,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
                   image: AssetImage('images/logo_white.png'),
                 )),
             Padding(
-                padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 40.0),
+                padding: EdgeInsets.fromLTRB(0.0, 0.0, 30.0, 40.0),
                 child: Image(
                   image: AssetImage('images/slogan_white.png'),
                 ))
@@ -150,6 +150,7 @@ class _LoginPageState extends State<LoginPage> {
                             style: TextStyle(
                               color: Color.fromRGBO(102, 103, 104, 1.0),
                               fontSize: 14.0,
+                              fontFamily: 'Roboto'
                             ),
                           ),
                         ),
@@ -169,7 +170,7 @@ class _LoginPageState extends State<LoginPage> {
                                               image: AssetImage(
                                                   'images/icon_facebook.png'),
                                             )),
-                                        Text('LOGIN WITH FACEBOOK'),
+                                        Text('LOGIN WITH FACEBOOK', style: TextStyle(fontFamily: 'Dosis'),),
                                       ],
                                     )),
                                 shape: new RoundedRectangleBorder(
@@ -221,7 +222,7 @@ class _LoginPageState extends State<LoginPage> {
                                               'images/icon_googleplus.png'),
                                         )),
                                     Text(
-                                      'LOGIN WITH GOOGLE',
+                                      'LOGIN WITH GOOGLE', style: TextStyle(fontFamily: 'Dosis'),
                                     ),
                                   ],
                                 )),

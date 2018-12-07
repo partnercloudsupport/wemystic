@@ -34,7 +34,7 @@ class _AstrologyBirthChartState extends State<AstrologyBirthChart> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("WeMystic News"),
+          title: Text("Birth Chart", style: TextStyle(fontFamily: 'Dosis')),
           backgroundColor: Color.fromRGBO(56, 107, 169, 1.0),
           elevation: 0.0,
           automaticallyImplyLeading: false,
@@ -72,10 +72,10 @@ class _AstrologyBirthChartState extends State<AstrologyBirthChart> {
                               new Padding(
                                 padding: EdgeInsets.all(15.0),
                                 child: new Text(
-                                  data[index]["title"],
+                                  data[index]["title"].toString().toUpperCase(),
                                   maxLines: 3,
                                   style: TextStyle(
-                                    //fontFamily: 'Dosis-ExtraBold',
+                                    fontFamily: 'Dosis',
                                     fontSize: 18.0,
                                     color: Color.fromRGBO(127, 108, 157, 1.0),
                                   ),
@@ -87,7 +87,7 @@ class _AstrologyBirthChartState extends State<AstrologyBirthChart> {
                                 child: new Text(data[index]["description"],
                                     textAlign: TextAlign.justify,
                                     style: TextStyle(
-                                      //  fontFamily: 'Roboto-Light',
+                                      fontFamily: 'Roboto',
                                       fontSize: 14.0,
                                       color: Colors.black,
 
@@ -117,7 +117,7 @@ class _AstrologyBirthChartState extends State<AstrologyBirthChart> {
                                     ),
                                     FlatButton(
                                       color: Color.fromRGBO(161, 108, 164, 1.0),
-                                      child: const Text('Read Article'),
+                                      child: const Text('READ ARTICLE', style: TextStyle(fontFamily: 'Dosis')),
                                       shape: new RoundedRectangleBorder(
                                           borderRadius:
                                           new BorderRadius.circular(30.0)),

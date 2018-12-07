@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wemystic/date_picker.dart';
 import 'package:wemystic/login_page.dart';
+import 'package:wemystic/pick_horoscope.dart';
 
 
 void main() => runApp(new MyApp());
