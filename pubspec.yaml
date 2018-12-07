@@ -76,18 +76,18 @@ flutter:
     - images/zodiac/icon_zodiac_color_scorpio.png
     - images/zodiac/icon_zodiac_color_taurus.png
     - images/zodiac/icon_zodiac_color_virgo.png
-    - images/zodiac/icon_zodiac_white_aquarius.png
-    - images/zodiac/icon_zodiac_white_aries.png
-    - images/zodiac/icon_zodiac_white_cancer.png
-    - images/zodiac/icon_zodiac_white_capricorn.png
-    - images/zodiac/icon_zodiac_white_gemini.png
-    - images/zodiac/icon_zodiac_white_leo.png
-    - images/zodiac/icon_zodiac_white_libra.png
-    - images/zodiac/icon_zodiac_white_pisces.png
+    - images/zodiac/i_aquarius.png
+    - images/zodiac/i_aries.png
+    - images/zodiac/i_cancer.png
+    - images/zodiac/i_capricorn.png
+    - images/zodiac/i_gemini.png
+    - images/zodiac/i_leo.png
+    - images/zodiac/i_libra.png
+    - images/zodiac/i_pisces.png
     - images/zodiac/icon_zodiac_white_sagittarius.png
-    - images/zodiac/icon_zodiac_white_scorpio.png
-    - images/zodiac/icon_zodiac_white_taurus.png
-    - images/zodiac/icon_zodiac_white_virgo.png
+    - images/zodiac/i_scorpio.png
+    - images/zodiac/i_taurus.png
+    - images/zodiac/i_virgo.png
     - images/i_zodiac/i_aquarius.png
     - images/i_zodiac/i_aries.png
     - images/i_zodiac/i_cancer.png
