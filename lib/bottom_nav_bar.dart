@@ -2,9 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wemystic/astrology/astrology_birth_chart.dart';
-import 'package:wemystic/astrology/astrology_chinese_horoscope.dart';
-import 'package:wemystic/astrology/astrology_header.dart';
 import 'package:wemystic/astrology/astrology_horoscope.dart';
+import 'package:wemystic/profile.dart';
 import 'package:wemystic/we_mystic_news.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
@@ -25,8 +24,8 @@ class _HomePageState extends State<HomePage> {
   int currentTab = 0;
   WeMysticNewsData home;
   AstrologyHoroscope astrology;
-  AstrologyChineseHoroscope chineseHoroscope;
   AstrologyBirthChart birthChart;
+  Profile profile;
   List<Widget> pages;
   Widget currentPage;
 
@@ -34,10 +33,10 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     astrology = AstrologyHoroscope();
     home = WeMysticNewsData();
-    chineseHoroscope = AstrologyChineseHoroscope();
     birthChart = AstrologyBirthChart();
+    profile = Profile();
 
-    pages = [home, chineseHoroscope, astrology, birthChart];
+    pages = [home, profile, astrology, birthChart];
 
     currentPage = home;
 
@@ -62,6 +61,7 @@ class _HomePageState extends State<HomePage> {
                 icon: Image(
                   image: AssetImage('images/icon_nav_home.png'),
                   color: Colors.white,
+                  width: 50.0,
                 ),
                 title: new Text('Home', style: TextStyle(fontFamily: 'Dosis')),
                 backgroundColor: Color.fromRGBO(36, 153, 220, 1.0),
@@ -70,6 +70,7 @@ class _HomePageState extends State<HomePage> {
                 icon: Image(
                   image: AssetImage('images/icon_nav_account.png'),
                   color: Colors.white,
+                  width: 50.0,
                 ),
                 title:
                     new Text('Profile', style: TextStyle(fontFamily: 'Dosis')),
@@ -79,6 +80,7 @@ class _HomePageState extends State<HomePage> {
                 icon: Image(
                   image: AssetImage('images/icon_nav_astrology.png'),
                   color: Colors.white,
+                  width: 50.0,
                 ),
                 title: new Text('Astrology',
                     style: TextStyle(fontFamily: 'Dosis')),
@@ -88,6 +90,7 @@ class _HomePageState extends State<HomePage> {
                   icon: Image(
                     image: AssetImage('images/icon_nav_birthchart.png'),
                     color: Colors.white,
+                    width: 50.0,
                   ),
                   title: new Text(
                     'Birth Chart',

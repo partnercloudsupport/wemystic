@@ -41,22 +41,22 @@ class GridDemoPhotoItem extends StatelessWidget {
         child: Hero(
             tag: photo.tag,
             child: photo.isFavorite
-                ? Image(
+                ? Padding( padding: EdgeInsets.all(10.0),child: Image(
                     image: AssetImage(
                       photo.assetUrl,
                     ),
-                  )
-                : Opacity(
+                  ))
+                :  Padding(padding: EdgeInsets.all(10.0), child: Opacity(
                     opacity: 0.5,
                     child: Image(
                       image: AssetImage(
                         photo.assetUrl,
                       ),
-                    ))));
+                    )))));
 
     final Image icon = photo.isFavorite
         ? Image(
-            image: AssetImage('images/icon_check.png'),
+            image: AssetImage('images/icon_check.png'),width: 20.0,
           )
         : null;
     return GridTile(
@@ -185,17 +185,18 @@ class GridListDemoState extends State<GridListDemo> {
           ),
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Padding(
                 padding: EdgeInsets.fromLTRB(0.0, 200.0, 0.0, 0.0),
                 child: Image(
-                  image: AssetImage('images/logo_white.png'),
+                  image: AssetImage('images/logo_white.png'), width: 170.0,
                 )),
             Padding(
-                padding: EdgeInsets.fromLTRB(0.0, 0.0, 30.0, 10.0),
+                padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 50.0),
                 child: Image(
-                  image: AssetImage('images/slogan_white.png'),
+                  image: AssetImage('images/slogan_white.png'), width: 170.0,
                 ))
           ],
         ),
@@ -208,7 +209,7 @@ class GridListDemoState extends State<GridListDemo> {
             children: <Widget>[
               Padding(padding: EdgeInsets.only(top: 70.0)),
               Image(
-                image: AssetImage('images/logo_color.png'),
+                image: AssetImage('images/logo_color.png'), width: 170.0,
               ),
               Padding(
                 padding: EdgeInsets.all(5.0),
@@ -291,7 +292,7 @@ class GridListDemoState extends State<GridListDemo> {
                 textColor: Colors.white,
               ), padding: EdgeInsets.only(bottom: 50.0),),
               Padding(padding: EdgeInsets.only(bottom: 30.0),
-              child: Image(image: AssetImage('images/slogan_color.png'),))
+              child: Image(image: AssetImage('images/slogan_color.png'), width: 170.0,))
             ],
           ));
     }

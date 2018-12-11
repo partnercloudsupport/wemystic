@@ -29,8 +29,8 @@ dependencies:
   flutter_cupertino_date_picker: any
 
 dependency_overrides:
-  http: any
-  flutter_cache_manager: ^0.1.1
+  http: ^0.12.0
+  flutter_cache_manager: ^0.2.0+1
 
 
 dev_dependencies:
@@ -60,10 +60,8 @@ flutter:
     - images/loading_icon.png
     - images/logo_color.png
     - images/logo_white.png
-    - images/logo_white_2x.png
     - images/slogan_color.png
     - images/slogan_white.png
-    - images/loading_page_icons.gif
     - images/zodiac/icon_zodiac_color_aquarius.png
     - images/zodiac/icon_zodiac_color_aries.png
     - images/zodiac/icon_zodiac_color_cancer.png
@@ -76,18 +74,18 @@ flutter:
     - images/zodiac/icon_zodiac_color_scorpio.png
     - images/zodiac/icon_zodiac_color_taurus.png
     - images/zodiac/icon_zodiac_color_virgo.png
-    - images/zodiac/i_aquarius.png
-    - images/zodiac/i_aries.png
-    - images/zodiac/i_cancer.png
-    - images/zodiac/i_capricorn.png
-    - images/zodiac/i_gemini.png
-    - images/zodiac/i_leo.png
-    - images/zodiac/i_libra.png
-    - images/zodiac/i_pisces.png
+    - images/zodiac/icon_zodiac_white_aquarius.png
+    - images/zodiac/icon_zodiac_white_aries.png
+    - images/zodiac/icon_zodiac_white_cancer.png
+    - images/zodiac/icon_zodiac_white_capricorn.png
+    - images/zodiac/icon_zodiac_white_gemini.png
+    - images/zodiac/icon_zodiac_white_leo.png
+    - images/zodiac/icon_zodiac_white_libra.png
+    - images/zodiac/icon_zodiac_white_pisces.png
     - images/zodiac/icon_zodiac_white_sagittarius.png
-    - images/zodiac/i_scorpio.png
-    - images/zodiac/i_taurus.png
-    - images/zodiac/i_virgo.png
+    - images/zodiac/icon_zodiac_white_scorpio.png
+    - images/zodiac/icon_zodiac_white_taurus.png
+    - images/zodiac/icon_zodiac_white_virgo.png
     - images/i_zodiac/i_aquarius.png
     - images/i_zodiac/i_aries.png
     - images/i_zodiac/i_cancer.png

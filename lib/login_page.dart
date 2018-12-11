@@ -116,12 +116,13 @@ class _LoginPageState extends State<LoginPage> {
             Padding(
                 padding: EdgeInsets.fromLTRB(0.0, 250.0, 0.0, 0.0),
                 child: Image(
-                  image: AssetImage('images/logo_white.png'),
+                  image: AssetImage('images/logo_white.png'), width: 170.0,
                 )),
             Padding(
                 padding: EdgeInsets.fromLTRB(0.0, 0.0, 30.0, 40.0),
                 child: Image(
                   image: AssetImage('images/slogan_white.png'),
+                  width: 170.0,
                 ))
           ],
         ),
@@ -130,18 +131,19 @@ class _LoginPageState extends State<LoginPage> {
       return new Container(
 
         color: Color.fromRGBO(237, 239, 240, 1.0),
-        child: Padding(
-            padding: EdgeInsets.only(left: 70.0, right: 70.0),
+
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Column(
                       children: <Widget>[
                         Padding(padding: EdgeInsets.only(top: 200.0)),
                         Image(
                           image: AssetImage('images/logo_color.png'),
+                          width: 170.0,
                         ),
                         Padding(
                           padding: EdgeInsets.all(5.0),
@@ -168,7 +170,7 @@ class _LoginPageState extends State<LoginPage> {
                                                 left: 5.0, right: 10.0),
                                             child: Image(
                                               image: AssetImage(
-                                                  'images/icon_facebook.png'),
+                                                  'images/icon_facebook.png'),width: 10.0,
                                             )),
                                         Text('LOGIN WITH FACEBOOK', style: TextStyle(fontFamily: 'Dosis'),),
                                       ],
@@ -219,7 +221,7 @@ class _LoginPageState extends State<LoginPage> {
                                             left: 5.0, right: 10.0),
                                         child: Image(
                                           image: AssetImage(
-                                              'images/icon_googleplus.png'),
+                                              'images/icon_googleplus.png'), width: 25.0,
                                         )),
                                     Text(
                                       'LOGIN WITH GOOGLE', style: TextStyle(fontFamily: 'Dosis'),
@@ -244,10 +246,10 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
                 Padding(padding: EdgeInsets.only(bottom: 30.0),child: Image(
-                  image: AssetImage('images/slogan_color.png'),
+                  image: AssetImage('images/slogan_color.png'), width: 170.0,
                 )),
               ],
-            )),
+            ),
       );
     }
   }

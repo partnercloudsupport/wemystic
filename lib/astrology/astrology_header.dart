@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:wemystic/astrology/astrology_birth_chart.dart';
-import 'package:wemystic/astrology/astrology_chinese_horoscope.dart';
 import 'package:wemystic/astrology/astrology_horoscope.dart';
 import 'package:wemystic/astrology/astrology_moon.dart';
 
@@ -66,7 +65,7 @@ class _AstrologyTabsState extends State<AstrologyTabs>
         body: TabBarView(
           children: <Widget>[
             AstrologyHoroscope(),
-            AstrologyChineseHoroscope(),
+            //AstrologyChineseHoroscope(),
             AstrologyBirthChart(),
             AstrologyMoon(),
           ],

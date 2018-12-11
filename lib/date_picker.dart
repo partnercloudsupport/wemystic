@@ -325,7 +325,7 @@ class _BornDateState extends State<BornDate> {
             Column(children: <Widget>[
               Padding(padding: EdgeInsets.only(top: 200.0)),
               Image(
-                image: AssetImage('images/logo_color.png'),
+                image: AssetImage('images/logo_color.png'), width: 170,
               ),
               Padding(
                 padding: EdgeInsets.all(5.0),
@@ -383,7 +383,7 @@ class _BornDateState extends State<BornDate> {
             Padding(
                 padding: EdgeInsets.only(bottom: 30.0),
                 child: Image(
-                  image: AssetImage('images/slogan_color.png'),
+                  image: AssetImage('images/slogan_color.png'), width: 170.0,
                 ))
           ],
         ),
