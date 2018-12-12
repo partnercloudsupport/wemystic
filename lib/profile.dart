@@ -83,7 +83,11 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  String myBirthDate;
   FirebaseUser user;
+  String zodiacSign;
+  String chineseSign;
+  String chineseSignElement;
   bool _loadingInProgress;
   String _datetime = '';
   int _year = DateTime.now().year;
@@ -114,6 +118,7 @@ class _ProfileState extends State<Profile> {
       photos[9].isFavorite = dataSnapshot.data['gemini'];
       photos[10].isFavorite = dataSnapshot.data['taurus'];
       photos[11].isFavorite = dataSnapshot.data['aries'];
+      myBirthDate = dataSnapshot.data['birth_date'];
     });
   }
 
@@ -131,7 +136,185 @@ class _ProfileState extends State<Profile> {
     _loadingInProgress = true;
     _loadData();
   }
-
+ _fireStoreEditProfile() async {
+   FirebaseUser user = await FirebaseAuth.instance.currentUser();
+   final DocumentReference docRef = Firestore.instance
+       .collection("profile")
+       .document("${user.uid.toString()}");
+   if (_month == 12) {
+     if (_date < 22)
+       zodiacSign = "Sagittarius";
+     else
+       zodiacSign = "Capricorn";
+   } else if (_month == 01) {
+     if (_date < 20)
+       zodiacSign = "Capricorn";
+     else
+       zodiacSign = "Aquarius";
+   } else if (_month == 02) {
+     if (_date < 19)
+       zodiacSign = "Aquarius";
+     else
+       zodiacSign = "Pisces";
+   } else if (_month == 03) {
+     if (_date < 21)
+       zodiacSign = "Pisces";
+     else
+       zodiacSign = "Aries";
+   } else if (_month == 04) {
+     if (_date < 20)
+       zodiacSign = "Aries";
+     else
+       zodiacSign = "Taurus";
+   } else if (_month == 05) {
+     if (_date < 21)
+       zodiacSign = "Taurus";
+     else
+       zodiacSign = "Gemini";
+   } else if (_month == 06) {
+     if (_date < 21)
+       zodiacSign = "Gemini";
+     else
+       zodiacSign = "Cancer";
+   } else if (_month == 07) {
+     if (_date < 23)
+       zodiacSign = "Cancer";
+     else
+       zodiacSign = "Leo";
+   } else if (_month == 08) {
+     if (_date < 23)
+       zodiacSign = "Leo";
+     else
+       zodiacSign = "Virgo";
+   } else if (_month == 09) {
+     if (_date < 23)
+       zodiacSign = "Virgo";
+     else
+       zodiacSign = "Libra";
+   } else if (_month == 10) {
+     if (_date < 23)
+       zodiacSign = "Libra";
+     else
+       zodiacSign = "Scorpio";
+   } else if (_month == 11) {
+     if (_date < 22)
+       zodiacSign = "Scorpio";
+     else
+       zodiacSign = "Sagittarius";
+   }
+   if (_year == 2008 ||
+       _year == 1996 ||
+       _year == 1984 ||
+       _year == 1972 ||
+       _year == 1960) {
+     chineseSign = "Rat";
+   } else if (_year == 2009 ||
+       _year == 1997 ||
+       _year == 1985 ||
+       _year == 1973 ||
+       _year == 1961) {
+     chineseSign = "Ox";
+   } else if (_year == 2010 ||
+       _year == 1998 ||
+       _year == 1986 ||
+       _year == 1974 ||
+       _year == 1962) {
+     chineseSign = "Tiger";
+   } else if (_year == 2011 ||
+       _year == 1999 ||
+       _year == 1987 ||
+       _year == 1975 ||
+       _year == 1963) {
+     chineseSign = "Rabbit";
+   } else if (_year == 2012 ||
+       _year == 2000 ||
+       _year == 1988 ||
+       _year == 1976 ||
+       _year == 1954) {
+     chineseSign = "Dragon";
+   } else if (_year == 2013 ||
+       _year == 2001 ||
+       _year == 1989 ||
+       _year == 1977 ||
+       _year == 1965) {
+     chineseSign = "Snake";
+   } else if (_year == 2014 ||
+       _year == 2002 ||
+       _year == 1990 ||
+       _year == 1978 ||
+       _year == 1966) {
+     chineseSign = "Horse";
+   } else if (_year == 2015 ||
+       _year == 2003 ||
+       _year == 1991 ||
+       _year == 1979 ||
+       _year == 1967) {
+     chineseSign = "Goat";
+   } else if (_year == 2016 ||
+       _year == 2004 ||
+       _year == 1992 ||
+       _year == 1980 ||
+       _year == 1968) {
+     chineseSign = "Monkey";
+   } else if (_year == 2017 ||
+       _year == 2005 ||
+       _year == 1993 ||
+       _year == 1981 ||
+       _year == 1969) {
+     chineseSign = "Rooster";
+   } else if (_year == 2018 ||
+       _year == 2006 ||
+       _year == 1994 ||
+       _year == 1982 ||
+       _year == 1970) {
+     chineseSign = "Dog";
+   } else if (_year == 2019 ||
+       _year == 2007 ||
+       _year == 1995 ||
+       _year == 1983 ||
+       _year == 1971) {
+     chineseSign = "Pig";
+   }
+   if (_year.toString().substring(3, 4) == '0' ||
+       _year.toString().substring(3, 4) == '1') {
+     chineseSignElement = "Metal";
+   } else if (_year.toString().substring(3, 4) == '2' ||
+       _year.toString().substring(3, 4) == '3') {
+     chineseSignElement = "Water";
+   } else if (_year.toString().substring(3, 4) == '4' ||
+       _year.toString().substring(3, 4) == '5') {
+     chineseSignElement = "Wood";
+   } else if (_year.toString().substring(3, 4) == '6' ||
+       _year.toString().substring(3, 4) == '7') {
+     chineseSignElement = "Fire";
+   } else if (_year.toString().substring(3, 4) == '8' ||
+       _year.toString().substring(3, 4) == '9') {
+     chineseSignElement = "Earth";
+   }
+   Map<String, bool> data = <String, bool>{
+     "pisces": photos[0].isFavorite,
+     "aquarius": photos[1].isFavorite,
+     "capricorn": photos[2].isFavorite,
+     "sagittarius": photos[3].isFavorite,
+     "scorpio": photos[4].isFavorite,
+     "libra": photos[5].isFavorite,
+     "virgo": photos[6].isFavorite,
+     "leo": photos[7].isFavorite,
+     "cancer": photos[8].isFavorite,
+     "gemini": photos[9].isFavorite,
+     "taurus": photos[10].isFavorite,
+     "aries": photos[11].isFavorite,
+   };
+   Map<String, String> dataString = <String,String>{
+     "birth_date": _datetime,
+     "zodiac_sign": zodiacSign,
+     "chinese_sign": '$chineseSign $chineseSignElement',
+   };
+   docRef.setData(data, merge: true).whenComplete(() {
+     print("Document added");
+   }).catchError((e) => print(e));
+   docRef.setData(dataString ,merge: true);
+ }
   /// Display date picker.
   void _showDatePicker() {
     final bool showTitleActions = false;
@@ -303,7 +486,7 @@ class _ProfileState extends State<Profile> {
                       padding: EdgeInsets.only(left: 12.0),
                       child: _datetime == ''
                           ? Text(
-                              'DD / MM / YYYY',
+                              myBirthDate,
                               style: TextStyle(
                                   fontSize: 20.0,
                                   color: Color.fromRGBO(159, 160, 162, 1.0),
@@ -311,7 +494,10 @@ class _ProfileState extends State<Profile> {
                             )
                           : Text(
                               '$_datetime',
-                              style: Theme.of(context).textTheme.title,
+                              style: TextStyle(
+                                  fontSize: 20.0,
+                                  color: Color.fromRGBO(159, 160, 162, 1.0),
+                                  fontFamily: 'Dosis'),
                             ),
                       onPressed: () {
                         _showDatePicker();
@@ -354,7 +540,9 @@ class _ProfileState extends State<Profile> {
                 ),),
                 
                 RaisedButton(
-                  onPressed: null,
+                  onPressed: (){
+                    _fireStoreEditProfile();
+                  },
                   child: Text('Save'),
                 ),
                 RaisedButton(
