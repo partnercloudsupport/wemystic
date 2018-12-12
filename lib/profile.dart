@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_cupertino_date_picker/flutter_cupertino_date_picker.dart';
 
-
 typedef BannerTapCallback = void Function(Photo photo);
 
 class Photo {
@@ -32,7 +31,7 @@ class GridDemoPhotoItem extends StatelessWidget {
 
   final Photo photo;
   final BannerTapCallback
-  onBannerTap; // User taps on the photo's header or footer.
+      onBannerTap; // User taps on the photo's header or footer.
 
   @override
   Widget build(BuildContext context) {
@@ -43,23 +42,28 @@ class GridDemoPhotoItem extends StatelessWidget {
         child: Hero(
             tag: photo.tag,
             child: photo.isFavorite
-                ? Padding( padding: EdgeInsets.all(10.0),child: Image(
-              image: AssetImage(
-                photo.assetUrl,
-              ),
-            ))
-                :  Padding(padding: EdgeInsets.all(10.0), child: Opacity(
-                opacity: 0.5,
-                child: Image(
-                  image: AssetImage(
-                    photo.assetUrl,
-                  ),
-                )))));
+                ? Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Image(
+                      image: AssetImage(
+                        photo.assetUrl,
+                      ),
+                    ))
+                : Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Opacity(
+                        opacity: 0.5,
+                        child: Image(
+                          image: AssetImage(
+                            photo.assetUrl,
+                          ),
+                        )))));
 
     final Image icon = photo.isFavorite
         ? Image(
-      image: AssetImage('images/icon_check.png'),width: 20.0,
-    )
+            image: AssetImage('images/icon_check.png'),
+            width: 20.0,
+          )
         : null;
     return GridTile(
       footer: GestureDetector(
@@ -97,6 +101,20 @@ class _ProfileState extends State<Profile> {
     final DocumentReference docRef = Firestore.instance
         .collection("profile")
         .document("${user.uid.toString()}");
+    docRef.get().then((dataSnapshot){
+      photos[0].isFavorite = dataSnapshot.data['pisces'];
+      photos[1].isFavorite = dataSnapshot.data['aquarius'];
+      photos[2].isFavorite = dataSnapshot.data['capricorn'];
+      photos[3].isFavorite = dataSnapshot.data['sagittarius'];
+      photos[4].isFavorite = dataSnapshot.data['scorpio'];
+      photos[5].isFavorite = dataSnapshot.data['libra'];
+      photos[6].isFavorite = dataSnapshot.data['virgo'];
+      photos[7].isFavorite = dataSnapshot.data['leo'];
+      photos[8].isFavorite = dataSnapshot.data['cancer'];
+      photos[9].isFavorite = dataSnapshot.data['gemini'];
+      photos[10].isFavorite = dataSnapshot.data['taurus'];
+      photos[11].isFavorite = dataSnapshot.data['aries'];
+    });
   }
 
   @override
@@ -168,7 +186,6 @@ class _ProfileState extends State<Profile> {
     Photo(
       assetUrl: 'images/zodiac/icon_zodiac_color_pisces.png',
       title: 'Pisces',
-      isFavorite: false,
     ),
     Photo(
       assetUrl: 'images/zodiac/icon_zodiac_color_aquarius.png',
@@ -223,9 +240,9 @@ class _ProfileState extends State<Profile> {
     Photo(
       assetUrl: 'images/zodiac/icon_zodiac_color_aries.png',
       title: 'Aries',
-      isFavorite: false,
     ),
   ];
+
   @override
   Widget build(BuildContext context) {
     if (_loadingInProgress) {
@@ -303,29 +320,47 @@ class _ProfileState extends State<Profile> {
                   ],
                 ),
                 Text('Manage your favorite Signs:'),
-                Expanded(
-                  child: SafeArea(
-                    top: true,
-                    bottom: true,
-                    child: GridView.count(
-                      crossAxisCount: (orientation == Orientation.portrait) ? 4 : 3,
-                      mainAxisSpacing: 2.0,
-                      crossAxisSpacing: 2.0,
-                      padding: const EdgeInsets.only(left: 15.0, right: 15.0),
-                      childAspectRatio:
-                      (orientation == Orientation.portrait) ? 1.0 : 1.3,
-                      children: photos.map<Widget>((Photo photo) {
-                        return Container(
-                            child: GridDemoPhotoItem(
-                                photo: photo,
-                                onBannerTap: (Photo photo) {
-                                  setState(() {
-                                    photo.isFavorite = !photo.isFavorite;
-                                  });
-                                }));
-                      }).toList(),
+                Padding(padding: EdgeInsets.all(10.0),
+                child: Column(
+                  children: <Widget>[
+                    SafeArea(
+                      top: false,
+                      bottom: false,
+                      child: Container(
+                          height: 300.0,
+                          color: Colors.white,
+                          child: GridView.count(
+                            crossAxisCount:
+                            (orientation == Orientation.portrait) ? 4 : 3,
+                            mainAxisSpacing: 2.0,
+                            crossAxisSpacing: 2.0,
+                            padding:
+                            const EdgeInsets.only(left: 15.0, right: 15.0),
+                            childAspectRatio:
+                            (orientation == Orientation.portrait) ? 1.0 : 1.3,
+                            children: photos.map<Widget>((Photo photo) {
+                              return Container(
+                                  child: GridDemoPhotoItem(
+                                      photo: photo,
+                                      onBannerTap: (Photo photo) {
+                                        setState(() {
+                                          photo.isFavorite = !photo.isFavorite;
+                                        });
+                                      }));
+                            }).toList(),
+                          )),
                     ),
-                  ),),
+                  ],
+                ),),
+                
+                RaisedButton(
+                  onPressed: null,
+                  child: Text('Save'),
+                ),
+                RaisedButton(
+                  onPressed: null,
+                  child: Text('Log Out'),
+                )
               ],
             ),
           ));
