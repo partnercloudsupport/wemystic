@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_cupertino_date_picker/flutter_cupertino_date_picker.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:wemystic/login_page.dart';
 
 typedef BannerTapCallback = void Function(Photo photo);
 
@@ -96,6 +98,16 @@ class _ProfileState extends State<Profile> {
   String _lang = 'en';
   String _format = 'dd-mm-yyyy';
   bool _showTitleActions = true;
+
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final GoogleSignIn _googleSignIn = new GoogleSignIn();
+  Future<Null> signOutWithGoogle() async {
+    // Sign out with firebase
+    await _auth.signOut();
+    // Sign out with google
+    await _googleSignIn.signOut();
+  }
 
   TextEditingController _langCtrl = TextEditingController();
   TextEditingController _formatCtrl = TextEditingController();
@@ -546,7 +558,11 @@ class _ProfileState extends State<Profile> {
                   child: Text('Save'),
                 ),
                 RaisedButton(
-                  onPressed: null,
+                  onPressed: () {
+                    signOutWithGoogle().then((Null){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => new LoginPage()));
+                });
+                  },
                   child: Text('Log Out'),
                 )
               ],

@@ -348,7 +348,11 @@ class _BornDateState extends State<BornDate> {
                 ),)
                     : Text(
                         '$_datetime',
-                        style: Theme.of(context).textTheme.title,
+                        style: TextStyle(
+                            fontSize: 20.0,
+                            color: Color.fromRGBO(159,	160,	162	, 1.0),
+                            fontFamily: 'Dosis'
+                        ),
                       ),
                 onPressed: () {
                   _showDatePicker();

@@ -10,27 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2bcb403-5a2e-4e5a-ae50-1656e56dcfb5" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/ios/Crashlytics.framework/Crashlytics" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Crashlytics.framework/Headers/ANSCompatibility.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Crashlytics.framework/Headers/Answers.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Crashlytics.framework/Headers/CLSAttributes.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Crashlytics.framework/Headers/CLSLogging.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Crashlytics.framework/Headers/CLSReport.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Crashlytics.framework/Headers/CLSStackFrame.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Crashlytics.framework/Headers/Crashlytics.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Crashlytics.framework/Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Crashlytics.framework/Modules/module.modulemap" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Crashlytics.framework/run" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Crashlytics.framework/submit" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Crashlytics.framework/uploadDSYM" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Fabric.framework/Fabric" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Fabric.framework/Headers/FABAttributes.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Fabric.framework/Headers/Fabric.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Fabric.framework/Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Fabric.framework/Modules/module.modulemap" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Fabric.framework/run" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ios/Fabric.framework/uploadDSYM" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/astrology/astrology_horoscope.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/astrology/astrology_horoscope.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/date_picker.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/date_picker.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/profile.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -76,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile.dart" pinned="false" current-in-tab="true">
+      <file leaf-file-name="profile.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/profile.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="310" column="56" selection-start-line="310" selection-start-column="56" selection-end-line="310" selection-end-column="56" />
+            <state relative-caret-position="-4679">
+              <caret line="103" column="46" selection-start-line="103" selection-start-column="46" selection-end-line="103" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -94,11 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="date_picker.dart" pinned="false" current-in-tab="false">
+      <file leaf-file-name="date_picker.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/date_picker.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="278" column="57" selection-start-line="277" selection-start-column="6" selection-end-line="278" selection-end-column="57" />
+            <state relative-caret-position="296">
+              <caret line="354" column="25" selection-start-line="354" selection-start-column="25" selection-end-line="354" selection-end-column="25" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
               </folding>
@@ -109,8 +91,8 @@
       <file leaf-file-name="astrology_horoscope.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/astrology/astrology_horoscope.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4380">
-              <caret line="294" column="17" selection-start-line="294" selection-start-column="17" selection-end-line="294" selection-end-column="17" />
+            <state relative-caret-position="404">
+              <caret line="490" column="74" selection-start-line="490" selection-start-column="74" selection-end-line="490" selection-end-column="74" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
               </folding>
@@ -157,6 +139,7 @@
       <find>Image.n</find>
       <find>toUpp</find>
       <find>priny</find>
+      <find>favorites</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/images</dir>
@@ -204,14 +187,14 @@
         <option value="$PROJECT_DIR$/lib/astrology/astrology_birth_chart.dart" />
         <option value="$PROJECT_DIR$/lib/we_mystic_news.dart" />
         <option value="$PROJECT_DIR$/lib/login_page.dart" />
-        <option value="$PROJECT_DIR$/lib/date_picker.dart" />
         <option value="$PROJECT_DIR$/lib/main.dart" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/lib/astrology/astrology_header.dart" />
         <option value="$PROJECT_DIR$/lib/bottom_nav_bar.dart" />
         <option value="$PROJECT_DIR$/lib/pick_horoscope.dart" />
-        <option value="$PROJECT_DIR$/lib/astrology/astrology_horoscope.dart" />
         <option value="$PROJECT_DIR$/lib/profile.dart" />
+        <option value="$PROJECT_DIR$/lib/astrology/astrology_horoscope.dart" />
+        <option value="$PROJECT_DIR$/lib/date_picker.dart" />
       </list>
     </option>
   </component>
@@ -248,6 +231,12 @@
               <item name="wemystic" type="b2602c69:ProjectViewProjectNode" />
               <item name="wemystic" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wemystic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wemystic" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="astrology" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -568,7 +557,14 @@
       <option name="project" value="LOCAL" />
       <updated>1544614517719</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="profile page done">
+      <created>1544631414366</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1544631414366</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TodoView">
@@ -592,8 +588,8 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5230189" side_tool="true" weight="0.38452786" />
       <window_info anchor="bottom" id="Flutter Performance" order="8" sideWeight="0.5230189" side_tool="true" weight="0.38452786" />
-      <window_info anchor="bottom" id="Dart Analysis" order="7" sideWeight="0.47849056" weight="0.28490353" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.47698113" visible="true" weight="0.38365495" />
+      <window_info anchor="bottom" id="Dart Analysis" order="7" sideWeight="0.47849056" visible="true" weight="0.28490353" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.47698113" weight="0.38365495" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49733758" weight="0.32764506" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.48" weight="0.32576618" />
       <window_info anchor="right" id="Flutter Outline" order="3" weight="0.22974177" />
@@ -601,7 +597,7 @@
       <window_info id="Captures" order="2" weight="0.24973376" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.9391892" visible="true" weight="0.25283018" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.9391892" visible="true" weight="0.25283018" />
       <window_info id="Structure" order="1" sideWeight="0.06081081" side_tool="true" weight="0.28301886" />
       <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -670,16 +666,12 @@
     <MESSAGE value="fonts" />
     <MESSAGE value="inicio profile page" />
     <MESSAGE value="profile page 2.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="profile page 2.0" />
+    <MESSAGE value="profile page done" />
+    <option name="LAST_COMMIT_MESSAGE" value="profile page done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/astrology/astrology_horoscope.dart</url>
-          <line>16</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/lib/astrology/horoscope/today_horoscope.dart</url>
           <line>6</line>
@@ -749,6 +741,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -915,16 +910,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/astrology/astrology_horoscope.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4380">
-          <caret line="294" column="17" selection-start-line="294" selection-start-column="17" selection-end-line="294" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/pick_horoscope.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="398">
@@ -942,20 +927,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/date_picker.dart">
+    <entry file="file://$PROJECT_DIR$/lib/profile.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="278" column="57" selection-start-line="277" selection-start-column="6" selection-end-line="278" selection-end-column="57" />
+        <state relative-caret-position="-4679">
+          <caret line="103" column="46" selection-start-line="103" selection-start-column="46" selection-end-line="103" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/astrology/astrology_horoscope.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="490" column="74" selection-start-line="490" selection-start-column="74" selection-end-line="490" selection-end-column="74" />
           <folding>
             <element signature="e#0#54#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/profile.dart">
+    <entry file="file://$PROJECT_DIR$/lib/date_picker.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="310" column="56" selection-start-line="310" selection-start-column="56" selection-end-line="310" selection-end-column="56" />
+        <state relative-caret-position="296">
+          <caret line="354" column="25" selection-start-line="354" selection-start-column="25" selection-end-line="354" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -30,6 +30,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
   String selectedIconName;
   String myText;
   String selectedIconImage;
+  Widget horoscope;
 
   _fireStoreFetch() async {
     FirebaseUser user = await FirebaseAuth.instance.currentUser();
@@ -39,6 +40,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
     docRef.get().then((dataSnapshot) {
       if (dataSnapshot.exists) {
         setState(() {
+
           myText = dataSnapshot.data['zodiac_sign'];
           aquariusIsFav = dataSnapshot.data['aquarius'];
           ariesIsFav = dataSnapshot.data['aries'];
@@ -52,6 +54,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
           scorpioIsFav = dataSnapshot.data['scorpio'];
           taurusIsFav = dataSnapshot.data['taurus'];
           virgoIsFav = dataSnapshot.data['virgo'];
+          horoscope = Text('Today Horoscopefor $myText');
           if (aquariusIsFav == true) {
             favorites.add('images/zodiac/icon_zodiac_white_aquarius.png');
           }
@@ -93,7 +96,6 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
     });
   }
 
-  Widget horoscope;
 
   @override
   Widget build(BuildContext context) {
@@ -313,6 +315,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                           pressedButtonColor =
                               Color.fromRGBO(170, 103, 167, 1.0);
                           pressedButtonTextColor = Colors.white;
+                          horoscope = Text('Today Horoscopefor $myText');
                         });
                       },
                       color: pressedButtonColor,
@@ -339,6 +342,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                           notPressedButtonTextColor = Colors.white;
                           notPressedButtonColor =
                               Color.fromRGBO(170, 103, 167, 1.0);
+                          horoscope = Text('Week Horoscopefor $myText');
                         });
                       },
                       color: notPressedButtonColor,
@@ -357,7 +361,8 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                       textColor: notPressedButtonTextColor,
                     )
                   ]),
-            )
+            ),
+            horoscope,
           ]));
     } else {
       return Scaffold(
@@ -402,84 +407,94 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                     ),
                     padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: favorites
-                        .map((String src) => IconButton(
-                              icon: Image(
-                                  image: AssetImage(
-                                src,
-                              )),
-                              iconSize: 44.0,
-                              onPressed: () {
-                                setState(() {
-                                  selectedIcon = src;
-                                  if (selectedIcon ==
-                                      'images/zodiac/icon_zodiac_white_aquarius.png') {
-                                    selectedIconName = "Aquarius";
-                                    selectedIconImage =
-                                        'images/i_zodiac/i_aquarius.png';
-                                  } else if (selectedIcon ==
-                                      'images/zodiac/icon_zodiac_white_aries.png') {
-                                    selectedIconName = "Aries";
-                                    selectedIconImage =
-                                        'images/i_zodiac/i_aries.png';
-                                  } else if (selectedIcon ==
-                                      'images/zodiac/icon_zodiac_white_cancer.png') {
-                                    selectedIconName = "Cancer";
-                                    selectedIconImage =
-                                        'images/i_zodiac/i_cancer.png';
-                                  } else if (selectedIcon ==
-                                      'images/zodiac/icon_zodiac_white_capricorn.png') {
-                                    selectedIconName = "Capricorn";
-                                    selectedIconImage =
-                                        'images/i_zodiac/i_capricorn.png';
-                                  } else if (selectedIcon ==
-                                      'images/zodiac/icon_zodiac_white_gemini.png') {
-                                    selectedIconName = "Gemini";
-                                    selectedIconImage =
-                                        'images/i_zodiac/i_gemini.png';
-                                  } else if (selectedIcon ==
-                                      'images/zodiac/icon_zodiac_white_leo.png') {
-                                    selectedIconName = "Leo";
-                                    selectedIconImage =
-                                        'images/i_zodiac/i_leo.png';
-                                  } else if (selectedIcon ==
-                                      'images/zodiac/icon_zodiac_white_libra.png') {
-                                    selectedIconName = "Libra";
-                                    selectedIconImage =
-                                        'images/i_zodiac/i_libra.png';
-                                  } else if (selectedIcon ==
-                                      'images/zodiac/icon_zodiac_white_pisces.png') {
-                                    selectedIconName = "Pisces";
-                                    selectedIconImage =
-                                        'images/i_zodiac/i_pisces.png';
-                                  } else if (selectedIcon ==
-                                      'images/zodiac/icon_zodiac_white_sagittarius.png') {
-                                    selectedIconName = "Sagittarius";
-                                    selectedIconImage =
-                                        'images/i_zodiac/i_sagittarius.png';
-                                  } else if (selectedIcon ==
-                                      'images/zodiac/icon_zodiac_white_scorpio.png') {
-                                    selectedIconName = "Scorpio";
-                                    selectedIconImage =
-                                        'images/i_zodiac/i_scorpio.png';
-                                  } else if (selectedIcon ==
-                                      'images/zodiac/icon_zodiac_white_taurus.png') {
-                                    selectedIconName = "Taurus";
-                                    selectedIconImage =
-                                        'images/i_zodiac/i_taurus.png';
-                                  } else if (selectedIcon ==
-                                      'images/zodiac/icon_zodiac_white_virgo.png') {
-                                    selectedIconName = "Virgo";
-                                    selectedIconImage =
-                                        'images/i_zodiac/i_virgo.png';
-                                  }
-                                });
-                              },
-                            ))
-                        .toList(),
-                  ),
+                  new Container(
+                    height: 80.0,
+                    child: new ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: favorites
+                          .map((String src) => IconButton(
+                                icon: Image(
+                                    image: AssetImage(
+                                  src,
+                                )),
+                                iconSize: 44.0,
+                                onPressed: () {
+                                  setState(() {
+                                    selectedIcon = src;
+                                    if (selectedIcon ==
+                                        'images/zodiac/icon_zodiac_white_aquarius.png') {
+                                      selectedIconName = "Aquarius";
+                                      selectedIconImage =
+                                          'images/i_zodiac/i_aquarius.png';
+                                    } else if (selectedIcon ==
+                                        'images/zodiac/icon_zodiac_white_aries.png') {
+                                      selectedIconName = "Aries";
+                                      selectedIconImage =
+                                          'images/i_zodiac/i_aries.png';
+                                    } else if (selectedIcon ==
+                                        'images/zodiac/icon_zodiac_white_cancer.png') {
+                                      selectedIconName = "Cancer";
+                                      selectedIconImage =
+                                          'images/i_zodiac/i_cancer.png';
+                                    } else if (selectedIcon ==
+                                        'images/zodiac/icon_zodiac_white_capricorn.png') {
+                                      selectedIconName = "Capricorn";
+                                      selectedIconImage =
+                                          'images/i_zodiac/i_capricorn.png';
+                                    } else if (selectedIcon ==
+                                        'images/zodiac/icon_zodiac_white_gemini.png') {
+                                      selectedIconName = "Gemini";
+                                      selectedIconImage =
+                                          'images/i_zodiac/i_gemini.png';
+                                    } else if (selectedIcon ==
+                                        'images/zodiac/icon_zodiac_white_leo.png') {
+                                      selectedIconName = "Leo";
+                                      selectedIconImage =
+                                          'images/i_zodiac/i_leo.png';
+                                    } else if (selectedIcon ==
+                                        'images/zodiac/icon_zodiac_white_libra.png') {
+                                      selectedIconName = "Libra";
+                                      selectedIconImage =
+                                          'images/i_zodiac/i_libra.png';
+                                    } else if (selectedIcon ==
+                                        'images/zodiac/icon_zodiac_white_pisces.png') {
+                                      selectedIconName = "Pisces";
+                                      selectedIconImage =
+                                          'images/i_zodiac/i_pisces.png';
+                                    } else if (selectedIcon ==
+                                        'images/zodiac/icon_zodiac_white_sagittarius.png') {
+                                      selectedIconName = "Sagittarius";
+                                      selectedIconImage =
+                                          'images/i_zodiac/i_sagittarius.png';
+                                    } else if (selectedIcon ==
+                                        'images/zodiac/icon_zodiac_white_scorpio.png') {
+                                      selectedIconName = "Scorpio";
+                                      selectedIconImage =
+                                          'images/i_zodiac/i_scorpio.png';
+                                    } else if (selectedIcon ==
+                                        'images/zodiac/icon_zodiac_white_taurus.png') {
+                                      selectedIconName = "Taurus";
+                                      selectedIconImage =
+                                          'images/i_zodiac/i_taurus.png';
+                                    } else if (selectedIcon ==
+                                        'images/zodiac/icon_zodiac_white_virgo.png') {
+                                      selectedIconName = "Virgo";
+                                      selectedIconImage =
+                                          'images/i_zodiac/i_virgo.png';
+                                    }
+                                    horoscope = Text('Today Horoscopefor $selectedIconName');
+                                    notPressedButtonTextColor =
+                                        Color.fromRGBO(187, 188, 189, 1.0);
+                                    notPressedButtonColor = null;
+                                    pressedButtonColor =
+                                        Color.fromRGBO(170, 103, 167, 1.0);
+                                    pressedButtonTextColor = Colors.white;
+                                  });
+                                },
+                              ))
+                          .toList(),
+                    ),
+                  )
                 ],
               ),
             ),
@@ -497,6 +512,8 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                           pressedButtonColor =
                               Color.fromRGBO(170, 103, 167, 1.0);
                           pressedButtonTextColor = Colors.white;
+                          horoscope = Text('Today Horoscopefor $selectedIconName');
+
                         });
                       },
                       color: pressedButtonColor,
@@ -525,6 +542,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                           notPressedButtonTextColor = Colors.white;
                           notPressedButtonColor =
                               Color.fromRGBO(170, 103, 167, 1.0);
+                          horoscope = Text('Week Horoscopefor $selectedIconName');
                         });
                       },
                       color: notPressedButtonColor,
@@ -545,7 +563,8 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                       textColor: notPressedButtonTextColor,
                     )
                   ]),
-            )
+            ),
+            horoscope
           ],
         ),
       );
