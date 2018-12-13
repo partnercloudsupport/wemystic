@@ -341,11 +341,16 @@ class _BornDateState extends State<BornDate> {
               FlatButton(
                 padding: EdgeInsets.only(left: 12.0),
                 child: _datetime == ''
-                    ? Text('DD / MM / YYYY', style: TextStyle(
-                  fontSize: 20.0,
-                  color: Color.fromRGBO(159,	160,	162	, 1.0),
-                  fontFamily: 'Dosis'
-                ),)
+                    ? Row(
+                  children: <Widget>[
+                    Text('DD / MM / YYYY', style: TextStyle(
+                        fontSize: 20.0,
+                        color: Color.fromRGBO(159,	160,	162	, 1.0),
+                        fontFamily: 'Dosis'
+                    ),)
+
+                  ],
+                )
                     : Text(
                         '$_datetime',
                         style: TextStyle(

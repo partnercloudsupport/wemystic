@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:wemystic/astrology/horoscope.dart';
 
 class AstrologyHoroscope extends StatefulWidget {
   @override
@@ -30,7 +31,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
   String selectedIconName;
   String myText;
   String selectedIconImage;
-  Widget horoscope;
+  Widget horoscope = Horoscope();
 
   _fireStoreFetch() async {
     FirebaseUser user = await FirebaseAuth.instance.currentUser();
@@ -54,7 +55,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
           scorpioIsFav = dataSnapshot.data['scorpio'];
           taurusIsFav = dataSnapshot.data['taurus'];
           virgoIsFav = dataSnapshot.data['virgo'];
-          horoscope = Text('Today Horoscopefor $myText');
+
           if (aquariusIsFav == true) {
             favorites.add('images/zodiac/icon_zodiac_white_aquarius.png');
           }
@@ -315,7 +316,6 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                           pressedButtonColor =
                               Color.fromRGBO(170, 103, 167, 1.0);
                           pressedButtonTextColor = Colors.white;
-                          horoscope = Text('Today Horoscopefor $myText');
                         });
                       },
                       color: pressedButtonColor,
@@ -342,7 +342,6 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                           notPressedButtonTextColor = Colors.white;
                           notPressedButtonColor =
                               Color.fromRGBO(170, 103, 167, 1.0);
-                          horoscope = Text('Week Horoscopefor $myText');
                         });
                       },
                       color: notPressedButtonColor,
@@ -482,7 +481,6 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                                       selectedIconImage =
                                           'images/i_zodiac/i_virgo.png';
                                     }
-                                    horoscope = Text('Today Horoscopefor $selectedIconName');
                                     notPressedButtonTextColor =
                                         Color.fromRGBO(187, 188, 189, 1.0);
                                     notPressedButtonColor = null;
@@ -512,7 +510,6 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                           pressedButtonColor =
                               Color.fromRGBO(170, 103, 167, 1.0);
                           pressedButtonTextColor = Colors.white;
-                          horoscope = Text('Today Horoscopefor $selectedIconName');
 
                         });
                       },
@@ -542,7 +539,6 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                           notPressedButtonTextColor = Colors.white;
                           notPressedButtonColor =
                               Color.fromRGBO(170, 103, 167, 1.0);
-                          horoscope = Text('Week Horoscopefor $selectedIconName');
                         });
                       },
                       color: notPressedButtonColor,
@@ -563,6 +559,10 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                       textColor: notPressedButtonTextColor,
                     )
                   ]),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
+                child: Divider()
             ),
             horoscope
           ],

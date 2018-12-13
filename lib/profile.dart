@@ -487,9 +487,14 @@ class _ProfileState extends State<Profile> {
                     TileMode.repeated, // repeats the gradient over the canvas
               ),
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+            child: ListView(
+              scrollDirection: Axis.vertical,
               children: <Widget>[
+                Container(
+                  width: 50.0,
+                  height: 50.0,
+                  child: Image.network('${user.photoUrl}',fit: BoxFit.fitHeight ,),
+                ),
                 Text('Hello ${user.displayName}'),
                 Row(
                   children: <Widget>[
@@ -497,20 +502,28 @@ class _ProfileState extends State<Profile> {
                     FlatButton(
                       padding: EdgeInsets.only(left: 12.0),
                       child: _datetime == ''
-                          ? Text(
-                              myBirthDate,
-                              style: TextStyle(
-                                  fontSize: 20.0,
-                                  color: Color.fromRGBO(159, 160, 162, 1.0),
-                                  fontFamily: 'Dosis'),
-                            )
-                          : Text(
-                              '$_datetime',
-                              style: TextStyle(
-                                  fontSize: 20.0,
-                                  color: Color.fromRGBO(159, 160, 162, 1.0),
-                                  fontFamily: 'Dosis'),
-                            ),
+                          ? Row(children:<Widget>[
+                              Text(
+                                myBirthDate,
+                                style: TextStyle(
+                                    fontSize: 20.0,
+                                    color: Color.fromRGBO(159, 160, 162, 1.0),
+                                    fontFamily: 'Dosis'),
+                              ),
+                        Padding(padding: EdgeInsets.all(10.0),
+                            child: Icon(Icons.edit))
+                        
+                            ])
+                          : Row(children: <Widget>[
+                              Text(
+                                '$_datetime',
+                                style: TextStyle(
+                                    fontSize: 20.0,
+                                    color: Color.fromRGBO(159, 160, 162, 1.0),
+                                    fontFamily: 'Dosis'),
+                              ),
+                        Icon(Icons.edit)
+                            ],),
                       onPressed: () {
                         _showDatePicker();
                       },
