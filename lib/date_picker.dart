@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cupertino_date_picker/flutter_cupertino_date_picker.dart';
@@ -280,6 +281,9 @@ class _BornDateState extends State<BornDate> {
     };
     docRef.setData(data).whenComplete(() {
       print("Document added");
+    }).catchError((e) => print(e));
+    FirebaseAnalytics().setUserProperty(name: 'born', value: zodiacSign).whenComplete((){
+      print('User property added');
     }).catchError((e) => print(e));
   }
 
