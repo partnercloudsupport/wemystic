@@ -121,17 +121,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
         ),
       );
     } else if (selectedIcon == null) {
-      return Scaffold(
-          appBar: AppBar(
-            title: Text(
-              'Horoscope',
-              style: TextStyle(fontFamily: 'Dosis', fontSize: 20.0),
-            ),
-            backgroundColor: Color.fromRGBO(56, 107, 169, 1.0),
-            elevation: 0.0,
-            automaticallyImplyLeading: false,
-          ),
-          body: Column(children: <Widget>[
+      return Column(children: <Widget>[
             new Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -362,19 +352,9 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                   ]),
             ),
             horoscope,
-          ]));
+          ]);
     } else {
-      return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'HOROSCOPE',
-            style: TextStyle(fontFamily: 'Dosis', fontSize: 20.0),
-          ),
-          backgroundColor: Color.fromRGBO(56, 107, 169, 1.0),
-          elevation: 0.0,
-          automaticallyImplyLeading: false,
-        ),
-        body: Column(
+      return Column(
           children: <Widget>[
             new Container(
               decoration: BoxDecoration(
@@ -566,8 +546,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
             ),
             horoscope
           ],
-        ),
-      );
+        );
     }
   }
 

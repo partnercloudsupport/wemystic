@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:wemystic/astrology/astrology.dart';
 import 'package:wemystic/astrology/astrology_birth_chart.dart';
 import 'package:wemystic/astrology/astrology_horoscope.dart';
 import 'package:wemystic/profile.dart';
@@ -23,7 +24,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int currentTab = 0;
   WeMysticNewsData home;
-  AstrologyHoroscope astrology;
+  AstrologyHeader astrology;
   AstrologyBirthChart birthChart;
   Profile profile;
   List<Widget> pages;
@@ -31,7 +32,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    astrology = AstrologyHoroscope();
+    astrology = AstrologyHeader();
     home = WeMysticNewsData();
     birthChart = AstrologyBirthChart();
     profile = Profile();
