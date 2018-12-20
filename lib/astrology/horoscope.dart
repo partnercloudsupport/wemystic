@@ -23,11 +23,18 @@ class _HoroscopeState extends State<Horoscope> {
           ),
           Container(
             color: Color.fromRGBO(237, 239, 240, 1.0),
-            child: Row(
+            child: Column(
               children: <Widget>[
-                Image(image: AssetImage('images/icon_horoscope_love.png'),)
+                Row(
+                  children: <Widget>[
+                    Padding(padding: EdgeInsets.all(10.0),
+                        child: Image(image: AssetImage('images/icon_horoscope_love.png'), width: 20.0,)),
+                    Text('Love and Relationships')
+                  ],
+                ),
+                Text('astdfghdfghjsddgfhgjsdkfdsgdfsgdfsgkjfdskljfdskjjkfkjfkkfjsdkjfdsfsjgksfgjfdsakjajkgfkjgkjfas')
               ],
-            ),
+            )
           ),
         ],
       ),

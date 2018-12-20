@@ -55,21 +55,38 @@ class _AstrologyHeaderState extends State<AstrologyHeader> {
     } else if (horoscopeCategory == "zodiac") {
       return Scaffold(
           appBar: AppBar(
-            title: FlatButton(
-                onPressed: () {
-                  setState(() {
-                    horoscopeCategory = "chinese";
-                  });
-                },
-                child: Row(
-                  children: <Widget>[
-                    Text('Chinese Horoscope', style: TextStyle(
-                      color: Colors.white,
-
-                    ),),
-                    Icon(Icons.arrow_forward_ios)
-                  ],
-                )),
+            title: Column(
+              children: <Widget>[
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      FlatButton(
+                          onPressed: () {
+                            setState(() {
+                              horoscopeCategory = "chinese";
+                            });
+                          },
+                          child: Row(
+                            children: <Widget>[
+                              Text(
+                                'Chinese Horoscope',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'Dosis',
+                                  fontSize: 19.0,
+                                ),
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.only(top: 5.0),
+                                  child: Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: Colors.white,
+                                  ))
+                            ],
+                          )),
+                    ]),
+              ],
+            ),
             backgroundColor: Color.fromRGBO(56, 107, 169, 1.0),
             elevation: 0.0,
             automaticallyImplyLeading: false,
@@ -86,8 +103,17 @@ class _AstrologyHeaderState extends State<AstrologyHeader> {
                 },
                 child: Row(
                   children: <Widget>[
-                    Icon(Icons.arrow_back_ios),
-                    Text('Chinese Horoscope'),
+                    Padding(
+                        padding: EdgeInsets.only(top: 5.0),
+                        child: Icon(Icons.arrow_back_ios, color: Colors.white)),
+                    Text(
+                      'Zodiac Horoscope',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Dosis',
+                        fontSize: 19.0,
+                      ),
+                    ),
                   ],
                 )),
             backgroundColor: Color.fromRGBO(56, 107, 169, 1.0),
