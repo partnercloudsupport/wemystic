@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:wemystic/date_picker.dart';
-import 'package:wemystic/login_page.dart';
-import 'package:wemystic/pick_horoscope.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+
+import 'package:wemystic/login_page.dart';
 
 
 void main() => runApp(new MyApp());
@@ -14,42 +15,61 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  FirebaseMessaging _firebaseMessaging = new FirebaseMessaging();
+  FirebaseMessaging firebaseMessaging = new FirebaseMessaging();
+  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+  new FlutterLocalNotificationsPlugin();
 
   @override
   void initState() {
     super.initState();
-    _firebaseMessaging.configure(
-        onLaunch: (Map<String, dynamic> msg) {
-          print("called");
-        },
-        onResume: (Map<String, dynamic> msg) {
-          print("called");
-        },
-        onMessage: (Map<String, dynamic> msg) {
-          print("called");
-        }
-    );
-    _firebaseMessaging.requestNotificationPermissions(
-        const IosNotificationSettings(
-          sound: true,
-          alert: true,
-          badge: true,
 
-        )
+    var android = new AndroidInitializationSettings('mipmap/ic_launcher');
+    var ios = new IOSInitializationSettings();
+    var platform = new InitializationSettings(android, ios);
+    flutterLocalNotificationsPlugin.initialize(platform);
+
+    firebaseMessaging.configure(
+      onLaunch: (Map<String, dynamic> msg) {
+        print(" onLaunch called ${(msg)}");
+      },
+      onResume: (Map<String, dynamic> msg) {
+        print(" onResume called ${(msg)}");
+      },
+      onMessage: (Map<String, dynamic> msg) {
+        showNotification(msg);
+        print(" onMessage called ${(msg)}");
+      },
     );
-    _firebaseMessaging.onIosSettingsRegistered.listen((IosNotificationSettings settings){
-      print('IOS setting registered');
+    firebaseMessaging.requestNotificationPermissions(
+        const IosNotificationSettings(sound: true, alert: true, badge: true));
+    firebaseMessaging.onIosSettingsRegistered
+        .listen((IosNotificationSettings setting) {
+      print('IOS Setting Registed');
     });
-    _firebaseMessaging.getToken().then((token){
+    firebaseMessaging.getToken().then((token) {
       update(token);
     });
   }
 
-  update(String token){
-    print(token);
-
+  showNotification(Map<String, dynamic> msg) async {
+    var android = new AndroidNotificationDetails(
+      'sdffds dsffds',
+      "CHANNLE NAME",
+      "channelDescription",
+    );
+    var iOS = new IOSNotificationDetails();
+    var platform = new NotificationDetails(android, iOS);
+    await flutterLocalNotificationsPlugin.show(
+        0, "This is title", "this is demo", platform);
   }
+
+  update(String token) {
+    print(token);
+    DatabaseReference databaseReference = new FirebaseDatabase().reference();
+    databaseReference.child('fcm-token/${token}').set({"token": token});
+    setState(() {});
+  }
+
 
   @override
   Widget build(BuildContext context) {

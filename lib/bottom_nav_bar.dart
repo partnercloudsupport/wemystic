@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wemystic/astrology/astrology.dart';
 import 'package:wemystic/astrology/astrology_birth_chart.dart';
-import 'package:wemystic/astrology/astrology_horoscope.dart';
 import 'package:wemystic/profile.dart';
 import 'package:wemystic/we_mystic_news.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';

@@ -10,49 +10,11 @@ class AstrologyHeader extends StatefulWidget {
 
 class _AstrologyHeaderState extends State<AstrologyHeader> {
   String horoscopeCategory = "zodiac";
-  bool _loadingInProgress;
 
-  @override
-  void initState() {
-    super.initState();
-    _loadingInProgress = true;
-    _loadData();
-  }
-
-  Future _loadData() async {
-    await new Future.delayed(new Duration(seconds: 3));
-    _dataLoaded();
-  }
-
-  void _dataLoaded() {
-    setState(() {
-      _loadingInProgress = false;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
-    if (_loadingInProgress) {
-      return new Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            // 10% of the width, so there are ten blinds.
-            colors: [
-              const Color.fromRGBO(56, 107, 169, 1.0),
-              const Color.fromRGBO(111, 108, 160, 1.0)
-            ],
-            // whitish to gray
-            tileMode: TileMode.repeated, // repeats the gradient over the canvas
-          ),
-        ),
-        child: Container(
-          alignment: Alignment(0.0, 0.0),
-          child: Image(image: AssetImage('images/loading_icon.png')),
-        ),
-      );
-    } else if (horoscopeCategory == "zodiac") {
+   if (horoscopeCategory == "zodiac") {
       return Scaffold(
           appBar: AppBar(
             title: Column(

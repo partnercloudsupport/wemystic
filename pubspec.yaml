@@ -21,12 +21,17 @@ dependencies:
   flutter_html_view: any
   cached_network_image: ^0.4.0
   carousel_pro: ^0.0.1
-  firebase_messaging:
   url_launcher: ^4.0.1
   share: ^0.5.3
   flutter_date_picker: ^0.1.2
   datetime_picker_formfield: ^0.1.7
   flutter_cupertino_date_picker: any
+  firebase_core:
+  firebase_messaging:
+  firebase_database:
+  image_picker:
+  firebase_storage:
+  flutter_local_notifications:
 
 dependency_overrides:
   http: ^0.12.0

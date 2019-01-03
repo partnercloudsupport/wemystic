@@ -544,7 +544,11 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
               padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
                 child: Divider()
             ),
-            horoscope
+            Container(
+              child: horoscope,
+              // ignore: not_enough_required_arguments
+              constraints: BoxConstraints.loose(Size.fromHeight(80.0))),
+
           ],
         );
     }

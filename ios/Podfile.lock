@@ -38,6 +38,9 @@ PODS:
   - Firebase/Messaging (5.5.0):
     - Firebase/CoreOnly
     - FirebaseMessaging (= 3.1.0)
+  - Firebase/Storage (5.5.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (= 3.0.0)
   - firebase_analytics (0.0.1):
     - Firebase/Core
     - Flutter
@@ -48,9 +51,15 @@ PODS:
   - firebase_core (0.0.1):
     - Firebase/Core
     - Flutter
+  - firebase_database (0.0.1):
+    - Firebase/Database
+    - Flutter
   - firebase_messaging (0.0.1):
     - Firebase/Core
     - Firebase/Messaging
+    - Flutter
+  - firebase_storage (0.0.1):
+    - Firebase/Storage
     - Flutter
   - FirebaseAnalytics (5.1.0):
     - FirebaseCore (~> 5.1)
@@ -95,9 +104,14 @@ PODS:
     - FirebaseInstanceID (~> 3.0)
     - GoogleUtilities/Reachability (~> 5.2)
     - Protobuf (~> 3.1)
+  - FirebaseStorage (3.0.0):
+    - FirebaseCore (~> 5.0)
+    - GTMSessionFetcher/Core (~> 1.1)
   - Flutter (1.0.0)
   - flutter_facebook_login (0.0.1):
     - FBSDKLoginKit (~> 4.29)
+    - Flutter
+  - flutter_local_notifications (0.0.1):
     - Flutter
   - flutter_secure_storage (3.1.1):
     - Flutter
@@ -169,6 +183,8 @@ PODS:
   - GTMSessionFetcher/Core (1.2.0)
   - GTMSessionFetcher/Full (1.2.0):
     - GTMSessionFetcher/Core (= 1.2.0)
+  - image_picker (0.0.1):
+    - Flutter
   - leveldb-library (1.20)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -192,12 +208,16 @@ DEPENDENCIES:
   - firebase_analytics (from `.symlinks/plugins/firebase_analytics/ios`)
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
+  - firebase_database (from `.symlinks/plugins/firebase_database/ios`)
   - firebase_messaging (from `.symlinks/plugins/firebase_messaging/ios`)
+  - firebase_storage (from `.symlinks/plugins/firebase_storage/ios`)
   - Flutter (from `.symlinks/flutter/ios`)
   - flutter_facebook_login (from `.symlinks/plugins/flutter_facebook_login/ios`)
+  - flutter_local_notifications (from `.symlinks/plugins/flutter_local_notifications/ios`)
   - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
   - flutter_webview_plugin (from `.symlinks/plugins/flutter_webview_plugin/ios`)
   - google_sign_in (from `.symlinks/plugins/google_sign_in/ios`)
+  - image_picker (from `.symlinks/plugins/image_picker/ios`)
   - package_info (from `.symlinks/plugins/package_info/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - share (from `.symlinks/plugins/share/ios`)
@@ -219,6 +239,7 @@ SPEC REPOS:
     - FirebaseFirestore
     - FirebaseInstanceID
     - FirebaseMessaging
+    - FirebaseStorage
     - GoogleAppMeasurement
     - GoogleSignIn
     - GoogleToolboxForMac
@@ -242,18 +263,26 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_auth/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
+  firebase_database:
+    :path: ".symlinks/plugins/firebase_database/ios"
   firebase_messaging:
     :path: ".symlinks/plugins/firebase_messaging/ios"
+  firebase_storage:
+    :path: ".symlinks/plugins/firebase_storage/ios"
   Flutter:
     :path: ".symlinks/flutter/ios"
   flutter_facebook_login:
     :path: ".symlinks/plugins/flutter_facebook_login/ios"
+  flutter_local_notifications:
+    :path: ".symlinks/plugins/flutter_local_notifications/ios"
   flutter_secure_storage:
     :path: ".symlinks/plugins/flutter_secure_storage/ios"
   flutter_webview_plugin:
     :path: ".symlinks/plugins/flutter_webview_plugin/ios"
   google_sign_in:
     :path: ".symlinks/plugins/google_sign_in/ios"
+  image_picker:
+    :path: ".symlinks/plugins/image_picker/ios"
   package_info:
     :path: ".symlinks/plugins/package_info/ios"
   path_provider:
@@ -275,7 +304,9 @@ SPEC CHECKSUMS:
   firebase_analytics: 7fa219488f2a781ca776bf72ecc66b6ac4511272
   firebase_auth: 6023fc2e28feabd6571d9a105b678cce7978be90
   firebase_core: ce5006bb48508ee4e71e0f429a3f519bb8ee2961
+  firebase_database: b78d1e592c4f3cf826497dae722116a937aa99e0
   firebase_messaging: b25b2fa94e685146bcf9d706ed87b4e95cd2a17d
+  firebase_storage: 6dbb71176c8a85e171184f8775606c566433026d
   FirebaseAnalytics: d4a260c114aec0d765ab5b9c404ac63de1d29381
   FirebaseAuth: 657a25e4be044d2d333663ebf515a861c5a59cd7
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
@@ -284,8 +315,10 @@ SPEC CHECKSUMS:
   FirebaseFirestore: 0a6e4b9256ae39ed41258aa46213975c93908a74
   FirebaseInstanceID: 8cd2c6cfe7b9ab65ce7e248f6da7f26f6775b9be
   FirebaseMessaging: f67b3719f520ee200da0e20ce577fe2bce0c01d0
+  FirebaseStorage: 7ca4bb7b58a25fa647b04f524033fc7cb7eb272b
   Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
   flutter_facebook_login: 8570fe85a9b988b19503530a85bfce2b3b847145
+  flutter_local_notifications: 9e4738ce2471c5af910d961a6b7eadcf57c50186
   flutter_secure_storage: 63b64fac61c84f1f877a1e8605cd8eec7664f585
   flutter_webview_plugin: ed9e8a6a96baf0c867e90e1bce2673913eeac694
   google_sign_in: 27e70a98b529f0b076d4b19f231b81da28b1750b
@@ -299,6 +332,7 @@ SPEC CHECKSUMS:
   gRPC-RxLibrary: c4c826507ad3c8c8fab6887f153938eb04b86d59
   GTMOAuth2: e8b6512c896235149df975c41d9a36c868ab7fba
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
+  image_picker: a211f28b95a560433c00f5cd3773f4710a20404d
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   package_info: 78cabb3c322943c55d39676f4a5bfc748c01d055
