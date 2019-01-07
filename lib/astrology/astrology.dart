@@ -16,6 +16,7 @@ class _AstrologyHeaderState extends State<AstrologyHeader> {
   Widget build(BuildContext context) {
    if (horoscopeCategory == "zodiac") {
       return Scaffold(
+        resizeToAvoidBottomPadding: false,
           appBar: AppBar(
             title: Column(
               children: <Widget>[
