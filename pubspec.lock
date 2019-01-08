@@ -98,7 +98,7 @@ packages:
       name: firebase_analytics
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.6"
+    version: "1.1.0"
   firebase_auth:
     dependency: "direct main"
     description:
@@ -180,7 +180,7 @@ packages:
       name: flutter_local_notifications
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.2+1"
+    version: "0.4.3"
   flutter_secure_storage:
     dependency: "direct main"
     description:

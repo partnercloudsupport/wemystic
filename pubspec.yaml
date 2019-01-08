@@ -103,6 +103,19 @@ flutter:
     - images/i_zodiac/i_scorpio.png
     - images/i_zodiac/i_taurus.png
     - images/i_zodiac/i_virgo.png
+    - images/ch_zodiac_icons/icon_ch_zodiac_color_dog.png
+    - images/ch_zodiac_icons/icon_ch_zodiac_color_dragon.png
+    - images/ch_zodiac_icons/icon_ch_zodiac_color_goat.png
+    - images/ch_zodiac_icons/icon_ch_zodiac_color_horse.png
+    - images/ch_zodiac_icons/icon_ch_zodiac_color_monkey.png
+    - images/ch_zodiac_icons/icon_ch_zodiac_color_ox.png
+    - images/ch_zodiac_icons/icon_ch_zodiac_color_pig.png
+    - images/ch_zodiac_icons/icon_ch_zodiac_color_rabbit.png
+    - images/ch_zodiac_icons/icon_ch_zodiac_color_rat.png
+    - images/ch_zodiac_icons/icon_ch_zodiac_color_rooster.png
+    - images/ch_zodiac_icons/icon_ch_zodiac_color_snake.png
+    - images/ch_zodiac_icons/icon_ch_zodiac_color_tiger.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
