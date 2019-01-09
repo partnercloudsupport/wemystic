@@ -43,7 +43,6 @@ class WeMysticNewsState extends State<WeMysticNewsData> {
   void dispose() {
     _onDestroy.cancel();
     flutterWebviewPlugin.dispose();
-
     super.dispose();
   }
 
@@ -51,7 +50,10 @@ class WeMysticNewsState extends State<WeMysticNewsData> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("WEMYSTIC NEWS", style: TextStyle(fontFamily: 'Dosis'),),
+          title: Text(
+            "WEMYSTIC NEWS",
+            style: TextStyle(fontFamily: 'Dosis'),
+          ),
           backgroundColor: Color.fromRGBO(56, 107, 169, 1.0),
           elevation: 0.0,
           automaticallyImplyLeading: false,
@@ -101,13 +103,16 @@ class WeMysticNewsState extends State<WeMysticNewsData> {
                               new Padding(
                                 padding:
                                     EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 15.0),
-                                child: new Text(data[index]["description"],
-                                    textAlign: TextAlign.justify,
-                                    style: TextStyle(
-                                      fontFamily: 'Roboto',
-                                      fontSize: 14.0,
-                                      color: Colors.black,
-                                    ),maxLines: 3,),
+                                child: new Text(
+                                  data[index]["description"],
+                                  textAlign: TextAlign.justify,
+                                  style: TextStyle(
+                                    fontFamily: 'Roboto',
+                                    fontSize: 14.0,
+                                    color: Colors.black,
+                                  ),
+                                  maxLines: 3,
+                                ),
                               ),
                               Padding(
                                 padding:
@@ -133,7 +138,10 @@ class WeMysticNewsState extends State<WeMysticNewsData> {
                                     ),
                                     FlatButton(
                                       color: Color.fromRGBO(161, 108, 164, 1.0),
-                                      child: const Text('READ ARTICLE', style: TextStyle(fontFamily: 'Dosis'),),
+                                      child: const Text(
+                                        'READ ARTICLE',
+                                        style: TextStyle(fontFamily: 'Dosis'),
+                                      ),
                                       shape: new RoundedRectangleBorder(
                                           borderRadius:
                                               new BorderRadius.circular(30.0)),

@@ -181,73 +181,97 @@ class _BornDateState extends State<BornDate> {
       else
         zodiacSign = "Sagittarius";
     }
-    if (_year == 2008 ||
+    if (_year == 2032 ||
+        _year == 2020 ||
+        _year == 2008 ||
         _year == 1996 ||
         _year == 1984 ||
         _year == 1972 ||
         _year == 1960) {
       chineseSign = "Rat";
-    } else if (_year == 2009 ||
+    } else if (_year == 2033 ||
+        _year == 2021 ||
+        _year == 2009 ||
         _year == 1997 ||
         _year == 1985 ||
         _year == 1973 ||
         _year == 1961) {
       chineseSign = "Ox";
-    } else if (_year == 2010 ||
+    } else if (_year == 2034 ||
+        _year == 2022 ||
+        _year == 2010 ||
         _year == 1998 ||
         _year == 1986 ||
         _year == 1974 ||
         _year == 1962) {
       chineseSign = "Tiger";
-    } else if (_year == 2011 ||
+    } else if (_year == 2035 ||
+        _year == 2023 ||
+        _year == 2011 ||
         _year == 1999 ||
         _year == 1987 ||
         _year == 1975 ||
         _year == 1963) {
       chineseSign = "Rabbit";
-    } else if (_year == 2012 ||
+    } else if (_year == 2036 ||
+        _year == 2024 ||
+        _year == 2012 ||
         _year == 2000 ||
         _year == 1988 ||
         _year == 1976 ||
         _year == 1954) {
       chineseSign = "Dragon";
-    } else if (_year == 2013 ||
+    } else if (_year == 2037 ||
+        _year == 2025 ||
+        _year == 2013 ||
         _year == 2001 ||
         _year == 1989 ||
         _year == 1977 ||
         _year == 1965) {
       chineseSign = "Snake";
-    } else if (_year == 2014 ||
+    } else if (_year == 2028 ||
+        _year == 2026 ||
+        _year == 2014 ||
         _year == 2002 ||
         _year == 1990 ||
         _year == 1978 ||
         _year == 1966) {
       chineseSign = "Horse";
-    } else if (_year == 2015 ||
+    } else if (_year == 2039 ||
+        _year == 2027 ||
+        _year == 2015 ||
         _year == 2003 ||
         _year == 1991 ||
         _year == 1979 ||
         _year == 1967) {
       chineseSign = "Goat";
-    } else if (_year == 2016 ||
+    } else if (_year == 2040 ||
+        _year == 2028 ||
+        _year == 2016 ||
         _year == 2004 ||
         _year == 1992 ||
         _year == 1980 ||
         _year == 1968) {
       chineseSign = "Monkey";
-    } else if (_year == 2017 ||
+    } else if (_year == 2041 ||
+        _year == 2029 ||
+        _year == 2017 ||
         _year == 2005 ||
         _year == 1993 ||
         _year == 1981 ||
         _year == 1969) {
       chineseSign = "Rooster";
-    } else if (_year == 2018 ||
+    } else if (_year == 2042 ||
+        _year == 2030 ||
+        _year == 2018 ||
         _year == 2006 ||
         _year == 1994 ||
         _year == 1982 ||
         _year == 1970) {
       chineseSign = "Dog";
-    } else if (_year == 2019 ||
+    } else if (_year == 2043 ||
+        _year == 2031 ||
+        _year == 2019 ||
         _year == 2007 ||
         _year == 1995 ||
         _year == 1983 ||

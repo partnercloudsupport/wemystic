@@ -149,38 +149,114 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
                       ))
                   : Container(),
               myText == "Aries"
-                  ? Image(image: AssetImage('images/i_zodiac/i_aries.png'))
+                  ? Container(
+                  width: 100.0,
+                  height: 100.0,
+                  child: Image(
+                    image: AssetImage('images/i_zodiac/i_aries.png'),
+                    fit: BoxFit.fill,
+                    filterQuality: FilterQuality.high,
+                  ))
                   : Container(),
               myText == "Cancer"
-                  ? Image(image: AssetImage('images/i_zodiac/i_cancer.png'))
+                  ? Container(
+                  width: 100.0,
+                  height: 100.0,
+                  child: Image(
+                    image: AssetImage('images/i_zodiac/i_cancer.png'),
+                    fit: BoxFit.fill,
+                    filterQuality: FilterQuality.high,
+                  ))
                   : Container(),
               myText == "Capricorn"
-                  ? Image(image: AssetImage('images/i_zodiac/i_capricorn.png'))
+                  ? Container(
+                  width: 100.0,
+                  height: 100.0,
+                  child: Image(
+                    image: AssetImage('images/i_zodiac/i_capricorn.png'),
+                    fit: BoxFit.fill,
+                    filterQuality: FilterQuality.high,
+                  ))
                   : Container(),
               myText == "Gemini"
-                  ? Image(image: AssetImage('images/i_zodiac/i_gemini.png'))
+                  ? Container(
+                  width: 100.0,
+                  height: 100.0,
+                  child: Image(
+                    image: AssetImage('images/i_zodiac/i_gemini.png'),
+                    fit: BoxFit.fill,
+                    filterQuality: FilterQuality.high,
+                  ))
                   : Container(),
               myText == "Leo"
-                  ? Image(image: AssetImage('images/i_zodiac/i_leo.png'))
+                  ? Container(
+                  width: 100.0,
+                  height: 100.0,
+                  child: Image(
+                    image: AssetImage('images/i_zodiac/i_leo.png'),
+                    fit: BoxFit.fill,
+                    filterQuality: FilterQuality.high,
+                  ))
                   : Container(),
               myText == "Libra"
-                  ? Image(image: AssetImage('images/i_zodiac/i_libra.png'))
+                  ? Container(
+                  width: 100.0,
+                  height: 100.0,
+                  child: Image(
+                    image: AssetImage('images/i_zodiac/i_libra.png'),
+                    fit: BoxFit.fill,
+                    filterQuality: FilterQuality.high,
+                  ))
                   : Container(),
               myText == "Pisces"
-                  ? Image(image: AssetImage('images/i_zodiac/i_pisces.png'))
+                  ? Container(
+                  width: 100.0,
+                  height: 100.0,
+                  child: Image(
+                    image: AssetImage('images/i_zodiac/i_pisces.png'),
+                    fit: BoxFit.fill,
+                    filterQuality: FilterQuality.high,
+                  ))
                   : Container(),
               myText == "Sagittarius"
-                  ? Image(
-                      image: AssetImage('images/i_zodiac/i_sagittarius.png'))
+                  ? Container(
+                  width: 100.0,
+                  height: 100.0,
+                  child: Image(
+                    image: AssetImage('images/i_zodiac/i_sagittarius.png'),
+                    fit: BoxFit.fill,
+                    filterQuality: FilterQuality.high,
+                  ))
                   : Container(),
               myText == "Scorpio"
-                  ? Image(image: AssetImage('images/i_zodiac/i_scorpio.png'))
+                  ? Container(
+                  width: 100.0,
+                  height: 100.0,
+                  child: Image(
+                    image: AssetImage('images/i_zodiac/i_scorpio.png'),
+                    fit: BoxFit.fill,
+                    filterQuality: FilterQuality.high,
+                  ))
                   : Container(),
               myText == "Taurus"
-                  ? Image(image: AssetImage('images/i_zodiac/i_taurus.png'))
+                  ? Container(
+                  width: 100.0,
+                  height: 100.0,
+                  child: Image(
+                    image: AssetImage('images/i_zodiac/i_taurus.png'),
+                    fit: BoxFit.fill,
+                    filterQuality: FilterQuality.high,
+                  ))
                   : Container(),
               myText == "Virgo"
-                  ? Image(image: AssetImage('images/i_zodiac/i_virgo.png'))
+                  ? Container(
+                  width: 100.0,
+                  height: 100.0,
+                  child: Image(
+                    image: AssetImage('images/i_zodiac/i_virgo.png'),
+                    fit: BoxFit.fill,
+                    filterQuality: FilterQuality.high,
+                  ))
                   : Container(),
               Padding(
                 child: Text(
