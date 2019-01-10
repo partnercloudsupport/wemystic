@@ -608,14 +608,9 @@ class _ProfileState extends State<Profile> {
                   padding: EdgeInsets.all(10.0),
                   child: Column(
                     children: <Widget>[
-                      SafeArea(
-                        right: false,
-                        left: false,
-                        top: false,
-                        bottom: false,
-                        child: Container(
-                            height: 280.0,
-                            child: GridView.count(
+                            GridView.count(
+                              shrinkWrap: true,
+                              primary: false,
                               crossAxisCount:
                                   (orientation == Orientation.portrait) ? 4 : 3,
                               mainAxisSpacing: 2.0,
@@ -637,8 +632,7 @@ class _ProfileState extends State<Profile> {
                                           });
                                         }));
                               }).toList(),
-                            )),
-                      ),
+                            )
                     ],
                   ),
                 ),

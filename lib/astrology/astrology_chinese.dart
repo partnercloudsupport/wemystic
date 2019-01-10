@@ -17,7 +17,7 @@ class AstrologyChineseState extends State<AstrologyChinese> {
   var random;
 
   final String url =
-      "https://api.rss2json.com/v1/api.json?rss_url=https://www.wemystic.com/feed";
+      "https://www.wemystic.com/json-horoscope-chinese/";
 
   // Instance of WebView plugin
   final flutterWebviewPlugin = new FlutterWebviewPlugin();
@@ -33,7 +33,7 @@ class AstrologyChineseState extends State<AstrologyChinese> {
 
     setState(() {
       var resBody = json.decode(res.body);
-      data = resBody["items"];
+      data = resBody;
     });
 
     return "Success!";
@@ -48,17 +48,7 @@ class AstrologyChineseState extends State<AstrologyChinese> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "WEMYSTIC NEWS",
-            style: TextStyle(fontFamily: 'Dosis'),
-          ),
-          backgroundColor: Color.fromRGBO(56, 107, 169, 1.0),
-          elevation: 0.0,
-          automaticallyImplyLeading: false,
-        ),
-        body: Container(
+    return Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
@@ -91,7 +81,7 @@ class AstrologyChineseState extends State<AstrologyChinese> {
                               new Padding(
                                 padding: EdgeInsets.all(15.0),
                                 child: new Text(
-                                  data[index]["title"].toString().toUpperCase(),
+                                  data[index]["title"]["rendered"].toString().toUpperCase(),
                                   maxLines: 3,
                                   style: TextStyle(
                                     fontFamily: 'Dosis',
@@ -167,7 +157,7 @@ class AstrologyChineseState extends State<AstrologyChinese> {
             ),
             onRefresh: getWMNews,
           ),
-        ));
+        );
   }
 
   @override
