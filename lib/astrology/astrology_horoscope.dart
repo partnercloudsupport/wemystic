@@ -613,7 +613,7 @@ class _AstrologyHoroscopeState extends State<AstrologyHoroscope> {
   }
 
   Future _loadData() async {
-    await new Future.delayed(new Duration(seconds: 3));
+    await new Future.delayed(new Duration(milliseconds: 500));
     _dataLoaded();
   }
 

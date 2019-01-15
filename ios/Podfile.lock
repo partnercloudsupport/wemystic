@@ -198,6 +198,8 @@ PODS:
   - Protobuf (3.6.1)
   - share (0.5.2):
     - Flutter
+  - share_api (0.0.1):
+    - Flutter
   - shared_preferences (0.0.1):
     - Flutter
   - url_launcher (0.0.1):
@@ -221,6 +223,7 @@ DEPENDENCIES:
   - package_info (from `.symlinks/plugins/package_info/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - share (from `.symlinks/plugins/share/ios`)
+  - share_api (from `.symlinks/plugins/share_api/ios`)
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
   - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
 
@@ -289,6 +292,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/path_provider/ios"
   share:
     :path: ".symlinks/plugins/share/ios"
+  share_api:
+    :path: ".symlinks/plugins/share_api/ios"
   shared_preferences:
     :path: ".symlinks/plugins/shared_preferences/ios"
   url_launcher:
@@ -339,6 +344,7 @@ SPEC CHECKSUMS:
   path_provider: f96fff6166a8867510d2c25fdcc346327cc4b259
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   share: 7d22fe8baedfe93aefd864bf0b73f29711fbb0a3
+  share_api: 408daace20121110a16f21bb55141841a5510ba4
   shared_preferences: 1feebfa37bb57264736e16865e7ffae7fc99b523
   url_launcher: 0067ddb8f10d36786672aa0722a21717dba3a298
 

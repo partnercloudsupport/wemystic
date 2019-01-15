@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wemystic/astrology/astrology.dart';
 import 'package:wemystic/astrology/astrology_birth_chart.dart';
+import 'package:wemystic/mlkit/mlkit_page.dart';
 import 'package:wemystic/profile.dart';
 import 'package:wemystic/we_mystic_news.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -26,6 +27,7 @@ class _HomePageState extends State<HomePage> {
   AstrologyHeader astrology;
   AstrologyBirthChart birthChart;
   Profile profile;
+  MLKitPage mlKitPage;
   List<Widget> pages;
   Widget currentPage;
 
@@ -35,8 +37,9 @@ class _HomePageState extends State<HomePage> {
     home = WeMysticNewsData();
     birthChart = AstrologyBirthChart();
     profile = Profile();
+    mlKitPage = MLKitPage();
 
-    pages = [home, profile, astrology, birthChart];
+    pages = [home, profile, astrology, birthChart, mlKitPage];
 
     currentPage = home;
 
@@ -94,6 +97,17 @@ class _HomePageState extends State<HomePage> {
                   ),
                   title: new Text(
                     'Birth Chart',
+                    style: TextStyle(fontFamily: 'Dosis'),
+                  ),
+                  backgroundColor: Color.fromRGBO(36, 153, 220, 1.0)),
+              new BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.pan_tool,
+                    color: Colors.white,
+                    size: 25.0,
+                  ),
+                  title: new Text(
+                    'MLKIT',
                     style: TextStyle(fontFamily: 'Dosis'),
                   ),
                   backgroundColor: Color.fromRGBO(36, 153, 220, 1.0)),
